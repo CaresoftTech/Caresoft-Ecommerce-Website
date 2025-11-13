@@ -8,7 +8,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Caresoft Technology</h3>
+            <h3 className="font-bold text-lg mb-4">Caresoft Technologies</h3>
             <p className="text-sm opacity-90">
               Your trusted partner for cutting-edge technology solutions and products.
             </p>
