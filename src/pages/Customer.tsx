@@ -7,7 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
-import { Search, User, LogOut } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Search, User, LogOut, Edit } from 'lucide-react';
 import { toast } from 'sonner';
 
 export default function Customer() {
@@ -16,6 +17,7 @@ export default function Customer() {
   const [searchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState(searchParams.get('search') || '');
   const [editMode, setEditMode] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const [profileData, setProfileData] = useState({
     name: user?.name || '',
     phone: user?.phone || '',
@@ -37,6 +39,7 @@ export default function Customer() {
   const handleUpdateProfile = () => {
     updateProfile(profileData);
     setEditMode(false);
+    setDialogOpen(false);
     toast.success('Profile updated successfully');
   };
 
@@ -51,94 +54,107 @@ export default function Customer() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Profile Sidebar */}
         <div className="lg:col-span-1">
-          <Card>
+          <Card className="bg-gradient-to-br from-background to-muted/20 border-2">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <User className="h-5 w-5" />
-                My Profile
+              <CardTitle className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <User className="h-5 w-5" />
+                  My Profile
+                </div>
+                <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+                  <DialogTrigger asChild>
+                    <Button variant="ghost" size="icon" className="h-8 w-8">
+                      <Edit className="h-4 w-4" />
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-md">
+                    <DialogHeader>
+                      <DialogTitle>Edit Profile</DialogTitle>
+                    </DialogHeader>
+                    <div className="space-y-4 py-4">
+                      <div>
+                        <Label htmlFor="edit-name">Name</Label>
+                        <Input
+                          id="edit-name"
+                          value={profileData.name}
+                          onChange={(e) =>
+                            setProfileData({ ...profileData, name: e.target.value })
+                          }
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="edit-phone">Phone</Label>
+                        <Input
+                          id="edit-phone"
+                          value={profileData.phone}
+                          onChange={(e) =>
+                            setProfileData({ ...profileData, phone: e.target.value })
+                          }
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="edit-address">Address</Label>
+                        <Input
+                          id="edit-address"
+                          value={profileData.address}
+                          onChange={(e) =>
+                            setProfileData({ ...profileData, address: e.target.value })
+                          }
+                        />
+                      </div>
+                      <div className="flex gap-2 pt-4">
+                        <Button onClick={handleUpdateProfile} className="flex-1">
+                          Save Changes
+                        </Button>
+                        <Button
+                          variant="outline"
+                          onClick={() => {
+                            setDialogOpen(false);
+                            setProfileData({
+                              name: user?.name || '',
+                              phone: user?.phone || '',
+                              address: user?.address || '',
+                            });
+                          }}
+                          className="flex-1"
+                        >
+                          Cancel
+                        </Button>
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               {user.profilePhoto && (
-                <img
-                  src={user.profilePhoto}
-                  alt="Profile"
-                  className="w-24 h-24 rounded-full mx-auto object-cover"
-                />
+                <div className="flex justify-center">
+                  <img
+                    src={user.profilePhoto}
+                    alt="Profile"
+                    className="w-24 h-24 rounded-full object-cover ring-4 ring-primary/20"
+                  />
+                </div>
               )}
 
-              {editMode ? (
-                <div className="space-y-3">
-                  <div>
-                    <Label htmlFor="name">Name</Label>
-                    <Input
-                      id="name"
-                      value={profileData.name}
-                      onChange={(e) =>
-                        setProfileData({ ...profileData, name: e.target.value })
-                      }
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="phone">Phone</Label>
-                    <Input
-                      id="phone"
-                      value={profileData.phone}
-                      onChange={(e) =>
-                        setProfileData({ ...profileData, phone: e.target.value })
-                      }
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="address">Address</Label>
-                    <Input
-                      id="address"
-                      value={profileData.address}
-                      onChange={(e) =>
-                        setProfileData({ ...profileData, address: e.target.value })
-                      }
-                    />
-                  </div>
-                  <div className="flex gap-2">
-                    <Button onClick={handleUpdateProfile} className="flex-1">
-                      Save
-                    </Button>
-                    <Button
-                      variant="outline"
-                      onClick={() => setEditMode(false)}
-                      className="flex-1"
-                    >
-                      Cancel
-                    </Button>
-                  </div>
+              <div className="space-y-3 text-sm">
+                <div className="bg-muted/50 p-3 rounded-lg">
+                  <p className="text-muted-foreground text-xs mb-1">Name</p>
+                  <p className="font-semibold">{user.name}</p>
                 </div>
-              ) : (
-                <div className="space-y-2 text-sm">
-                  <div>
-                    <p className="text-muted-foreground">Name</p>
-                    <p className="font-semibold">{user.name}</p>
-                  </div>
-                  <div>
-                    <p className="text-muted-foreground">Email</p>
-                    <p className="font-semibold">{user.email}</p>
-                  </div>
-                  <div>
-                    <p className="text-muted-foreground">Phone</p>
-                    <p className="font-semibold">{user.phone}</p>
-                  </div>
-                  <div>
-                    <p className="text-muted-foreground">Address</p>
-                    <p className="font-semibold">{user.address}</p>
-                  </div>
-                  <Button
-                    variant="outline"
-                    onClick={() => setEditMode(true)}
-                    className="w-full mt-4"
-                  >
-                    Edit Profile
-                  </Button>
+                <div className="bg-muted/50 p-3 rounded-lg">
+                  <p className="text-muted-foreground text-xs mb-1">Email</p>
+                  <p className="font-semibold">{user.email}</p>
                 </div>
-              )}
+                <div className="bg-muted/50 p-3 rounded-lg">
+                  <p className="text-muted-foreground text-xs mb-1">Phone</p>
+                  <p className="font-semibold">{user.phone}</p>
+                </div>
+                <div className="bg-muted/50 p-3 rounded-lg">
+                  <p className="text-muted-foreground text-xs mb-1">Address</p>
+                  <p className="font-semibold">{user.address}</p>
+                </div>
+              </div>
 
               <Button
                 variant="destructive"

@@ -54,11 +54,11 @@ export default function Cart() {
                     </p>
                     <div className="flex items-center gap-2">
                       <span className="font-bold text-primary">
-                        ${item.offerPrice || item.price}
+                        ₹{item.offerPrice || item.price}
                       </span>
                       {item.offerPrice && (
                         <span className="text-sm text-muted-foreground line-through">
-                          ${item.price}
+                          ₹{item.price}
                         </span>
                       )}
                     </div>
@@ -105,12 +105,12 @@ export default function Cart() {
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Subtotal</span>
-                  <span className="font-semibold">${totalPrice.toFixed(2)}</span>
+                  <span className="font-semibold">₹{totalPrice.toFixed(2)}</span>
                 </div>
                 {savings > 0 && (
                   <div className="flex justify-between text-success">
                     <span>Savings</span>
-                    <span className="font-semibold">-${savings.toFixed(2)}</span>
+                    <span className="font-semibold">-₹{savings.toFixed(2)}</span>
                   </div>
                 )}
                 <div className="flex justify-between">
@@ -120,7 +120,7 @@ export default function Cart() {
                 <div className="border-t pt-3 flex justify-between text-lg">
                   <span className="font-bold">Total</span>
                   <span className="font-bold text-primary">
-                    ${totalOfferPrice.toFixed(2)}
+                    ₹{totalOfferPrice.toFixed(2)}
                   </span>
                 </div>
               </div>

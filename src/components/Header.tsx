@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { ShoppingCart, Search, Menu, User } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -11,6 +11,7 @@ export const Header = () => {
   const { user } = useAuth();
   const { cart } = useCart();
   const navigate = useNavigate();
+  const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -22,6 +23,7 @@ export const Header = () => {
   };
 
   const cartItemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const isHomePage = location.pathname === '/';
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -64,19 +66,21 @@ export const Header = () => {
 
           {/* Right Actions */}
           <div className="flex items-center space-x-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="relative"
-              onClick={() => navigate('/cart')}
-            >
-              <ShoppingCart className="h-5 w-5" />
-              {cartItemCount > 0 && (
-                <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-accent text-accent-foreground text-xs flex items-center justify-center font-semibold">
-                  {cartItemCount}
-                </span>
-              )}
-            </Button>
+            {!isHomePage && (
+              <Button
+                variant="ghost"
+                size="icon"
+                className="relative"
+                onClick={() => navigate('/cart')}
+              >
+                <ShoppingCart className="h-5 w-5" />
+                {cartItemCount > 0 && (
+                  <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-accent text-accent-foreground text-xs flex items-center justify-center font-semibold">
+                    {cartItemCount}
+                  </span>
+                )}
+              </Button>
+            )}
 
             {user ? (
               <Button
