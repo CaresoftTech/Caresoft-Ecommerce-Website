@@ -42,12 +42,6 @@ export const Header = () => {
             <Link to="/" className="text-sm font-medium hover:text-primary transition-colors">
               Home
             </Link>
-            <Link to="/about" className="text-sm font-medium hover:text-primary transition-colors">
-              About Us
-            </Link>
-            <Link to="/contact" className="text-sm font-medium hover:text-primary transition-colors">
-              Contact Us
-            </Link>
           </nav>
 
           {/* Search Bar */}
@@ -129,20 +123,6 @@ export const Header = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Home
-              </Link>
-              <Link
-                to="/about"
-                className="text-sm font-medium hover:text-primary transition-colors p-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                About Us
-              </Link>
-              <Link
-                to="/contact"
-                className="text-sm font-medium hover:text-primary transition-colors p-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Contact Us
               </Link>
               {!user && (
                 <Link
