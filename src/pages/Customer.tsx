@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Search, User, LogOut, Edit, Sparkles, Package } from 'lucide-react';
+import { Search, User, LogOut, Edit, Sparkles } from 'lucide-react';
 import { toast } from 'sonner';
 import {
   Carousel,
@@ -18,8 +18,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { OrderTracking } from '@/components/OrderTracking';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Customer() {
   const { user, logout, updateProfile } = useAuth();
@@ -219,23 +217,8 @@ export default function Customer() {
         </div>
       )}
 
-      {/* Tabs for Products and Order Tracking */}
+      {/* Animated Product Slider */}
       <section className="container mx-auto px-4 py-8">
-        <Tabs defaultValue="products" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 mb-6">
-            <TabsTrigger value="products" className="flex items-center gap-2">
-              <Sparkles className="h-4 w-4" />
-              Shop Products
-            </TabsTrigger>
-            <TabsTrigger value="orders" className="flex items-center gap-2">
-              <Package className="h-4 w-4" />
-              Track Orders
-            </TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="products" className="space-y-8">
-            {/* Animated Product Slider */}
-            <div>
         <div className="mb-6">
           <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-vibrant-purple via-vibrant-pink to-vibrant-blue bg-clip-text text-transparent">
             🔥 Hot Deals for You
@@ -267,49 +250,42 @@ export default function Customer() {
           <CarouselPrevious className="bg-vibrant-purple text-white hover:bg-vibrant-pink" />
           <CarouselNext className="bg-vibrant-purple text-white hover:bg-vibrant-pink" />
         </Carousel>
-            </div>
+      </section>
 
-            {/* Search Bar */}
-            <div>
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-vibrant-purple" />
-                <Input
-                  type="search"
-                  placeholder="Search products by name..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 border-vibrant-purple/30 focus:border-vibrant-purple shadow-md"
-                />
-              </div>
-            </div>
+      {/* Search Bar */}
+      <section className="container mx-auto px-4 py-6">
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-vibrant-purple" />
+          <Input
+            type="search"
+            placeholder="Search products by name..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="pl-10 border-vibrant-purple/30 focus:border-vibrant-purple shadow-md"
+          />
+        </div>
+      </section>
 
-            {/* All Products - 4 per row */}
-            <div>
-              <div className="mb-6">
-                <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-vibrant-teal via-vibrant-blue to-vibrant-purple bg-clip-text text-transparent">
-                  All Products
-                </h2>
-                <p className="text-muted-foreground">Browse our complete collection</p>
-              </div>
+      {/* All Products - 4 per row */}
+      <section className="container mx-auto px-4 pb-12">
+        <div className="mb-6">
+          <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-vibrant-teal via-vibrant-blue to-vibrant-purple bg-clip-text text-transparent">
+            All Products
+          </h2>
+          <p className="text-muted-foreground">Browse our complete collection</p>
+        </div>
 
-              {filteredProducts.length === 0 ? (
-                <div className="text-center py-12">
-                  <p className="text-muted-foreground text-lg">No products found 🔍</p>
-                </div>
-              ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                  {filteredProducts.map((product) => (
-                    <ProductCard key={product.id} product={product} />
-                  ))}
-                </div>
-              )}
-            </div>
-          </TabsContent>
-
-          <TabsContent value="orders">
-            <OrderTracking />
-          </TabsContent>
-        </Tabs>
+        {filteredProducts.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground text-lg">No products found 🔍</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        )}
       </section>
     </div>
   );

@@ -12,13 +12,6 @@ const carouselImages = [
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [selectedCategory, setSelectedCategory] = useState('All Products');
-
-  const categories = ['All Products', 'Computers & Laptops', 'Printers', 'RAM & Storage', 'Accessories', 'Audio', 'Monitors', 'Smartphones'];
-
-  const filteredProducts = selectedCategory === 'All Products' 
-    ? products 
-    : products.filter(product => product.category === selectedCategory);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -150,28 +143,8 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Category Filter Buttons */}
-        <div className="mb-8 overflow-x-auto">
-          <div className="flex gap-2 justify-center flex-wrap min-w-max px-2">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                variant={selectedCategory === category ? "default" : "outline"}
-                className={`whitespace-nowrap transition-all ${
-                  selectedCategory === category 
-                    ? 'bg-gradient-to-r from-vibrant-purple to-vibrant-pink text-white shadow-lg scale-105' 
-                    : 'hover:border-vibrant-purple hover:text-vibrant-purple'
-                }`}
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
-        </div>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredProducts.map((product) => (
+          {products.map((product) => (
             <ProductCard key={product.id} product={product} requireLogin={true} />
           ))}
         </div>
