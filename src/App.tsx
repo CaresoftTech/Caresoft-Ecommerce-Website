@@ -11,8 +11,18 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import NewSignIn from "./pages/NewSignIn";
+import NewSignUp from "./pages/NewSignUp";
 import Cart from "./pages/Cart";
 import Customer from "./pages/Customer";
+import Profile from "./pages/Profile";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
+import Shipping from "./pages/Shipping";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminCustomers from "./pages/admin/AdminCustomers";
+import AdminOrders from "./pages/admin/AdminOrders";
+import AdminProducts from "./pages/admin/AdminProducts";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,10 +40,18 @@ const App = () => (
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/signin" element={<SignIn />} />
-                <Route path="/signup" element={<SignUp />} />
+                <Route path="/signin" element={<NewSignIn />} />
+                <Route path="/signup" element={<NewSignUp />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/customer" element={<Customer />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/terms" element={<Terms />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/shipping" element={<Shipping />} />
+                <Route path="/admin" element={<AdminDashboard />} />
+                <Route path="/admin/customers" element={<AdminCustomers />} />
+                <Route path="/admin/orders" element={<AdminOrders />} />
+                <Route path="/admin/products" element={<AdminProducts />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Layout>
