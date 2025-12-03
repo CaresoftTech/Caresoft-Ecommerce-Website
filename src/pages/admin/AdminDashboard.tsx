@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { useAdmin } from '@/hooks/useAdmin';
+import { useAuth } from '@/contexts/AuthContext';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Package, Users, ShoppingCart, LayoutDashboard } from 'lucide-react';
 
 export default function AdminDashboard() {
-  const { isAdmin, loading } = useAdmin();
+  const { isAdmin, loading } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,6 +22,8 @@ export default function AdminDashboard() {
       </div>
     );
   }
+
+  if (!isAdmin) return null;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background py-12">

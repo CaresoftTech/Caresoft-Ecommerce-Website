@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAdmin } from '@/hooks/useAdmin';
-import { supabase } from '@/integrations/supabase/client';
+import { useAuth } from '@/contexts/AuthContext';
+import { products as initialProducts } from '@/data/products';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -15,106 +15,77 @@ import { Package, Plus, Edit, Trash2 } from 'lucide-react';
 interface Product {
   id: string;
   name: string;
-  description: string | null;
+  description: string;
   price: number;
-  offer_price: number | null;
-  discount: number | null;
+  offerPrice?: number;
+  discount?: number;
   image: string;
-  stock_quantity: number | null;
-  is_active: boolean;
+  category: string;
+  stock_quantity?: number;
+  is_active?: boolean;
 }
 
 export default function AdminProducts() {
-  const { isAdmin, loading } = useAdmin();
+  const { isAdmin, loading } = useAuth();
   const navigate = useNavigate();
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loadingProducts, setLoadingProducts] = useState(true);
+  const [products, setProducts] = useState<Product[]>(
+    initialProducts.map(p => ({ ...p, stock_quantity: 100, is_active: true }))
+  );
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     description: '',
     price: '',
-    offer_price: '',
+    offerPrice: '',
     discount: '',
     image: '',
     stock_quantity: '',
+    category: '',
   });
 
   useEffect(() => {
     if (!loading && !isAdmin) {
       navigate('/signin');
-      return;
-    }
-
-    if (isAdmin) {
-      fetchProducts();
     }
   }, [isAdmin, loading, navigate]);
 
-  const fetchProducts = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('products')
-        .select('*')
-        .order('created_at', { ascending: false });
-
-      if (error) throw error;
-      setProducts(data || []);
-    } catch (error: any) {
-      console.error('Error fetching products:', error);
-      toast.error('Failed to load products');
-    } finally {
-      setLoadingProducts(false);
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      const productData = {
-        name: formData.name,
-        description: formData.description || null,
-        price: parseFloat(formData.price),
-        offer_price: formData.offer_price ? parseFloat(formData.offer_price) : null,
-        discount: formData.discount ? parseInt(formData.discount) : null,
-        image: formData.image,
-        stock_quantity: formData.stock_quantity ? parseInt(formData.stock_quantity) : 0,
-        is_active: true,
-      };
+    const productData: Product = {
+      id: editingProduct?.id || Date.now().toString(),
+      name: formData.name,
+      description: formData.description || '',
+      price: parseFloat(formData.price),
+      offerPrice: formData.offerPrice ? parseFloat(formData.offerPrice) : undefined,
+      discount: formData.discount ? parseInt(formData.discount) : undefined,
+      image: formData.image,
+      category: formData.category || 'General',
+      stock_quantity: formData.stock_quantity ? parseInt(formData.stock_quantity) : 0,
+      is_active: true,
+    };
 
-      if (editingProduct) {
-        const { error } = await supabase
-          .from('products')
-          .update(productData)
-          .eq('id', editingProduct.id);
-
-        if (error) throw error;
-        toast.success('Product updated successfully');
-      } else {
-        const { error } = await supabase.from('products').insert(productData);
-
-        if (error) throw error;
-        toast.success('Product added successfully');
-      }
-
-      setIsDialogOpen(false);
-      setEditingProduct(null);
-      setFormData({
-        name: '',
-        description: '',
-        price: '',
-        offer_price: '',
-        discount: '',
-        image: '',
-        stock_quantity: '',
-      });
-      fetchProducts();
-    } catch (error: any) {
-      console.error('Error saving product:', error);
-      toast.error('Failed to save product');
+    if (editingProduct) {
+      setProducts(prev => prev.map(p => p.id === editingProduct.id ? productData : p));
+      toast.success('Product updated successfully (demo only)');
+    } else {
+      setProducts(prev => [productData, ...prev]);
+      toast.success('Product added successfully (demo only)');
     }
+
+    setIsDialogOpen(false);
+    setEditingProduct(null);
+    setFormData({
+      name: '',
+      description: '',
+      price: '',
+      offerPrice: '',
+      discount: '',
+      image: '',
+      stock_quantity: '',
+      category: '',
+    });
   };
 
   const handleEdit = (product: Product) => {
@@ -123,36 +94,30 @@ export default function AdminProducts() {
       name: product.name,
       description: product.description || '',
       price: product.price.toString(),
-      offer_price: product.offer_price?.toString() || '',
+      offerPrice: product.offerPrice?.toString() || '',
       discount: product.discount?.toString() || '',
       image: product.image,
       stock_quantity: product.stock_quantity?.toString() || '',
+      category: product.category || '',
     });
     setIsDialogOpen(true);
   };
 
-  const handleDelete = async (id: string) => {
+  const handleDelete = (id: string) => {
     if (!confirm('Are you sure you want to delete this product?')) return;
-
-    try {
-      const { error } = await supabase.from('products').delete().eq('id', id);
-
-      if (error) throw error;
-      toast.success('Product deleted successfully');
-      fetchProducts();
-    } catch (error: any) {
-      console.error('Error deleting product:', error);
-      toast.error('Failed to delete product');
-    }
+    setProducts(prev => prev.filter(p => p.id !== id));
+    toast.success('Product deleted successfully (demo only)');
   };
 
-  if (loading || loadingProducts) {
+  if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
       </div>
     );
   }
+
+  if (!isAdmin) return null;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background py-12">
@@ -208,13 +173,13 @@ export default function AdminProducts() {
                         />
                       </div>
                       <div>
-                        <Label htmlFor="offer_price">Offer Price (₹)</Label>
+                        <Label htmlFor="offerPrice">Offer Price (₹)</Label>
                         <Input
-                          id="offer_price"
+                          id="offerPrice"
                           type="number"
                           step="0.01"
-                          value={formData.offer_price}
-                          onChange={(e) => setFormData({ ...formData, offer_price: e.target.value })}
+                          value={formData.offerPrice}
+                          onChange={(e) => setFormData({ ...formData, offerPrice: e.target.value })}
                         />
                       </div>
                     </div>
@@ -237,6 +202,14 @@ export default function AdminProducts() {
                           onChange={(e) => setFormData({ ...formData, stock_quantity: e.target.value })}
                         />
                       </div>
+                    </div>
+                    <div>
+                      <Label htmlFor="category">Category</Label>
+                      <Input
+                        id="category"
+                        value={formData.category}
+                        onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                      />
                     </div>
                     <div>
                       <Label htmlFor="image">Image URL</Label>
@@ -287,7 +260,7 @@ export default function AdminProducts() {
                         </TableCell>
                         <TableCell className="font-medium">{product.name}</TableCell>
                         <TableCell>
-                          ₹{product.offer_price || product.price}
+                          ₹{product.offerPrice || product.price}
                           {product.discount && (
                             <span className="ml-2 text-xs text-muted-foreground line-through">
                               ₹{product.price}

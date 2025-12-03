@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -9,7 +9,7 @@ import { toast } from 'sonner';
 import { User, Mail, Phone, MapPin, Lock, UserPlus } from 'lucide-react';
 
 export default function NewSignUp() {
-  const { signUp, user, loading } = useAuth();
+  const { signup, user, loading } = useAuth();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
@@ -43,18 +43,16 @@ export default function NewSignUp() {
     setIsSubmitting(true);
 
     try {
-      const { error } = await signUp(formData.email, formData.password, {
+      const success = await signup({
         name: formData.name,
+        email: formData.email,
         phone: formData.phone,
         address: formData.address,
+        password: formData.password,
       });
 
-      if (error) {
-        if (error.message.includes('already registered')) {
-          toast.error('Email already registered');
-        } else {
-          toast.error(error.message);
-        }
+      if (!success) {
+        toast.error('Email already registered');
       } else {
         toast.success('Account created successfully! You can now sign in.');
         navigate('/signin');
