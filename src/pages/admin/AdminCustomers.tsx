@@ -1,62 +1,31 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAdmin } from '@/hooks/useAdmin';
-import { supabase } from '@/integrations/supabase/client';
+import { useAuth } from '@/contexts/AuthContext';
+import { sampleCustomers, Customer } from '@/data/sampleData';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { toast } from 'sonner';
 import { Users } from 'lucide-react';
 
-interface Customer {
-  id: string;
-  name: string;
-  email: string;
-  phone: string | null;
-  address: string | null;
-  created_at: string;
-}
-
 export default function AdminCustomers() {
-  const { isAdmin, loading } = useAdmin();
+  const { isAdmin, loading } = useAuth();
   const navigate = useNavigate();
-  const [customers, setCustomers] = useState<Customer[]>([]);
-  const [loadingCustomers, setLoadingCustomers] = useState(true);
+  const [customers] = useState<Customer[]>(sampleCustomers);
 
   useEffect(() => {
     if (!loading && !isAdmin) {
       navigate('/signin');
-      return;
-    }
-
-    if (isAdmin) {
-      fetchCustomers();
     }
   }, [isAdmin, loading, navigate]);
 
-  const fetchCustomers = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('profiles')
-        .select('*')
-        .order('created_at', { ascending: false });
-
-      if (error) throw error;
-      setCustomers(data || []);
-    } catch (error: any) {
-      console.error('Error fetching customers:', error);
-      toast.error('Failed to load customers');
-    } finally {
-      setLoadingCustomers(false);
-    }
-  };
-
-  if (loading || loadingCustomers) {
+  if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
       </div>
     );
   }
+
+  if (!isAdmin) return null;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background py-12">

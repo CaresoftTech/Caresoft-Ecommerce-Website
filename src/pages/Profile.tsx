@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '@/hooks/useAuth';
-import { supabase } from '@/integrations/supabase/client';
+import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -10,7 +9,7 @@ import { toast } from 'sonner';
 import { User, Mail, Phone, MapPin, LogOut, Save } from 'lucide-react';
 
 export default function Profile() {
-  const { user, loading, signOut } = useAuth();
+  const { user, loading, logout, updateProfile } = useAuth();
   const navigate = useNavigate();
   const [profile, setProfile] = useState({
     name: '',
@@ -27,46 +26,23 @@ export default function Profile() {
     }
 
     if (user) {
-      fetchProfile();
+      setProfile({
+        name: user.name || '',
+        email: user.email || '',
+        phone: user.phone || '',
+        address: user.address || '',
+      });
     }
   }, [user, loading, navigate]);
 
-  const fetchProfile = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', user?.id)
-        .single();
-
-      if (error) throw error;
-      if (data) {
-        setProfile({
-          name: data.name || '',
-          email: data.email || '',
-          phone: data.phone || '',
-          address: data.address || '',
-        });
-      }
-    } catch (error: any) {
-      console.error('Error fetching profile:', error);
-      toast.error('Failed to load profile');
-    }
-  };
-
-  const handleSave = async () => {
+  const handleSave = () => {
     setSaving(true);
     try {
-      const { error } = await supabase
-        .from('profiles')
-        .update({
-          name: profile.name,
-          phone: profile.phone,
-          address: profile.address,
-        })
-        .eq('id', user?.id);
-
-      if (error) throw error;
+      updateProfile({
+        name: profile.name,
+        phone: profile.phone,
+        address: profile.address,
+      });
       toast.success('Profile updated successfully!');
     } catch (error: any) {
       console.error('Error updating profile:', error);
@@ -76,8 +52,8 @@ export default function Profile() {
     }
   };
 
-  const handleLogout = async () => {
-    await signOut();
+  const handleLogout = () => {
+    logout();
     toast.success('Logged out successfully');
     navigate('/');
   };
