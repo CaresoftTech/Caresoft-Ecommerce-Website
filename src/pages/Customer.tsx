@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Search, User, LogOut, Edit, Sparkles } from 'lucide-react';
+import { Search, User, LogOut, Edit, Sparkles, MapPin } from 'lucide-react';
 import { toast } from 'sonner';
 import {
   Carousel,
@@ -197,15 +197,24 @@ export default function Customer() {
                   <p className="text-muted-foreground text-xs mb-1">Phone</p>
                   <p className="font-semibold text-vibrant-teal">{user.phone}</p>
                 </div>
-                <div className="bg-gradient-to-br from-vibrant-orange/10 to-vibrant-yellow/10 p-4 rounded-lg md:col-span-2">
+                <div className="bg-gradient-to-br from-vibrant-orange/10 to-vibrant-yellow/10 p-4 rounded-lg">
                   <p className="text-muted-foreground text-xs mb-1">Address</p>
                   <p className="font-semibold text-vibrant-orange">{user.address}</p>
                 </div>
-                <div className="md:col-span-2 flex items-center">
+                <div className="flex items-center">
+                  <Button
+                    onClick={() => navigate('/order-tracking')}
+                    className="w-full bg-gradient-to-r from-vibrant-teal to-vibrant-blue"
+                  >
+                    <MapPin className="mr-2 h-4 w-4" />
+                    Track Orders
+                  </Button>
+                </div>
+                <div className="md:col-span-2 flex items-center gap-2">
                   <Button
                     variant="outline"
                     onClick={handleLogout}
-                    className="w-full border-destructive/30 text-destructive hover:bg-destructive hover:text-destructive-foreground"
+                    className="flex-1 border-destructive/30 text-destructive hover:bg-destructive hover:text-destructive-foreground"
                   >
                     <LogOut className="mr-2 h-4 w-4" />
                     Logout

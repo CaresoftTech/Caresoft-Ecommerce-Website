@@ -1,5 +1,5 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { ShoppingCart, Search, Menu, User } from 'lucide-react';
+import { ShoppingCart, Search, Menu, User, Package, MapPin } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { useAuth } from '@/contexts/AuthContext';
@@ -48,6 +48,12 @@ export const Header = () => {
             <Link to="/contact" className="text-sm font-medium hover:text-primary transition-colors">
               Contact Us
             </Link>
+            {user && (
+              <Link to="/order-tracking" className="text-sm font-medium hover:text-primary transition-colors flex items-center gap-1">
+                <MapPin className="h-4 w-4" />
+                Track Order
+              </Link>
+            )}
           </nav>
 
           {/* Search Bar */}
@@ -144,6 +150,16 @@ export const Header = () => {
               >
                 Contact Us
               </Link>
+              {user && (
+                <Link
+                  to="/order-tracking"
+                  className="text-sm font-medium hover:text-primary transition-colors p-2 flex items-center gap-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <MapPin className="h-4 w-4" />
+                  Track Order
+                </Link>
+              )}
               {!user && (
                 <Link
                   to="/signin"
