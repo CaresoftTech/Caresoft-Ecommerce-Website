@@ -38,7 +38,7 @@ export const ProductCard = ({ product, requireLogin = false }: ProductCardProps)
   };
 
   return (
-    <Card className="group overflow-hidden transition-all hover:shadow-lg">
+     <Card className="group overflow-hidden transition-all hover:shadow-lg">
       <div className="relative overflow-hidden aspect-square">
         <img
           src={product.image}
@@ -59,15 +59,15 @@ export const ProductCard = ({ product, requireLogin = false }: ProductCardProps)
         <div className="flex items-baseline gap-2">
           {product.offerPrice ? (
             <>
-              <span className="text-2xl font-bold text-primary">
+              <span className="text-2xl font-bold text-green-500">
                 ₹{product.offerPrice}
               </span>
-              <span className="text-sm text-muted-foreground line-through">
+              <span className="text-sm text-muted-foreground line-through text-red-600">
                 ₹{product.price}
               </span>
             </>
           ) : (
-            <span className="text-2xl font-bold text-primary">₹{product.price}</span>
+            <span className="text-2xl font-bold text-green-500">₹{product.price}</span>
           )}
         </div>
       </CardContent>
@@ -75,14 +75,25 @@ export const ProductCard = ({ product, requireLogin = false }: ProductCardProps)
       <CardFooter className="p-4 pt-0 flex gap-2">
         <Button
           variant="outline"
-          className="flex-1"
+          className="
+      flex-1 border-[#3491cb] text-[#3491cb] hover:bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:text-white
+      !text-xs !px-2 !py-1   /* FORCE MOBILE SMALL */
+      sm:!text-sm sm:!px-3 sm:!py-2
+      md:!text-base md:!px-4 md:!py-2
+    "
           onClick={handleAddToCart}
         >
           <ShoppingCart className="mr-2 h-4 w-4" />
           Add to Cart
         </Button>
+
         <Button
-          className="flex-1"
+          className="
+      flex-1 bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac]
+      !text-xs !px-2 !py-1
+      sm:!text-sm sm:!px-3 sm:!py-2
+      md:!text-base md:!px-4 md:!py-2
+    "
           onClick={handleBuyNow}
         >
           Buy Now

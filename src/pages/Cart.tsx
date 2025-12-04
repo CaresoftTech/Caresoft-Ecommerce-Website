@@ -18,12 +18,12 @@ export default function Cart() {
     return (
       <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4">
         <div className="text-center">
-          <ShoppingBag className="h-24 w-24 mx-auto text-muted-foreground mb-4" />
+          <ShoppingBag className="h-24 w-24 mx-auto text-[#0b96dc] mb-4" />
           <h2 className="text-2xl font-bold mb-2">Your cart is empty</h2>
           <p className="text-muted-foreground mb-6">
             Start shopping to add items to your cart
           </p>
-          <Button onClick={() => navigate('/')}>Continue Shopping</Button>
+          <Button onClick={() => navigate('/')} className='bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac]'>Continue Shopping</Button>
         </div>
       </div>
     );
@@ -33,7 +33,7 @@ export default function Cart() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Shopping Cart</h1>
+      <h1 className="text-3xl font-bold mb-8 text-[#0da1e1]">Shopping Cart</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Cart Items */}
@@ -53,11 +53,11 @@ export default function Cart() {
                       {item.description}
                     </p>
                     <div className="flex items-center gap-2">
-                      <span className="font-bold text-primary">
+                      <span className="font-bold text-green-500">
                         ₹{item.offerPrice || item.price}
                       </span>
                       {item.offerPrice && (
-                        <span className="text-sm text-muted-foreground line-through">
+                        <span className="text-sm text-red-500 line-through">
                           ₹{item.price}
                         </span>
                       )}
@@ -110,7 +110,7 @@ export default function Cart() {
                 {savings > 0 && (
                   <div className="flex justify-between text-success">
                     <span>Savings</span>
-                    <span className="font-semibold">-₹{savings.toFixed(2)}</span>
+                    <span className="font-semibold text-red-500">-₹{savings.toFixed(2)}</span>
                   </div>
                 )}
                 <div className="flex justify-between">
@@ -119,17 +119,17 @@ export default function Cart() {
                 </div>
                 <div className="border-t pt-3 flex justify-between text-lg">
                   <span className="font-bold">Total</span>
-                  <span className="font-bold text-primary">
+                  <span className="font-bold text-green-500">
                     ₹{totalOfferPrice.toFixed(2)}
                   </span>
                 </div>
               </div>
-              <Button className="w-full" size="lg" onClick={handleCheckout}>
+              <Button className="w-full bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac]" size="lg" onClick={handleCheckout}>
                 Proceed to Checkout
               </Button>
               <Button
                 variant="outline"
-                className="w-full mt-2"
+                className="w-full mt-2 hover:bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac]"
                 onClick={() => navigate('/')}
               >
                 Continue Shopping

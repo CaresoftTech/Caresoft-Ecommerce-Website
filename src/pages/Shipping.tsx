@@ -2,20 +2,20 @@ export default function Shipping() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background py-12">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h1 className="text-4xl font-bold mb-8 bg-gradient-to-r from-vibrant-purple via-vibrant-pink to-vibrant-blue bg-clip-text text-transparent">
+        <h1 className="text-4xl font-bold mb-8  bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent">
           Shipping Policy
         </h1>
         
         <div className="bg-card rounded-2xl shadow-xl p-8 space-y-6">
           <section>
-            <h2 className="text-2xl font-semibold mb-3 text-vibrant-purple">1. Shipping Coverage</h2>
+            <h2 className="text-2xl font-semibold mb-3 text-[#3491cb]">1. Shipping Coverage</h2>
             <p className="text-muted-foreground">
               We currently ship to all locations within India. International shipping is not available at this time. We deliver to both residential and commercial addresses.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-3 text-vibrant-pink">2. Processing Time</h2>
+            <h2 className="text-2xl font-semibold mb-3 text-[#3491cb]">2. Processing Time</h2>
             <p className="text-muted-foreground mb-2">
               Orders are typically processed within 1-2 business days after payment confirmation:
             </p>
@@ -27,7 +27,7 @@ export default function Shipping() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-3 text-vibrant-blue">3. Delivery Time</h2>
+            <h2 className="text-2xl font-semibold mb-3 text-[#3491cb]">3. Delivery Time</h2>
             <p className="text-muted-foreground mb-2">
               Estimated delivery times vary by location:
             </p>
@@ -42,7 +42,7 @@ export default function Shipping() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-3 text-vibrant-teal">4. Shipping Charges</h2>
+            <h2 className="text-2xl font-semibold mb-3 text-[#3491cb]">4. Shipping Charges</h2>
             <p className="text-muted-foreground mb-2">
               Shipping costs are calculated based on:
             </p>
@@ -57,7 +57,7 @@ export default function Shipping() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-3 text-vibrant-orange">5. Order Tracking</h2>
+            <h2 className="text-2xl font-semibold mb-3 text-[#3491cb]">5. Order Tracking</h2>
             <p className="text-muted-foreground">
               Once your order is shipped, you will receive a tracking number via email and SMS. You can track your order status through:
             </p>
@@ -69,7 +69,7 @@ export default function Shipping() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-3 text-vibrant-purple">6. Delivery Issues</h2>
+            <h2 className="text-2xl font-semibold mb-3 text-[#3491cb]">6. Delivery Issues</h2>
             <p className="text-muted-foreground mb-2">
               If you encounter any delivery issues:
             </p>
@@ -82,7 +82,7 @@ export default function Shipping() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-3 text-vibrant-pink">7. Failed Delivery Attempts</h2>
+            <h2 className="text-2xl font-semibold mb-3 text-[#3491cb]">7. Failed Delivery Attempts</h2>
             <p className="text-muted-foreground">
               If delivery fails due to incorrect address, unavailability, or refusal to accept:
             </p>
@@ -95,14 +95,14 @@ export default function Shipping() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-3 text-vibrant-blue">8. Lost or Damaged Packages</h2>
+            <h2 className="text-2xl font-semibold mb-3 text-[#3491cb]">8. Lost or Damaged Packages</h2>
             <p className="text-muted-foreground">
               If your package is lost or arrives damaged, please contact our customer service within 48 hours of expected delivery. We will investigate and arrange for a replacement or refund as appropriate.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-3 text-vibrant-teal">9. Contact for Shipping Queries</h2>
+            <h2 className="text-2xl font-semibold mb-3 text-[#3491cb]">9. Contact for Shipping Queries</h2>
             <p className="text-muted-foreground">
               For any shipping-related questions, contact us at:
             </p>

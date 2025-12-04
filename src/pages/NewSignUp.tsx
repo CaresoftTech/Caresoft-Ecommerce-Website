@@ -6,11 +6,13 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { toast } from 'sonner';
-import { User, Mail, Phone, MapPin, Lock, UserPlus } from 'lucide-react';
+import { User, Mail, Phone, MapPin, Lock, UserPlus, Eye, EyeOff } from 'lucide-react';
+import loginImg from '@/assets/signup.png';
 
 export default function NewSignUp() {
   const { signup, user, loading } = useAuth();
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,7 +21,11 @@ export default function NewSignUp() {
     password: '',
     confirmPassword: '',
   });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   useEffect(() => {
     if (!loading && user) {
@@ -73,130 +79,164 @@ export default function NewSignUp() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background flex items-center justify-center py-12 px-4">
-      <Card className="w-full max-w-md bg-gradient-to-br from-vibrant-purple/10 to-vibrant-pink/10 border-2 border-vibrant-purple/20 shadow-2xl">
-        <CardHeader className="space-y-1">
-          <CardTitle className="text-3xl font-bold text-center bg-gradient-to-r from-vibrant-purple via-vibrant-pink to-vibrant-blue bg-clip-text text-transparent">
-            Create Account
-          </CardTitle>
-          <CardDescription className="text-center text-muted-foreground">
-            Join Caresoft Technology today
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <Label htmlFor="name" className="flex items-center gap-2 text-vibrant-purple mb-2">
-                <User className="h-4 w-4" />
-                Full Name
-              </Label>
-              <Input
-                id="name"
-                placeholder="John Doe"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                required
-                className="border-vibrant-purple/30 focus:border-vibrant-purple"
-              />
-            </div>
+    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background flex items-center justify-center py-8 px-4">
 
-            <div>
-              <Label htmlFor="email" className="flex items-center gap-2 text-vibrant-blue mb-2">
-                <Mail className="h-4 w-4" />
-                Email Address
-              </Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="your.email@example.com"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                required
-                className="border-vibrant-blue/30 focus:border-vibrant-blue"
-              />
-            </div>
+      {/* GRID LAYOUT – LEFT IMAGE + RIGHT FORM */}
+      <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
 
-            <div>
-              <Label htmlFor="phone" className="flex items-center gap-2 text-vibrant-teal mb-2">
-                <Phone className="h-4 w-4" />
-                Phone Number
-              </Label>
-              <Input
-                id="phone"
-                type="tel"
-                placeholder="+91 1234567890"
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                required
-                className="border-vibrant-teal/30 focus:border-vibrant-teal"
-              />
-            </div>
+        {/* LEFT SIDE IMAGE */}
+        <div className="flex justify-center items-center p-4">
+          <img 
+            src={loginImg}
+            alt="Signup illustration"
+            className="w-full max-w-sm md:max-w-md "
+          />
+        </div>
 
-            <div>
-              <Label htmlFor="address" className="flex items-center gap-2 text-vibrant-orange mb-2">
-                <MapPin className="h-4 w-4" />
-                Address
-              </Label>
-              <Input
-                id="address"
-                placeholder="Your complete address"
-                value={formData.address}
-                onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                required
-                className="border-vibrant-orange/30 focus:border-vibrant-orange"
-              />
-            </div>
+        {/* RIGHT SIDE SIGNUP FORM */}
+        <Card className="w-full bg-gradient-to-br from-vibrant-purple/10 to-vibrant-pink/10 border-2 border-vibrant-purple/20 shadow-2xl">
+          <CardHeader className="space-y-1">
+            <CardTitle className="text-3xl font-bold text-center bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent">
+              Create Account
+            </CardTitle>
+            <CardDescription className="text-center text-muted-foreground">
+              Join Caresoft Technologies today
+            </CardDescription>
+          </CardHeader>
 
-            <div>
-              <Label htmlFor="password" className="flex items-center gap-2 text-vibrant-pink mb-2">
-                <Lock className="h-4 w-4" />
-                Password
-              </Label>
-              <Input
-                id="password"
-                type="password"
-                placeholder="At least 6 characters"
-                value={formData.password}
-                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                required
-                className="border-vibrant-pink/30 focus:border-vibrant-pink"
-              />
-            </div>
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-4">
 
-            <div>
-              <Label htmlFor="confirmPassword" className="flex items-center gap-2 text-vibrant-pink mb-2">
-                <Lock className="h-4 w-4" />
-                Confirm Password
-              </Label>
-              <Input
-                id="confirmPassword"
-                type="password"
-                placeholder="Re-enter your password"
-                value={formData.confirmPassword}
-                onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
-                required
-                className="border-vibrant-pink/30 focus:border-vibrant-pink"
-              />
-            </div>
+              {/* NAME */}
+              <div>
+                <Label className="flex items-center gap-2 mb-2 text-[#3491cb]">
+                  <User className="h-4 w-4" />
+                  Full Name
+                </Label>
+                <Input
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  required
+                />
+              </div>
 
-            <Button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-vibrant-purple to-vibrant-pink hover:opacity-90"
-            >
-              <UserPlus className="mr-2 h-4 w-4" />
-              {isSubmitting ? 'Creating account...' : 'Sign Up'}
-            </Button>
+              {/* EMAIL */}
+              <div>
+                <Label className="flex items-center gap-2 mb-2 text-[#3491cb]">
+                  <Mail className="h-4 w-4" />
+                  Email Address
+                </Label>
+                <Input
+                  type="email"
+                  placeholder="email@example.com"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  required
+                />
+              </div>
 
-            <p className="text-center text-sm text-muted-foreground">
-              Already have an account?{' '}
-              <Link to="/signin" className="text-vibrant-blue hover:underline font-semibold">
-                Sign In
-              </Link>
-            </p>
-          </form>
-        </CardContent>
-      </Card>
+              {/* PHONE */}
+              <div>
+                <Label className="flex items-center gap-2 mb-2 text-[#3491cb]">
+                  <Phone className="h-4 w-4" />
+                  Phone Number
+                </Label>
+                <Input
+                  type="tel"
+                  placeholder="Mobile Number"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  required
+                />
+              </div>
+
+              {/* ADDRESS */}
+              <div>
+                <Label className="flex items-center gap-2 mb-2 text-[#3491cb]">
+                  <MapPin className="h-4 w-4" />
+                  Address
+                </Label>
+                <Input
+                  placeholder="Your complete address"
+                  value={formData.address}
+                  onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                  required
+                />
+              </div>
+
+              {/* PASSWORD */}
+              <div>
+                <Label className="flex items-center gap-2 mb-2 text-[#3491cb]">
+                  <Lock className="h-4 w-4" />
+                  Password
+                </Label>
+                <div className="relative">
+                  <Input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="At least 6 characters"
+                    value={formData.password}
+                    onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                    required
+                    className="pr-10"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-2 inset-y-0 flex items-center text-gray-500"
+                  >
+                    {showPassword ? <EyeOff /> : <Eye />}
+                  </button>
+                </div>
+              </div>
+
+              {/* CONFIRM PASSWORD */}
+              <div>
+                <Label className="flex items-center gap-2 mb-2 text-[#3491cb]">
+                  <Lock className="h-4 w-4" />
+                  Confirm Password
+                </Label>
+                <div className="relative">
+                  <Input
+                    type={showConfirmPassword ? "text" : "password"}
+                    placeholder="Re-enter your password"
+                    value={formData.confirmPassword}
+                    onChange={(e) =>
+                      setFormData({ ...formData, confirmPassword: e.target.value })
+                    }
+                    required
+                    className="pr-10"
+                  />
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setShowConfirmPassword(!showConfirmPassword)
+                    }
+                    className="absolute right-2 inset-y-0 flex items-center text-gray-500"
+                  >
+                    {showConfirmPassword ? <EyeOff /> : <Eye />}
+                  </button>
+                </div>
+              </div>
+
+              <Button
+                className="w-full bg-gradient-to-br from-[#4cb9fd] to-[#153f5b]"
+                disabled={isSubmitting}
+              >
+                <UserPlus className="mr-2 h-4 w-4" />
+                {isSubmitting ? 'Creating account...' : 'Sign Up'}
+              </Button>
+
+              <p className="text-center text-sm text-muted-foreground">
+                Already have an account?{' '}
+                <Link to="/signin" className="text-blue-500 font-semibold hover:underline">
+                  Sign In
+                </Link>
+              </p>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }

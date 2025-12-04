@@ -29,8 +29,8 @@ export default function AdminDashboard() {
     <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background py-12">
       <div className="container mx-auto px-4">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent flex items-center gap-3">
-            <LayoutDashboard className="h-10 w-10 text-primary" />
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent flex items-center gap-3">
+            <LayoutDashboard className="h-10 w-10 text-[#0e78ba]" />
             Admin Dashboard
           </h1>
           <p className="text-muted-foreground mt-2">Manage your store efficiently</p>
@@ -38,16 +38,16 @@ export default function AdminDashboard() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Link to="/admin/products">
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 border-primary/20 hover:border-primary/40">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 border-[#3491cb]/20 hover:border-[#3491cb]/40">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-primary">
+                <CardTitle className="flex items-center gap-2 text-[#3491cb]">
                   <Package className="h-6 w-6" />
                   Products
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">Manage products, add new items, update inventory</p>
-                <Button className="mt-4 w-full bg-gradient-to-r from-primary to-secondary">
+                <Button className="mt-4 w-full bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac]">
                   Manage Products
                 </Button>
               </CardContent>
@@ -55,16 +55,16 @@ export default function AdminDashboard() {
           </Link>
 
           <Link to="/admin/customers">
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 border-secondary/20 hover:border-secondary/40">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 border-[#3491cb]/20 hover:border-[#3491cb]/40">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-secondary">
+                <CardTitle className="flex items-center gap-2 text-[#3491cb]">
                   <Users className="h-6 w-6" />
                   Customers
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">View and manage customer information</p>
-                <Button className="mt-4 w-full bg-gradient-to-r from-secondary to-accent">
+                <p className="text-muted-foreground">View and manage customer information #############</p>
+                <Button className="mt-4 w-full bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac]">
                   View Customers
                 </Button>
               </CardContent>
@@ -72,16 +72,16 @@ export default function AdminDashboard() {
           </Link>
 
           <Link to="/admin/orders">
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 border-accent/20 hover:border-accent/40">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer border-2 border-[#3491cb]/20 hover:border-[#3491cb]/40">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-accent">
+                <CardTitle className="flex items-center gap-2  text-[#3491cb]">
                   <ShoppingCart className="h-6 w-6" />
                   Orders
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">Track and update order statuses</p>
-                <Button className="mt-4 w-full bg-gradient-to-r from-accent to-primary">
+                <p className="text-muted-foreground">Track and update order statuses for admin</p>
+                <Button className="mt-4 w-full bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac]">
                   Manage Orders
                 </Button>
               </CardContent>

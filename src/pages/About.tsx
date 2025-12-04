@@ -1,8 +1,8 @@
 export default function About() {
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-6">About Caresoft Technology</h1>
+    <div className=" mx-auto px- py-12">
+      <div className="max-w-4xl mx-auto container px-4">
+        <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-[#45b8ff] via-[#3287bc] to-[#020608] bg-clip-text text-transparent">About Caresoft Technology</h1>
 
         <div className="space-y-8">
           <section>
@@ -33,46 +33,49 @@ export default function About() {
             </p>
           </section>
 
-          <section>
-            <h2 className="text-2xl font-semibold mb-4">Why Choose Us?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-              <div className="p-6 bg-card rounded-lg border">
-                <h3 className="font-semibold text-lg mb-2">Quality Products</h3>
-                <p className="text-muted-foreground">
-                  We source only the best products from trusted manufacturers worldwide.
-                </p>
-              </div>
-              <div className="p-6 bg-card rounded-lg border">
-                <h3 className="font-semibold text-lg mb-2">Competitive Pricing</h3>
-                <p className="text-muted-foreground">
-                  Get the best deals with our regular discounts and special offers.
-                </p>
-              </div>
-              <div className="p-6 bg-card rounded-lg border">
-                <h3 className="font-semibold text-lg mb-2">Fast Delivery</h3>
-                <p className="text-muted-foreground">
-                  Free shipping on orders over $100 with quick delivery times.
-                </p>
-              </div>
-              <div className="p-6 bg-card rounded-lg border">
-                <h3 className="font-semibold text-lg mb-2">Customer Support</h3>
-                <p className="text-muted-foreground">
-                  Our dedicated team is always ready to assist you with any questions.
-                </p>
-              </div>
-            </div>
-          </section>
 
-          <section className="bg-primary text-primary-foreground p-8 rounded-lg">
-            <h2 className="text-2xl font-semibold mb-4">Join Our Journey</h2>
-            <p className="leading-relaxed">
-              We're more than just a technology retailer – we're a community of tech enthusiasts
-              dedicated to bringing you the best products and experiences. Join thousands of satisfied
-              customers who trust Caresoft Technology for their tech needs.
-            </p>
-          </section>
+
         </div>
       </div>
+       
+
+       
+      {/* Why Choose Us Section */}
+      <section className="bg-gradient-to-r from-[#38aaf1] via-[#2077ac] to-[#0e202b] text-white py-16 mt-6">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 animate-fade-in">
+            Why Choose Caresoft Technology? 🚀
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+
+            <div className="p-8 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transition-all transform hover:scale-105">
+              <div className="text-5xl mb-4">🚚</div>
+              <h3 className="text-2xl font-semibold mb-2">Free Shipping</h3>
+              <p className="opacity-90 text-lg">On orders over ₹5,000</p>
+            </div>
+
+            <div className="p-8 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transition-all transform hover:scale-105">
+              <div className="text-5xl mb-4">🔒</div>
+              <h3 className="text-2xl font-semibold mb-2">Secure Payment</h3>
+              <p className="opacity-90 text-lg">100% secure transactions</p>
+            </div>
+
+            <div className="p-8 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transition-all transform hover:scale-105">
+              <div className="text-5xl mb-4">🎁</div>
+              <h3 className="text-2xl font-semibold mb-2">Best Deals</h3>
+              <p className="opacity-90 text-lg">Unbeatable prices guaranteed</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+        
+
     </div>
+     
+     
+
   );
 }

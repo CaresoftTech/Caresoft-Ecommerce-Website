@@ -59,11 +59,12 @@ export default function Customer() {
   if (!user) return null;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background">
+    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background overflow-x-hidden">
+
       {/* Header with Profile Icon */}
-      <div className="bg-gradient-to-r from-vibrant-purple via-vibrant-pink to-vibrant-blue py-6 shadow-xl">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between">
+      <div className="bg-gradient-to-r from-vibrant-purple via-vibrant-pink to-vibrant-blue py-6 h shadow-xl">
+        <div className="container mx-auto px-4 h-">
+          <div className="flex items-center justify-between h-8">
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-white flex items-center gap-2">
                 <Sparkles className="h-8 w-8 animate-pulse" />
@@ -226,8 +227,9 @@ export default function Customer() {
         </div>
       )}
 
+
       {/* Banner Carousel */}
-      <section className="container mx-auto px-4 py-6">
+      <section className="w-screen py-">
         <Carousel
           opts={{
             align: "start",
@@ -235,94 +237,78 @@ export default function Customer() {
           }}
           plugins={[
             Autoplay({
-              delay: 4000,
+              delay: 3000,
             }),
           ]}
           className="w-full"
         >
           <CarouselContent>
+
+            {/* IMAGE 1 */}
             <CarouselItem>
-              <div className="h-[150px] md:h-[180px] rounded-xl overflow-hidden bg-gradient-to-r from-vibrant-purple via-vibrant-pink to-vibrant-orange flex items-center justify-between px-6 md:px-12 shadow-lg">
-                <div className="text-white">
-                  <p className="text-xs md:text-sm font-medium opacity-90">Limited Time Offer</p>
-                  <h3 className="text-xl md:text-3xl font-bold">Up to 30% OFF on Laptops</h3>
-                  <p className="text-sm md:text-base opacity-80 mt-1">Use code: TECH30</p>
-                </div>
-                <div className="text-5xl md:text-7xl">💻</div>
+              <div className="h-[240px] md:h-[280px] w-screen overflow-hidden">
+                <img
+                  src="/src/assets/c2.webp"
+                  alt="Banner 1"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </CarouselItem>
+
+            {/* IMAGE 2 */}
             <CarouselItem>
-              <div className="h-[150px] md:h-[180px] rounded-xl overflow-hidden bg-gradient-to-r from-vibrant-blue via-vibrant-teal to-vibrant-green flex items-center justify-between px-6 md:px-12 shadow-lg">
-                <div className="text-white">
-                  <p className="text-xs md:text-sm font-medium opacity-90">Flash Sale</p>
-                  <h3 className="text-xl md:text-3xl font-bold">Free Shipping Today!</h3>
-                  <p className="text-sm md:text-base opacity-80 mt-1">On orders above ₹2,000</p>
-                </div>
-                <div className="text-5xl md:text-7xl">🚚</div>
+              <div className="h-[240px] md:h-[280px] w-screen overflow-hidden">
+                <img
+                  src="/src/assets/c1.webp"
+                  alt="Banner 2"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </CarouselItem>
+
+            {/* IMAGE 3 */}
             <CarouselItem>
-              <div className="h-[150px] md:h-[180px] rounded-xl overflow-hidden bg-gradient-to-r from-vibrant-orange via-vibrant-yellow to-vibrant-pink flex items-center justify-between px-6 md:px-12 shadow-lg">
-                <div className="text-white">
-                  <p className="text-xs md:text-sm font-medium opacity-90">New Arrivals</p>
-                  <h3 className="text-xl md:text-3xl font-bold">Server Spares Collection</h3>
-                  <p className="text-sm md:text-base opacity-80 mt-1">Premium quality guaranteed</p>
-                </div>
-                <div className="text-5xl md:text-7xl">🖥️</div>
+              <div className="h-[240px] md:h-[280px] w-screen overflow-hidden">
+                <img
+                  src="/src/assets/c3.webp"
+                  alt="Banner 3"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </CarouselItem>
+
+            {/* IMAGE 4 */}
             <CarouselItem>
-              <div className="h-[150px] md:h-[180px] rounded-xl overflow-hidden bg-gradient-to-r from-vibrant-teal via-vibrant-blue to-vibrant-purple flex items-center justify-between px-6 md:px-12 shadow-lg">
-                <div className="text-white">
-                  <p className="text-xs md:text-sm font-medium opacity-90">Weekend Special</p>
-                  <h3 className="text-xl md:text-3xl font-bold">Buy 2 Get 10% OFF</h3>
-                  <p className="text-sm md:text-base opacity-80 mt-1">On RAM & Accessories</p>
-                </div>
-                <div className="text-5xl md:text-7xl">🎉</div>
+              <div className="h-[240px] md:h-[280px] w-screen overflow-hidden">
+                <img
+                  src="/src/assets/c4.webp"
+                  alt="Banner 4"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </CarouselItem>
+
           </CarouselContent>
-          <CarouselPrevious className="left-2 bg-white/90 hover:bg-white text-vibrant-purple shadow-md" />
-          <CarouselNext className="right-2 bg-white/90 hover:bg-white text-vibrant-purple shadow-md" />
+
+          <CarouselPrevious className="left-2 bg-white/90 hover:bg-white shadow-md" />
+          <CarouselNext className="right-2 bg-white/90 hover:bg-white shadow-md" />
+
         </Carousel>
       </section>
 
-      {/* Small Promotional Banners */}
-      <section className="container mx-auto px-4 py-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="h-[100px] rounded-lg bg-gradient-to-r from-vibrant-purple to-vibrant-pink p-4 flex items-center justify-between shadow-sm hover:scale-[1.02] transition-transform cursor-pointer">
-            <div className="text-white">
-              <p className="font-bold text-lg">24/7 Support</p>
-              <p className="text-sm opacity-80">We're here to help</p>
-            </div>
-            <span className="text-4xl">🎧</span>
-          </div>
-          <div className="h-[100px] rounded-lg bg-gradient-to-r from-vibrant-teal to-vibrant-blue p-4 flex items-center justify-between shadow-sm hover:scale-[1.02] transition-transform cursor-pointer">
-            <div className="text-white">
-              <p className="font-bold text-lg">Easy Returns</p>
-              <p className="text-sm opacity-80">30-day return policy</p>
-            </div>
-            <span className="text-4xl">↩️</span>
-          </div>
-          <div className="h-[100px] rounded-lg bg-gradient-to-r from-vibrant-orange to-vibrant-yellow p-4 flex items-center justify-between shadow-sm hover:scale-[1.02] transition-transform cursor-pointer">
-            <div className="text-white">
-              <p className="font-bold text-lg">Genuine Products</p>
-              <p className="text-sm opacity-80">100% Authentic</p>
-            </div>
-            <span className="text-4xl">✅</span>
-          </div>
-        </div>
-      </section>
+
+
+
 
       {/* Animated Product Slider */}
-      <section className="container mx-auto px-4 py-8">
+      <section className="container mx-auto px-4 py-3">
         <div className="mb-6">
-          <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-vibrant-purple via-vibrant-pink to-vibrant-blue bg-clip-text text-transparent">
-            🔥 Hot Deals for You
+          <h2 className="text-3xl font-bold mb-2 ">
+            🔥<span className='text-3xl font-bold mb-2 bg-gradient-to-r from-[#30aefc] via-[#24a6f7] to-[#17506c] bg-clip-text text-transparent' >Hot Deals for You</span>
           </h2>
           <p className="text-muted-foreground">Trending products you'll love</p>
         </div>
-        
+
         <Carousel
           opts={{
             align: "start",
@@ -366,7 +352,7 @@ export default function Customer() {
       {/* All Products - 4 per row */}
       <section className="container mx-auto px-4 pb-12">
         <div className="mb-6">
-          <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-vibrant-teal via-vibrant-blue to-vibrant-purple bg-clip-text text-transparent">
+          <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-[#36acf5] via-[#1390ac] to-[#020608] bg-clip-text text-transparent">
             All Products
           </h2>
           <p className="text-muted-foreground">Browse our complete collection</p>
@@ -396,8 +382,8 @@ export default function Customer() {
               <p className="text-sm md:text-lg opacity-80">Use code: CARESOFT500 at checkout</p>
             </div>
             <div className="pb-6 md:pb-0">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-white text-vibrant-purple hover:bg-vibrant-yellow hover:text-white font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
                 onClick={() => navigate('/customer')}
               >

@@ -16,15 +16,13 @@ export const AdminHeader = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 shadow-lg">
+    <header className="sticky top-0 z-50 w-full border-b bg-gradient-to-r from-[#74daf7bb] via-[#297aad] to-[#20577a] shadow-lg">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/admin" className="flex items-center space-x-2">
-            <img src={logo} alt="Caresoft Technology" className="h-10 w-10" />
-            <span className="font-bold text-lg text-white">
-              Admin Panel
-            </span>
+            <img src={logo} alt="Caresoft Technology" className="h-10 w-50" />
+
           </Link>
 
           {/* Admin Navigation */}
@@ -36,7 +34,7 @@ export const AdminHeader = () => {
             <Button
               variant="ghost"
               onClick={handleLogout}
-              className="text-white/80 hover:text-white hover:bg-red-500/20"
+              className="text-white/80 hover:text-white hover:bg-[#00000020]"
             >
               <LogOut className="h-4 w-4 mr-2" />
               Logout

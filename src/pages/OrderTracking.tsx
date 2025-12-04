@@ -94,13 +94,13 @@ const OrderTracking = () => {
                                 <div
                                   className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
                                     isCompleted
-                                      ? 'bg-primary text-primary-foreground'
+                                      ? 'bg-[#3491cb] text-primary-foreground'
                                       : 'bg-muted text-muted-foreground'
                                   }`}
                                 >
                                   <StepIcon className="w-5 h-5" />
                                 </div>
-                                <span className={`text-xs mt-2 ${isCompleted ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
+                                <span className={`text-xs mt-2 ${isCompleted ? 'text-[#3491cb] font-medium' : 'text-muted-foreground'}`}>
                                   {step}
                                 </span>
                               </div>
@@ -109,7 +109,7 @@ const OrderTracking = () => {
                           {/* Progress Line */}
                           <div className="absolute top-5 left-0 right-0 h-0.5 bg-muted -z-0">
                             <div
-                              className="h-full bg-primary transition-all duration-500"
+                              className="h-full bg-[#3491cb] transition-all duration-500"
                               style={{ width: `${(currentIndex / (steps.length - 1)) * 100}%` }}
                             />
                           </div>

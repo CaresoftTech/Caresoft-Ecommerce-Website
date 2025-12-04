@@ -32,7 +32,7 @@ export default function AdminCustomers() {
       <div className="container mx-auto px-4">
         <Card className="border-2 border-primary/20 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-3xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent flex items-center gap-2">
+            <CardTitle className="text-3xl font-bold bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent flex items-center gap-2">
               <Users className="h-8 w-8 text-primary" />
               Customer List
             </CardTitle>

@@ -31,13 +31,12 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-background via-muted/30 to-background">
       {/* Hero Carousel with Gradient Overlay */}
-      <section className="relative w-full h-[350px] md:h-[450px] lg:h-[550px] overflow-hidden">
+      <section className="relative w-full h-[200px] md:h-[320px] lg:h-[350px] overflow-hidden">
         {carouselImages.map((image, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-all duration-1000 ${
-              index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-            }`}
+            className={`absolute inset-0 transition-all duration-1000 ${index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+              }`}
           >
             <img
               src={image}
@@ -68,21 +67,26 @@ export default function Home() {
           </div>
         ))}
 
-        <Button
+               <Button
           variant="ghost"
           size="icon"
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white backdrop-blur-sm"
+          className="absolute left-1 top-1/2 -translate-y- 
+             hover:bg-white/50 text-white backdrop-blur-sm
+             p-1.5 sm:p-2"
           onClick={prevSlide}
         >
-          <ChevronLeft className="h-6 w-6" />
+          <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
         </Button>
+
         <Button
           variant="ghost"
           size="icon"
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white backdrop-blur-sm"
+          className="absolute right-3 top-1/2 -translate-y 
+              hover:bg-white/50 text-white backdrop-blur-sm
+             p-1.5 sm:p-2"
           onClick={nextSlide}
         >
-          <ChevronRight className="h-6 w-6" />
+          <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
         </Button>
 
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
@@ -90,9 +94,8 @@ export default function Home() {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`h-2 rounded-full transition-all ${
-                index === currentSlide ? 'bg-white w-8' : 'bg-white/50 w-2'
-              }`}
+              className={`h-2 rounded-full transition-all ${index === currentSlide ? 'bg-white w-8' : 'bg-white/50 w-2'
+                }`}
             />
           ))}
         </div>
@@ -121,7 +124,7 @@ export default function Home() {
             <h3 className="text-xl font-bold mb-2">100% Secure</h3>
             <p className="opacity-90">Safe & encrypted payments</p>
           </div>
-          <div className="bg-gradient-to-br from-vibrant-teal to-vibrant-blue p-6 rounded-2xl text-white shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all">
+          <div className="bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] p-6 rounded-2xl text-white shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all">
             <TrendingUp className="h-12 w-12 mb-4" />
             <h3 className="text-xl font-bold mb-2">Best Prices</h3>
             <p className="opacity-90">Guaranteed lowest prices</p>
@@ -137,11 +140,11 @@ export default function Home() {
       {/* Products Section */}
       <section className="container mx-auto px-4 py-12">
         <div className="mb-8 text-center">
-          <h2 className="text-4xl font-bold mb-2 bg-gradient-to-r from-vibrant-purple via-vibrant-pink to-vibrant-blue bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-2 bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent">
             Featured Products
           </h2>
           <p className="text-muted-foreground text-lg">
-            Explore our latest collection of cutting-edge technology ✨
+            Explore our latest collection of cutting-edge technology
           </p>
         </div>
 
@@ -153,30 +156,17 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="bg-gradient-to-r from-vibrant-blue via-vibrant-teal to-vibrant-green text-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 animate-fade-in">
-            Why Choose Caresoft Technology? 🚀
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="p-8 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transition-all transform hover:scale-105">
-              <div className="text-5xl mb-4">🚚</div>
-              <h3 className="text-2xl font-semibold mb-2">Free Shipping</h3>
-              <p className="opacity-90 text-lg">On orders over ₹5,000</p>
-            </div>
-            <div className="p-8 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transition-all transform hover:scale-105">
-              <div className="text-5xl mb-4">🔒</div>
-              <h3 className="text-2xl font-semibold mb-2">Secure Payment</h3>
-              <p className="opacity-90 text-lg">100% secure transactions</p>
-            </div>
-            <div className="p-8 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transition-all transform hover:scale-105">
-              <div className="text-5xl mb-4">🎁</div>
-              <h3 className="text-2xl font-semibold mb-2">Best Deals</h3>
-              <p className="opacity-90 text-lg">Unbeatable prices guaranteed</p>
-            </div>
-          </div>
-        </div>
-      </section>
+<section
+  className="relative w-full  bg-cover bg-center bg-no-repeat min-h-[350px] md:min-h-[380px] "
+  style={{
+    backgroundImage: "url('/src/assets/bg1.png')",
+  }}
+>
+  {/* Empty overlay area – removed all text & boxes */}
+  <div className="absolute inset-0 bg-black/0"></div>
+</section>
+
+
     </div>
   );
 }

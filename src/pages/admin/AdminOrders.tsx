@@ -50,7 +50,7 @@ export default function AdminOrders() {
       <div className="container mx-auto px-4">
         <Card className="border-2 border-primary/20 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-3xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent flex items-center gap-2">
+            <CardTitle className="text-3xl font-bold bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent flex items-center gap-2">
               <ShoppingCart className="h-8 w-8 text-primary" />
               Order Management
             </CardTitle>
@@ -89,10 +89,10 @@ export default function AdminOrders() {
                               value={order.status}
                               onValueChange={(value) => updateOrderStatus(order.id, value)}
                             >
-                              <SelectTrigger className="w-[140px]">
+                              <SelectTrigger className="w-[140px] ">
                                 <SelectValue />
                               </SelectTrigger>
-                              <SelectContent>
+                              <SelectContent >
                                 <SelectItem value="Pending">Pending</SelectItem>
                                 <SelectItem value="Processing">Processing</SelectItem>
                                 <SelectItem value="Shipped">Shipped</SelectItem>

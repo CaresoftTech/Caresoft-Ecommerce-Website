@@ -18,7 +18,7 @@ export const AdminSidebar = () => {
   return (
     <aside
       className={cn(
-        "bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 min-h-[calc(100vh-4rem)] transition-all duration-300 shadow-xl",
+        "bg-gradient-to-b from-[#1a3546c8] via-[#152a37cf] to-[#15384fbb] min-h-[calc(100vh-4rem)] transition-all duration-300 shadow-xl",
         collapsed ? "w-16" : "w-64"
       )}
     >
@@ -43,7 +43,7 @@ export const AdminSidebar = () => {
               className={cn(
                 "flex items-center gap-3 px-4 py-3 rounded-lg transition-all",
                 isActive
-                  ? "bg-gradient-to-r from-primary to-secondary text-white shadow-md"
+                  ? "bg-gradient-to-r from-[#3491cb] to-[#16425d] text-white shadow-md"
                   : "text-white/70 hover:text-white hover:bg-white/10"
               )}
             >

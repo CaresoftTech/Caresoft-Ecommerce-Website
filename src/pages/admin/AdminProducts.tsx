@@ -125,13 +125,13 @@ export default function AdminProducts() {
         <Card className="border-2 border-primary/20 shadow-xl">
           <CardHeader>
             <div className="flex justify-between items-center">
-              <CardTitle className="text-3xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent flex items-center gap-2">
+              <CardTitle className="text-3xl font-bold bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#174963] bg-clip-text text-transparent flex items-center gap-2">
                 <Package className="h-8 w-8 text-primary" />
                 Product Management
               </CardTitle>
               <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                 <DialogTrigger asChild>
-                  <Button className="bg-gradient-to-r from-primary to-secondary">
+                  <Button className="bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac]">
                     <Plus className="mr-2 h-4 w-4" />
                     Add Product
                   </Button>
@@ -220,7 +220,7 @@ export default function AdminProducts() {
                         required
                       />
                     </div>
-                    <Button type="submit" className="w-full bg-gradient-to-r from-primary to-secondary">
+                    <Button type="submit" className="w-full bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac]">
                       {editingProduct ? 'Update Product' : 'Add Product'}
                     </Button>
                   </form>
@@ -269,7 +269,7 @@ export default function AdminProducts() {
                         </TableCell>
                         <TableCell>{product.stock_quantity || 0}</TableCell>
                         <TableCell>
-                          <span className={product.is_active ? 'text-green-600' : 'text-red-600'}>
+                          <span className={product.is_active ? 'text-[#05ed56] font-bold ' : 'text-red-600'} >
                             {product.is_active ? 'Active' : 'Inactive'}
                           </span>
                         </TableCell>

@@ -40,7 +40,7 @@ export default function Contact() {
     <div className="container mx-auto px-4 py-12">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
+          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent">Contact Us</h1>
           <p className="text-muted-foreground text-lg">
             Have a question? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
           </p>
@@ -50,7 +50,7 @@ export default function Contact() {
           {/* Contact Form */}
           <Card>
             <CardHeader>
-              <CardTitle>Send us a Message</CardTitle>
+              <CardTitle ><span className='text-[#1892d4]'>Send us a Message</span></CardTitle>
               <CardDescription>
                 Fill out the form below and we'll get back to you shortly
               </CardDescription>
@@ -92,7 +92,7 @@ export default function Contact() {
                     required
                   />
                 </div>
-                <Button type="submit" className="w-full" disabled={loading}>
+                <Button type="submit" className="w-full bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac]" disabled={loading}>
                   {loading ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
@@ -108,13 +108,13 @@ export default function Contact() {
               <CardContent className="space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="bg-primary/10 p-3 rounded-lg">
-                    <Mail className="h-6 w-6 text-primary" />
+                    <Mail className="h-6 w-6 text-[#3491cb]" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
                     <a
                       href="mailto:info@caresoft.tech"
-                      className="text-muted-foreground hover:text-primary transition-colors"
+                      className="text-muted-foreground hover:text-[#3491cb] transition-colors"
                     >
                       info@caresoft.tech
                     </a>
@@ -123,13 +123,13 @@ export default function Contact() {
 
                 <div className="flex items-start gap-4">
                   <div className="bg-primary/10 p-3 rounded-lg">
-                    <Phone className="h-6 w-6 text-primary" />
+                    <Phone className="h-6 w-6 text-[#3491cb]" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Phone</h3>
                     <a
                       href="tel:+1234567890"
-                      className="text-muted-foreground hover:text-primary transition-colors"
+                      className="text-muted-foreground hover:text-[#3491cb] transition-colors"
                     >
                       +1 (234) 567-890
                     </a>
@@ -138,7 +138,7 @@ export default function Contact() {
 
                 <div className="flex items-start gap-4">
                   <div className="bg-primary/10 p-3 rounded-lg">
-                    <MapPin className="h-6 w-6 text-primary" />
+                    <MapPin className="h-6 w-6 text-[#3491cb]" />
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Address</h3>
@@ -152,19 +152,16 @@ export default function Contact() {
               </CardContent>
             </Card>
 
-            <Card className="bg-primary text-primary-foreground">
+            <Card className="bg-[#3491cb] text-white">
               <CardHeader>
                 <CardTitle>Business Hours</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span>Monday - Friday</span>
-                  <span className="font-semibold">9:00 AM - 6:00 PM</span>
+                  <span>Monday - Saturday</span>
+                  <span className="font-semibold">9:00 AM - 7:00 PM</span>
                 </div>
-                <div className="flex justify-between">
-                  <span>Saturday</span>
-                  <span className="font-semibold">10:00 AM - 4:00 PM</span>
-                </div>
+
                 <div className="flex justify-between">
                   <span>Sunday</span>
                   <span className="font-semibold">Closed</span>
