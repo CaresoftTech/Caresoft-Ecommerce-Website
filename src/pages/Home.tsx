@@ -57,9 +57,11 @@ export default function Home() {
                   <p className="text-lg md:text-2xl mb-6 text-white/90">
                     Discover cutting-edge gadgets with unbeatable offers 🎉
                   </p>
-                  <Button size="lg" className="bg-vibrant-orange hover:bg-vibrant-yellow text-white font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
-                    Shop Now
-                  </Button>
+                  <div className="flex flex-wrap gap-4">
+                    <Button size="lg" className="bg-vibrant-orange hover:bg-vibrant-yellow text-white font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                      Shop Now
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
