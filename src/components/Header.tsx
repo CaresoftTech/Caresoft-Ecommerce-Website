@@ -5,7 +5,7 @@ import { Input } from './ui/input';
 import { useAuth } from '@/contexts/AuthContext';
 import { useCart } from '@/contexts/CartContext';
 import { useState } from 'react';
-import logo from '@/assets/caresoft-logo.png';
+import logo from '@/assets/caresoft-logo2.png';
 
 export const Header = () => {
   const { user } = useAuth();
@@ -29,13 +29,13 @@ export const Header = () => {
   const homeLink = user ? "/customer" : "/";
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-white ">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
 
           {/* Logo */}
           <Link to={homeLink} className="flex items-center space-x-2">
-            <img src={logo} alt="Caresoft Technology" className="h-10 w-50" />
+            <img src={logo} alt="Caresoft Technology" className="h-15 w-60" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -49,12 +49,13 @@ export const Header = () => {
               Home
             </Link>
 
-            {user && (
+            {/* {user && (
               <Link to="/order-tracking" className="text-sm font-medium text-[#3491cb] hover:text-[#176178] transition-colors flex items-center gap-1">
                 <MapPin className="h-4 w-4" />
                 Track Order
               </Link>
-            )}
+            )} */}
+            
           </nav>
 
           {/* Search Bar */}

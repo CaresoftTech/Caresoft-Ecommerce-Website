@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Search, User, LogOut, Edit, Sparkles, MapPin } from 'lucide-react';
+import { Search, User, LogOut, Edit, Sparkles, MapPin, Zap } from 'lucide-react';
 import { toast } from 'sonner';
 import {
   Carousel,
@@ -62,15 +62,14 @@ export default function Customer() {
     <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background overflow-x-hidden">
 
       {/* Header with Profile Icon */}
-      <div className="bg-gradient-to-r from-vibrant-purple via-vibrant-pink to-vibrant-blue py-6 h shadow-xl">
+      <div className="bg-gradient-to-r from-vibrant-purple via-vibrant-pink to-vibrant-blue py-3 h shadow-xl">
         <div className="container mx-auto px-4 h-">
           <div className="flex items-center justify-between h-8">
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-white flex items-center gap-2">
-                <Sparkles className="h-8 w-8 animate-pulse" />
+              <h1 className="text-2xl md:text-2xl font-bold text-white flex items-center gap-2">
+                <Sparkles className="h-4 w-8 animate-pulse" />
                 Welcome back, {user.name}!
               </h1>
-              <p className="text-white/80 mt-1">Explore amazing deals just for you ✨</p>
             </div>
             <Button
               variant="ghost"
@@ -143,7 +142,7 @@ export default function Customer() {
                           />
                         </div>
                         <div className="flex gap-2 pt-4">
-                          <Button onClick={handleUpdateProfile} className="flex-1 bg-vibrant-purple hover:bg-vibrant-pink">
+                          <Button onClick={handleUpdateProfile} className="flex-1 bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac]">
                             Save Changes
                           </Button>
                           <Button
@@ -156,7 +155,7 @@ export default function Customer() {
                                 address: user?.address || '',
                               });
                             }}
-                            className="flex-1"
+                            className="flex-1 hover:bg-red-500 "
                           >
                             Cancel
                           </Button>
@@ -297,6 +296,65 @@ export default function Customer() {
       </section>
 
 
+      {/* 🔥 Modern Animated Announcement Bar (Only this section) */}
+
+      <section className="relative overflow-hidden w-full">
+        <div className="announcement-bar bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 text-white shadow-lg w-full">
+          <div className="marquee whitespace-nowrap flex items-center gap-10 px-4">
+
+            <div className="flex items-center gap-2">
+              <Zap className="h-5 w-5 animate-pulse" />
+              <span className="font-semibold text-sm tracking-wide">
+                MEGA SALE: Up to 25% OFF!
+              </span>
+            </div>
+
+            <span className="text-xs bg-white/20 px-3 py-1 rounded-full backdrop-blur-md">
+              ⏰ Limited time offer. Shop now!
+            </span>
+
+            <span className="font-semibold text-sm tracking-wide flex items-center gap-2">
+              <Zap className="h-4 w-4 animate-pulse" />
+              Free Shipping on Orders Above ₹999
+            </span>
+
+            <span className="text-xs bg-white/20 px-3 py-1 rounded-full backdrop-blur-md">
+              🚚 Fast Delivery Available!
+            </span>
+
+            <span className="font-semibold text-sm tracking-wide flex items-center gap-2">
+              <Zap className="h-4 w-4 animate-pulse" />
+              New Arrivals Live Now!
+            </span>
+
+          </div>
+        </div>
+      </section>
+
+
+      <style>
+        {`
+  .announcement-bar {
+    padding: 6px 0;
+    backdrop-filter: blur(6px);
+  }
+
+  .marquee {
+    display: inline-flex;
+    animation: marquee 28s linear infinite;
+  }
+
+  .marquee:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+`}
+      </style>
+
 
 
 
@@ -335,19 +393,7 @@ export default function Customer() {
         </Carousel>
       </section>
 
-      {/* Search Bar */}
-      <section className="container mx-auto px-4 py-6">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-vibrant-purple" />
-          <Input
-            type="search"
-            placeholder="Search products by name..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10 border-vibrant-purple/30 focus:border-vibrant-purple shadow-md"
-          />
-        </div>
-      </section>
+
 
       {/* All Products - 4 per row */}
       <section className="container mx-auto px-4 pb-12">
@@ -357,6 +403,37 @@ export default function Customer() {
           </h2>
           <p className="text-muted-foreground">Browse our complete collection</p>
         </div>
+
+        {/* 🎯 NEW Product Filter Section */}
+        <section className="container mx-auto px-4 mt-0 mb-6">
+          <div className="w-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg shadow-[#3491cb] rounded-2xl p-4 md:p-6 bg-gradient-to-br from-[#ffffff0a] via-[#c7dfff0f] to-[#315d790c]">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+
+              {/* Categories */}
+              <div className="flex flex-wrap gap-3">
+                {["All", "Laptops", "Computers", "Headphones", "Accessories", "Printers", "Laptops", "Computers", "Accessories", "Printers"].map(
+                  (cat) => (
+                    <button
+                      key={cat}
+                      className="px-4 py-2 text-sm font-semibold rounded-sm bg-gradient-to-br from-[#6fc8ff] to-[#1b4e70] text-white shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300"
+                    >
+                      {cat}
+                    </button>
+                  )
+                )}
+              </div>
+
+              {/* Sort */}
+              <select className="px-4 py-2 rounded-xl border bg-white  text-gray-700  shadow-md focus:ring-2 focus:ring-[#3491cb] outline-none transition-all">
+                <option value="default">Sort By</option>
+                <option value="low-high">Price: Low → High</option>
+                <option value="high-low">Price: High → Low</option>
+                <option value="new">Newest First</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
 
         {filteredProducts.length === 0 ? (
           <div className="text-center py-12">

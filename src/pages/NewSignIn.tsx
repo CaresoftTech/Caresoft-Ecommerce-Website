@@ -59,7 +59,7 @@ export default function NewSignIn() {
         </div>
 
         {/* Right Side Login Form */}
-        <Card className="w-full max-w-md mx-auto relative bg-gradient-to-br from-vibrant-purple/10 to-vibrant-pink/10 border-2 border-vibrant-purple/20 shadow-2xl">
+        <Card className="w-full max-w-md mx-auto relative bg-gradient-to-br from-vibrant-purple/10 to-vibrant-pink/10 border-2 border-vibrant-purple/20 shadow-2xl shadow-[#3491cb]">
           <button
             onClick={() => navigate(-1)}
             className="absolute top-3 left-3 p-2 rounded-full hover:bg-muted transition"

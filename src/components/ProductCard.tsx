@@ -38,7 +38,7 @@ export const ProductCard = ({ product, requireLogin = false }: ProductCardProps)
   };
 
   return (
-     <Card className="group overflow-hidden transition-all hover:shadow-lg">
+    <Card className="group overflow-hidden transition-all hover:shadow-lg">
       <div className="relative overflow-hidden aspect-square">
         <img
           src={product.image}
@@ -72,33 +72,46 @@ export const ProductCard = ({ product, requireLogin = false }: ProductCardProps)
         </div>
       </CardContent>
 
-      <CardFooter className="p-4 pt-0 flex gap-2">
+      <CardFooter
+        className="
+    p-4 pt-0 
+    flex flex-col gap-2
+    sm:flex-row 
+  "
+      >
         <Button
           variant="outline"
           className="
-      flex-1 border-[#3491cb] text-[#3491cb] hover:bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:text-white
-      !text-xs !px-2 !py-1   /* FORCE MOBILE SMALL */
-      sm:!text-sm sm:!px-3 sm:!py-2
-      md:!text-base md:!px-4 md:!py-2
-    "
+    flex-1 border-[#3491cb] text-[#3491cb] 
+    hover:bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:text-white
+
+    text-xs px-2 py-1
+    sm:text-sm sm:px-3 sm:py-2
+    md:text-base md:px-4 md:py-2
+    flex items-center justify-center gap-2
+  "
           onClick={handleAddToCart}
         >
-          <ShoppingCart className="mr-2 h-4 w-4" />
+          {/* Icon visible only on desktop */}
+          <ShoppingCart className="hidden md:inline-block h-4 w-4" />
+
           Add to Cart
         </Button>
 
         <Button
           className="
       flex-1 bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac]
-      !text-xs !px-2 !py-1
-      sm:!text-sm sm:!px-3 sm:!py-2
-      md:!text-base md:!px-4 md:!py-2
+
+      text-xs px-2 py-1
+      sm:text-sm sm:px-3 sm:py-2
+      md:text-base md:px-4 md:py-2
     "
           onClick={handleBuyNow}
         >
           Buy Now
         </Button>
       </CardFooter>
+
     </Card>
   );
 };

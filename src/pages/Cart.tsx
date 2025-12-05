@@ -32,7 +32,7 @@ export default function Cart() {
   const savings = totalPrice - totalOfferPrice;
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 bg-gradient-to-tr from-[#f0faff] via-[#e2f5ff] to-[#ffffff] ">
       <h1 className="text-3xl font-bold mb-8 text-[#0da1e1]">Shopping Cart</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
