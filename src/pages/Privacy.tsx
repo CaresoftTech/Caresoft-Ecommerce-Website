@@ -79,7 +79,7 @@ export default function PrivacyOption2() {
     {
       title: "9. Contact Us",
       content: [
-        "If you have questions about this Privacy Policy or how we handle your data, please contact us at privacy@caresofttech.com",
+        "If you have questions about this Privacy Policy or how we handle your data, please contact us at sales@caresoft.in",
       ],
     },
   ];
