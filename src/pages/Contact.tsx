@@ -76,7 +76,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Contact Form */}
+      
       <section className="max-w-4xl mx-auto px-4 mt-12 mb-24">
         <div className="bg-white/80 backdrop-blur-lg shadow-2xl rounded-3xl p-10">
           <h2 className="text-3xl font-bold  bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent mb-6 text-center">Send Us a Message</h2>

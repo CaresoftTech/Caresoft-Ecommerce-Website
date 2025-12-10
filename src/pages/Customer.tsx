@@ -61,7 +61,7 @@ export default function Customer() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background overflow-x-hidden">
 
-      {/* Header with Profile Icon */}
+ 
       <div className="bg-gradient-to-r from-vibrant-purple via-vibrant-pink to-vibrant-blue py-3 h shadow-xl">
         <div className="container mx-auto px-4 h-">
           <div className="flex items-center justify-between h-8">
@@ -83,7 +83,7 @@ export default function Customer() {
         </div>
       </div>
 
-      {/* Profile Card - Hidden by default */}
+    
       {profileOpen && (
         <div className="container mx-auto px-4 py-6 animate-fade-in">
           <Card className="bg-gradient-to-br from-vibrant-purple/10 to-vibrant-pink/10 border-2 border-vibrant-purple/20 shadow-xl">
@@ -227,7 +227,7 @@ export default function Customer() {
       )}
 
 
-      {/* Banner Carousel */}
+     
       <section className="w-screen py-">
         <Carousel
           opts={{
@@ -243,7 +243,7 @@ export default function Customer() {
         >
           <CarouselContent>
 
-            {/* IMAGE 1 */}
+      
             <CarouselItem>
               <div className="h-[240px] md:h-[280px] w-screen overflow-hidden">
                 <img
@@ -254,7 +254,6 @@ export default function Customer() {
               </div>
             </CarouselItem>
 
-            {/* IMAGE 2 */}
             <CarouselItem>
               <div className="h-[240px] md:h-[280px] w-screen overflow-hidden">
                 <img
@@ -265,7 +264,6 @@ export default function Customer() {
               </div>
             </CarouselItem>
 
-            {/* IMAGE 3 */}
             <CarouselItem>
               <div className="h-[240px] md:h-[280px] w-screen overflow-hidden">
                 <img
@@ -276,7 +274,7 @@ export default function Customer() {
               </div>
             </CarouselItem>
 
-            {/* IMAGE 4 */}
+      
             <CarouselItem>
               <div className="h-[240px] md:h-[280px] w-screen overflow-hidden">
                 <img
@@ -296,7 +294,7 @@ export default function Customer() {
       </section>
 
 
-      {/* 🔥 Modern Animated Announcement Bar (Only this section) */}
+  
 
       <section className="relative overflow-hidden w-full">
         <div className="announcement-bar bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 text-white shadow-lg w-full">
@@ -358,7 +356,7 @@ export default function Customer() {
 
 
 
-      {/* Animated Product Slider */}
+    
       <section className="container mx-auto px-4 py-3">
         <div className="mb-6">
           <h2 className="text-3xl font-bold mb-2 ">
@@ -395,7 +393,7 @@ export default function Customer() {
 
 
 
-      {/* All Products - 4 per row */}
+ 
       <section className="container mx-auto px-4 pb-12">
         <div className="mb-6">
           <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-[#36acf5] via-[#1390ac] to-[#020608] bg-clip-text text-transparent">
@@ -404,12 +402,11 @@ export default function Customer() {
           <p className="text-muted-foreground">Browse our complete collection</p>
         </div>
 
-        {/* 🎯 NEW Product Filter Section */}
         <section className="container mx-auto px-4 mt-0 mb-6">
           <div className="w-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg shadow-[#3491cb] rounded-2xl p-4 md:p-6 bg-gradient-to-br from-[#ffffff0a] via-[#c7dfff0f] to-[#315d790c]">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
 
-              {/* Categories */}
+          
               <div className="flex flex-wrap gap-3">
                 {["All", "Laptops", "Computers", "Headphones", "Accessories", "Printers", "Laptops", "Computers", "Accessories", "Printers"].map(
                   (cat) => (
@@ -423,7 +420,7 @@ export default function Customer() {
                 )}
               </div>
 
-              {/* Sort */}
+           
               <select className="px-4 py-2 rounded-xl border bg-white  text-gray-700  shadow-md focus:ring-2 focus:ring-[#3491cb] outline-none transition-all">
                 <option value="default">Sort By</option>
                 <option value="low-high">Price: Low → High</option>

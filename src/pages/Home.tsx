@@ -189,28 +189,26 @@ export default function Home() {
 
 
 
-      {/*  Products List */}
+
       <section className="container mx-auto px-4 py-12">
         <div className="mb-8 text-center">
           <h2 className="text-4xl font-bold mb-2 bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent">
             Featured Products
           </h2>
         </div>
-<section className="container mx-auto px-4 mt-1 mb-6">
+        <section className="container mx-auto px-4 mt-1 mb-6">
 
-  <div className="w-full bg-white/10 backdrop-blur-xl border border-white/20 
-      shadow-lg shadow-[#3491cb]/40 rounded-2xl p-4 md:p-6 
-      bg-gradient-to-br from-[#ffffff0a] via-[#d7e7ff0f] to-[#2e55750c]">
-      
-    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div className="w-full bg-white/10 backdrop-blur-xl border border-white/20 
+                          shadow-lg shadow-[#3491cb]/40 rounded-2xl p-4 md:p-6 
+                          bg-gradient-to-br from-[#ffffff0a] via-[#d7e7ff0f] to-[#2e55750c]">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 
-      {/* Categories */}
-      <div className="flex overflow-x-auto gap-3 pb-2 no-scrollbar">
-        {["All", "Laptops", "Computers", "Headphones", "Accessories", "Printers"].map(
-          (cat) => (
-            <button
-              key={cat}
-              className="
+              <div className="flex overflow-x-auto gap-3 pb-2 no-scrollbar">
+                {["All", "Laptops", "Computers", "Headphones", "Accessories", "Printers"].map(
+                  (cat) => (
+                    <button
+                      key={cat}
+                      className="
                 px-4 py-2 text-sm font-semibold rounded-xl
                 bg-gradient-to-br from-[#4cb9fd] to-[#153f5b]
                 text-white shadow-md
@@ -218,31 +216,31 @@ export default function Home() {
                 transition-all duration-300
                 whitespace-nowrap
               "
-            >
-              {cat}
-            </button>
-          )
-        )}
-      </div>
+                    >
+                      {cat}
+                    </button>
+                  )
+                )}
+              </div>
 
-      {/* Sort Dropdown */}
-      <select
-        className="
+
+              <select
+                className="
           w-full md:w-auto
           px-4 py-2 rounded-xl border bg-white text-gray-700 shadow-lg
           focus:ring-2 focus:ring-[#3491cb] transition-all outline-none
         "
-      >
-        <option value="default">Sort By</option>
-        <option value="low-high">Price: Low → High</option>
-        <option value="high-low">Price: High → Low</option>
-        <option value="new">Newest First</option>
-      </select>
+              >
+                <option value="default">Sort By</option>
+                <option value="low-high">Price: Low → High</option>
+                <option value="high-low">Price: High → Low</option>
+                <option value="new">Newest First</option>
+              </select>
 
-    </div>
-  </div>
+            </div>
+          </div>
 
-</section>
+        </section>
 
 
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
