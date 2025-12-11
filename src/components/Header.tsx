@@ -1,173 +1,258 @@
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { ShoppingCart, Search, Menu, User, MapPin } from 'lucide-react';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { useAuth } from '@/contexts/AuthContext';
-import { useCart } from '@/contexts/CartContext';
-import { useState } from 'react';
-import logo from '@/assets/caresoft-logo2.png';
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { ShoppingCart, Search, Menu, User } from "lucide-react";
+import { Button } from "./ui/button";
+import { useAuth } from "@/contexts/AuthContext";
+import { useCart } from "@/contexts/CartContext";
+import { useState, useEffect } from "react";
+import logo from "@/assets/caresoft-logo2.png";
 
 export const Header = () => {
+  const navigate = useNavigate();
+  const { pathname } = useLocation(); // ⭐ to show filter only in Home
   const { user } = useAuth();
   const { cart } = useCart();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
 
-  const handleSearch = (e: React.FormEvent) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showFixedHeader, setShowFixedHeader] = useState(false);
+
+  const categories = [
+    "All Products",
+    "Laptops",
+    "Computers",
+    "Headphones",
+    "Accessories",
+    "Printers",
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const HEADER_HEIGHT = 120;
+      if (window.scrollY > HEADER_HEIGHT) {
+        setShowFixedHeader(true);
+      } else {
+        setShowFixedHeader(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      navigate(`/customer?search=${searchQuery}`);
+      navigate(`/?search=${searchQuery}`);
     }
   };
 
-  const cartItemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const isHomePage = location.pathname === '/';
-
-  // ✅ Dynamic home link
-  const homeLink = user ? "/customer" : "/";
-
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white ">
-      <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
-
-          {/* Logo */}
-          <Link to={homeLink} className="flex items-center space-x-2">
-            <img src={logo} alt="Caresoft Technology" className="h-15 w-60" />
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
-
-            {/* Updated Home link */}
-            <Link
-              to={homeLink}
-              className="text-sm font-medium text-[#3491cb] hover:text-[#176276f3] transition-colors"
-            >
-              Home
+    <>
+      {/* HEADER 1 — Normal Header */}
+      <header className={`${showFixedHeader ? "hidden" : "block"} w-full bg-white border-b`}>
+        <div className="container mx-auto px-4">
+          <div className="h-20 flex items-center justify-between">
+            {/* LOGO */}
+            <Link to="/">
+              <img src={logo} className="h-16 w-auto" />
             </Link>
 
-            {/* {user && (
-              <Link to="/order-tracking" className="text-sm font-medium text-[#3491cb] hover:text-[#176178] transition-colors flex items-center gap-1">
-                <MapPin className="h-4 w-4" />
-                Track Order
-              </Link>
-            )} */}
-            
-          </nav>
+            {/* DESKTOP SEARCH */}
+            <form onSubmit={handleSearch} className="hidden md:flex flex-1 max-w-lg mx-4">
+              <div className="flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-3 py-1.5 w-full transition-all">
+                <Search className="w-4 h-4 text-blue-600" />
 
-          {/* Search Bar */}
-          <form onSubmit={handleSearch} className="hidden lg:flex flex-1 max-w-md mx-4">
-            <div className="relative w-full">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#3491cb]" />
-              <Input
-                type="search"
-                placeholder="Search products..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10"
-              />
-            </div>
-          </form>
-
-          {/* Right Actions */}
-          <div className="flex items-center space-x-2">
-            {!isHomePage && (
-              <Button
-                variant="ghost"
-                size="icon"
-                className="relative"
-                onClick={() => navigate('/cart')}
-              >
-                <ShoppingCart className="h-5 w-5" />
-                {cartItemCount > 0 && (
-                  <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-accent text-accent-foreground text-xs flex items-center justify-center font-semibold">
-                    {cartItemCount}
-                  </span>
-                )}
-              </Button>
-            )}
-
-            {user ? (
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => navigate('/customer')}
-              >
-                <User className="h-5 w-5" />
-              </Button>
-            ) : (
-              <Button onClick={() => navigate('/signin')} className="hidden sm:flex bg-gradient-to-br from-[#73c6fa] to-[#185680] hover:bg-[#2572a1]">
-                Sign In
-              </Button>
-            )}
-
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              <Menu className="h-5 w-5" />
-            </Button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-4">
-            <form onSubmit={handleSearch} className="lg:hidden">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                <Input
-                  type="search"
-                  placeholder="Search products..."
+                <input
+                  type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10"
+                  placeholder="Search products..."
+                  className="bg-transparent w-full text-sm focus:outline-none"
                 />
+
+                <button className="px-3 py-1 bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] text-white text-xs font-semibold rounded-full active:scale-95 transition">
+                  Go
+                </button>
               </div>
             </form>
 
-            <nav className="flex flex-col space-y-2">
+            {/* ICONS */}
+            <div className="flex items-center space-x-3">
+              {/* CART */}
+              <Button variant="ghost" size="icon" onClick={() => navigate("/cart")} className="relative">
+                <ShoppingCart className="h-5 w-5" />
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 h-5 w-5 bg-blue-600 text-white text-xs rounded-full flex items-center justify-center">
+                    {cartCount}
+                  </span>
+                )}
+              </Button>
 
-              {/* Mobile Home Link Updated */}
-              <Link
-                to={homeLink}
-                className="text-sm font-medium hover:text-primary transition-colors p-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Home
-              </Link>
-
-
-
-              {user && (
-                <Link
-                  to="/order-tracking"
-                  className="text-sm font-medium hover:text-primary transition-colors p-2 flex items-center gap-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <MapPin className="h-4 w-4" />
-                  Track Order
-                </Link>
-              )}
-
-              {!user && (
-                <Link
-                  to="/signin"
-                  className="text-sm font-medium hover:text-primary transition-colors p-2"
-                  onClick={() => setMobileMenuOpen(false)}
+              {/* LOGIN / PROFILE */}
+              {user ? (
+                <Button variant="ghost" size="icon" onClick={() => navigate("/profile")}>
+                  <User className="h-5 w-5" />
+                </Button>
+              ) : (
+                <Button
+                  onClick={() => navigate("/signin")}
+                  className="bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac] text-white px-4 py-2 rounded-md"
                 >
                   Sign In
-                </Link>
+                </Button>
               )}
-            </nav>
+
+              {/* MOBILE MENU */}
+              <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                <Menu />
+              </Button>
+            </div>
+          </div>
+
+          {/* MOBILE SEARCH */}
+          {mobileMenuOpen && (
+            <div className="py-3 md:hidden">
+              <form onSubmit={handleSearch}>
+                <div className="flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-3 py-1.5 w-full">
+                  <Search className="w-4 h-4 text-blue-600" />
+
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search..."
+                    className="bg-transparent text-sm w-full focus:outline-none"
+                  />
+
+                  <button className="px-3 py-1 bg-blue-600 text-white text-xs rounded-full active:scale-95 transition">
+                    Go
+                  </button>
+                </div>
+              </form>
+
+              <nav className="flex flex-col space-y-2 mt-3">
+                <Link to="/" className="text-sm font-medium p-2">
+                  Home
+                </Link>
+
+                {!user && (
+                  <Link
+                    to="/signin"
+                    className="text-sm font-medium p-2 bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] text-white rounded-md w-fit px-4 py-2"
+                  >
+                    Sign In
+                  </Link>
+                )}
+              </nav>
+            </div>
+          )}
+        </div>
+
+        {/*  CATEGORY FILTER BAR  */}
+        {pathname === "/" && (
+          <div className="w-full bg-white border-t border-gray-200 shadow-sm">
+            <div className="container mx-auto px-4 py-3">
+              <div className="flex gap-3 overflow-x-auto no-scrollbar">
+                {categories.map((cat) => (
+                  <button
+                    key={cat}
+                    className="
+                      px-4 py-2 text-sm font-medium whitespace-nowrap
+                      border border-gray-300 rounded-full
+                      hover:bg-gradient-to-br hover:from-[#4cb9fd] hover:to-[#153f5b]
+                      hover:text-white transition-all
+                    "
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         )}
-      </div>
-    </header>
+      </header>
+
+      {/* HEADER 2 — Fixed Header */}
+      {showFixedHeader && (
+        <header className="fixed top-0 left-0 w-full bg-white border-b shadow-md z-50 animate-slideDown">
+          <div className="container mx-auto px-4">
+            <div className="h-16 flex items-center justify-between">
+              {/* Small LOGO */}
+              <Link to="/">
+                <img src={logo} className="h-12 w-auto" />
+              </Link>
+
+              {/* SMALL SEARCH */}
+              <form onSubmit={handleSearch} className="hidden md:flex flex-1 max-w-sm mx-4">
+                <div className="flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-3 py-1 w-full">
+                  <Search className="w-4 h-4 text-blue-600" />
+
+                  <input
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search..."
+                    className="bg-transparent text-sm w-full focus:outline-none"
+                  />
+
+                  <button className="px-3 py-1 bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] text-white text-xs rounded-full">
+                    Go
+                  </button>
+                </div>
+              </form>
+
+              {/* Icons */}
+              <div className="flex items-center space-x-3">
+                <Button variant="ghost" size="icon" onClick={() => navigate("/cart")} className="relative">
+                  <ShoppingCart className="h-5 w-5" />
+                  {cartCount > 0 && (
+                    <span className="absolute -top-1 -right-1 h-5 w-5 bg-blue-600 text-white text-xs rounded-full flex items-center justify-center">
+                      {cartCount}
+                    </span>
+                  )}
+                </Button>
+
+                {user ? (
+                  <Button variant="ghost" size="icon" onClick={() => navigate("/profile")}>
+                    <User className="h-5 w-5" />
+                  </Button>
+                ) : (
+                  <Button
+                    onClick={() => navigate("/signin")}
+                    className="bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] text-white px-4 py-2 rounded-md"
+                  >
+                    Sign In
+                  </Button>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/*  CATEGORY FILTER BAR  */}
+          {pathname === "/" && (
+            <div className="w-full bg-white border-t border-gray-200 shadow-sm">
+              <div className="container mx-auto px-4 py-2">
+                <div className="flex gap-3 overflow-x-auto no-scrollbar">
+                  {categories.map((cat) => (
+                    <button
+                      key={cat}
+                      className="
+                        px-3 py-1.5 text-xs font-medium whitespace-nowrap
+                        border border-gray-300 rounded-full
+                        hover:bg-gradient-to-br hover:from-[#4cb9fd] hover:to-[#153f5b]
+                        hover:text-white transition-all
+                      "
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </header>
+      )}
+    </>
   );
 };

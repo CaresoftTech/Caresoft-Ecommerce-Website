@@ -41,7 +41,7 @@ const OrderTracking = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#f4f7fb] to-[#dfe7f6] py-8">
       <div className="container mx-auto px-4">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">Order Tracking</h1>
+        <h1 className="text-3xl font-bold text-center text-[#3491cb] mb-6">Order Tracking</h1>
 
         {userOrders.length === 0 ? (
           <Card className="backdrop-blur-xl bg-white/20 shadow-xl">
@@ -137,7 +137,7 @@ const OrderTracking = () => {
 
                     {/* ORDER ITEMS */}
                     <div className="border-t pt-4">
-                      <h4 className="font-semibold text-gray-900 mb-4">Order Items</h4>
+                      <h4 className="font-semibold text-[#3491cb] mb-4  ">Order Items</h4>
 
                       <div className="grid gap-4">
                         {order.items.map((item) => (

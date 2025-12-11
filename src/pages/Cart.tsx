@@ -26,7 +26,7 @@ export default function Cart() {
 
        
           <Button 
-            onClick={() => navigate(user ? '/customer' : '/')}
+            onClick={() => navigate(user ? '/' : '/')}
             className='bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac]'
           >
             Continue Shopping

@@ -1,133 +1,127 @@
 import React from "react";
-import { Shield, Lock, Info, Users, Cookie, Gift, Mail } from "lucide-react";
 
-const icons = [
-  <Info className="w-6 h-6 text-white" />,
-  <Users className="w-6 h-6 text-white" />,
-  <Lock className="w-6 h-6 text-white" />,
-  <Shield className="w-6 h-6 text-white" />,
-  <Cookie className="w-6 h-6 text-white" />,
-  <Gift className="w-6 h-6 text-white" />,
-  <Mail className="w-6 h-6 text-white" />,
-];
-
-export default function PrivacyOption2() {
-  const sections = [
-    {
-      title: "1. Information We Collect",
-      content: [
-        "We collect information that you provide directly to us, including:",
-        "Name, email address, and phone number",
-        "Shipping and billing addresses",
-        "Payment information (processed securely)",
-        "Order history and preferences",
-        "Communications with customer service",
-      ],
-    },
-    {
-      title: "2. How We Use Your Information",
-      content: [
-        "We use the collected information for:",
-        "Processing and fulfilling orders",
-        "Communicating about orders and services",
-        "Providing customer support",
-        "Improving our products and services",
-        "Sending promotional materials (with your consent)",
-      ],
-    },
-    {
-      title: "3. Information Sharing",
-      content: [
-        "We do not sell, trade, or rent your personal information to third parties. We may share information with trusted service providers who assist in operating our website and conducting business, under strict confidentiality agreements.",
-      ],
-    },
-    {
-      title: "4. Data Security",
-      content: [
-        "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no internet transmission is 100% secure.",
-      ],
-    },
-    {
-      title: "5. Cookies and Tracking",
-      content: [
-        "We use cookies and similar tracking technologies to enhance your browsing experience, analyze site traffic, and understand user preferences. You can control cookie settings through your browser.",
-      ],
-    },
-    {
-      title: "6. Your Rights",
-      content: [
-        "You have the right to:",
-        "Access your personal information",
-        "Correct inaccurate data",
-        "Request deletion of your data",
-        "Opt-out of marketing communications",
-        "Object to data processing",
-      ],
-    },
-    {
-      title: "7. Children's Privacy",
-      content: [
-        "Our services are not directed to individuals under 18 years of age. We do not knowingly collect personal information from children under 18.",
-      ],
-    },
-    {
-      title: "8. Changes to Privacy Policy",
-      content: [
-        "We may update this Privacy Policy periodically. We will notify you of significant changes by posting the new policy on this page with an updated revision date.",
-      ],
-    },
-    {
-      title: "9. Contact Us",
-      content: [
-        "If you have questions about this Privacy Policy or how we handle your data, please contact us at sales@caresoft.in",
-      ],
-    },
-  ];
-
+export default function Privacy() {
   return (
-    <div className="min-h-screen bg-gradient-to-tr from-[#f7faff] via-[#e2f0ff] to-[#f0f4f8] py-12">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-[#3c9edc] via-[#72c8fe] to-[#17506c] animate-slideUp">
+    <div className="min-h-screen bg-[#f4f7fb] py-12 px-4">
+      <div className="max-w-4xl mx-auto space-y-10">
+        
+        <h1 className="text-4xl md:text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#4cb7f9] to-[#2386b8] animate-fadeIn">
           Privacy Policy
         </h1>
 
-        <div className="space-y-10">
-          {sections.map((sec, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col md:flex-row gap-6 bg-white rounded-3xl shadow-lg hover:shadow-2xl hover:shadow-[#3491cb] transition-all p-6 md:p-8"
-            >
-              <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[#72c8fe] to-[#3c9edc] rounded-xl flex items-center justify-center text-white text-xl font-bold animate-bounce">
-                {icons[idx % icons.length]}
-              </div>
-              <div className="flex-1 space-y-2">
-                <h2 className="text-2xl md:text-3xl font-semibold text-[#3c9edc]">{sec.title}</h2>
-                <ul className="list-disc list-inside text-gray-700 ml-5 space-y-1">
-                  {sec.content.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
+      
+        <div className="space-y-4  border-[#3ca5e8] pl-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#3491cb]">
+            Information We Collect
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            We collect personal information that you voluntarily provide when interacting with our website. 
+            This may include your name, email address, phone number, shipping and billing details, and any 
+            information you share while communicating with our support team. Additionally, we gather non-personal 
+            data such as device details, browsing patterns, and order preferences to enhance your shopping experience.
+          </p>
+        </div>
+
+        <div className="space-y-4  border-[#3ca5e8] pl-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#3491cb]">
+            How We Use Your Information
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            The information we collect is used to process and deliver your orders, communicate updates, 
+            provide customer support, and improve our services. We may also use your data to personalize 
+            your experience, recommend products, and send promotional content if you have opted in to receive it. 
+            All information is handled with strict confidentiality.
+          </p>
+        </div>
+
+     
+        <div className="space-y-4  border-[#3ca5e8] pl-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#3491cb]">
+            Information Sharing
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            We do not sell or rent your personal information. Your data may be shared only with trusted third-party 
+            service providers who assist with payment processing, delivery, analytics, or website operations. 
+            These partners are required to protect your data and are permitted to use it solely for providing services.
+          </p>
+        </div>
+
+        <div className="space-y-4  border-[#3ca5e8] pl-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#3491cb]">
+            Data Security
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            We implement strong security measures, including encryption and secure servers, to protect your 
+            personal information. While we strive to ensure complete safety, no internet transmission or storage 
+            system is entirely risk-free. We continuously review and update our security practices.
+          </p>
+        </div>
+
+      
+        <div className="space-y-4 border-[#3ca5e8] pl-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#3491cb]">
+            Cookies & Tracking
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            Our website uses cookies to remember your preferences, keep your session active, and analyze site 
+            traffic. These tools help us improve performance and deliver better user experiences. You can choose 
+            to disable cookies through your browser settings, though certain features may not function properly.
+          </p>
+        </div>
+
+      
+        <div className="space-y-4 b b pl-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#3491cb]">
+            Your Rights
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            You have full control over your personal information. You may request access, correction, or deletion 
+            of your data at any time. You also have the right to opt out of marketing communications or limit how 
+            your data is processed by contacting our support team.
+          </p>
+        </div>
+
+ 
+        <div className="space-y-4  pl-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#3491cb]">
+            Children's Privacy
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            Our services are intended for users aged 18 and above. We do not knowingly collect personal information 
+            from children. If any such data is found, we will take immediate steps to delete it.
+          </p>
+        </div>
+
+       
+        <div className="space-y-4 pl-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#3491cb]">
+            Updates to This Policy
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            Our Privacy Policy may be updated periodically to reflect changes in technology, regulations, or 
+            business practices. The updated version will always be available on this page along with the revised date.
+          </p>
+        </div>
+
+      
+        <div className="space-y-4  pl-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#3491cb]">
+            Contact Us
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            For any questions or concerns regarding this Privacy Policy, you can reach us at 
+            <span className="font-semibold text-[#17506c]"> sales@caresoft.in</span>.
+          </p>
         </div>
       </div>
 
-      <style>
-        {`
-          @keyframes slideUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
-          }
-          .animate-slideUp { animation: slideUp 0.8s ease-out forwards; }
-
-          @keyframes bounce { 
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-          }
-          .animate-bounce { animation: bounce 2s infinite; }
-        `}
-      </style>
+      <style>{`
+        @keyframes fadeIn {
+          0% { opacity: 0; transform: translateY(20px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn { animation: fadeIn .8s ease-out forwards; }
+      `}</style>
     </div>
   );
 }

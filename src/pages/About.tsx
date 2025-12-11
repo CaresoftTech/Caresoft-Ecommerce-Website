@@ -20,7 +20,7 @@ export default function About() {
 
       <div className="container mx-auto px-4 max-w-6xl">
 
-        {/* Page Header */}
+        
         <h1 className="text-4xl md:text-5xl font-extrabold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-[#45b8ff] via-[#3287bc] to-[#020608] animate-slideUp">
           About Caresoft Technologies
         </h1>
@@ -52,42 +52,21 @@ export default function About() {
           </div>
         </div>
 
-        {/* Why Choose Us Section */}
-        <section className="bg-gradient-to-r from-[#38aaf1] via-[#2077ac] to-[#0e202b] text-white py-16 rounded-3xl shadow-xl overflow-hidden">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 animate-fade-in">
-            Why Choose Caresoft Technology? 🚀
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-12">
-            <div className="p-8 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transition-all transform hover:scale-105 text-center">
-              <Truck className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold mb-2">Free Shipping</h3>
-            </div>
-
-            <div className="p-8 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transition-all transform hover:scale-105 text-center">
-              <Lock className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold mb-2">Secure Payment</h3>
-            </div>
-
-            <div className="p-8 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transition-all transform hover:scale-105 text-center">
-              <Gift className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold mb-2">Best Deals</h3>
-            </div>
-          </div>
-        </section>
+        
+        
 
 
-        {/* Premium Brands Section */}
+        
         <section className="mt-20">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-[#2077ac]">
             Premium Brands We Offer
           </h2>
 
-          {/* Slider Container */}
+       
           <div className="overflow-hidden py-6 relative">
             <div className="flex gap-10 animate-scroll-left">
 
-              {/* Main Logo List */}
+              
               {[
                 hp,
                 dell,
@@ -116,7 +95,7 @@ export default function About() {
                 </div>
               ))}
 
-              {/* Duplicate for Seamless Infinite Loop */}
+              
               {[
                 hp,
                 dell,
@@ -160,6 +139,30 @@ export default function About() {
    }
  `}
 </style>
+
+
+<section className="bg-gradient-to-r from-[#38aaf1] via-[#2077ac] to-[#0e202b] text-white py-16 rounded-3xl shadow-xl overflow-hidden">
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 animate-fade-in">
+            Why Choose Caresoft Technology? 🚀
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-12">
+            <div className="p-8 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transition-all transform hover:scale-105 text-center">
+              <Truck className="w-12 h-12 mx-auto mb-4" />
+              <h3 className="text-2xl font-semibold mb-2">Free Shipping</h3>
+            </div>
+
+            <div className="p-8 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transition-all transform hover:scale-105 text-center">
+              <Lock className="w-12 h-12 mx-auto mb-4" />
+              <h3 className="text-2xl font-semibold mb-2">Secure Payment</h3>
+            </div>
+
+            <div className="p-8 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transition-all transform hover:scale-105 text-center">
+              <Gift className="w-12 h-12 mx-auto mb-4" />
+              <h3 className="text-2xl font-semibold mb-2">Best Deals</h3>
+            </div>
+          </div>
+        </section>
 
 
       </div>

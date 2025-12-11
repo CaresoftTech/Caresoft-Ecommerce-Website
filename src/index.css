@@ -141,3 +141,41 @@ All colors MUST be HSL.
 }
 
 
+
+/* Header */
+ 
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.25s ease-out;
+}
+ 
+
+
+
+
+.announcement-bar {
+    padding: 6px 0;
+    backdrop-filter: blur(6px);
+  }
+
+  .marquee {
+    display: inline-flex;
+    animation: marquee 28s linear infinite;
+  }
+
+  .marquee:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }

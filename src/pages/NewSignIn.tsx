@@ -19,7 +19,7 @@ export default function NewSignIn() {
   useEffect(() => {
     if (!loading && user) {
       if (user.isAdmin) navigate("/admin");
-      else navigate("/customer");
+      else navigate("/");
     }
   }, [user, loading, navigate]);
 
@@ -59,7 +59,7 @@ export default function NewSignIn() {
         </div>
 
         {/* Right Side Login Form */}
-        <Card className="w-full max-w-md mx-auto relative bg-gradient-to-br from-vibrant-purple/10 to-vibrant-pink/10 border-2 border-vibrant-purple/20 shadow-2xl shadow-[#3491cb]">
+        <Card className="w-full max-w-md mx-auto relative bg-[#3491cb] border-2 border-vibrant-purple/20 shadow-2xl shadow-[#3491cb]">
           <button
             onClick={() => navigate(-1)}
             className="absolute top-3 left-3 p-2 rounded-full hover:bg-muted transition"
@@ -68,10 +68,10 @@ export default function NewSignIn() {
           </button>
 
           <CardHeader className="space-y-1 mt-6">
-            <CardTitle className="text-3xl font-bold text-center bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent">
+            <CardTitle className="text-3xl font-bold text-center text-white">
               Log In
             </CardTitle>
-            <CardDescription className="text-center text-muted-foreground">
+            <CardDescription className="text-center text-white/90">
               Sign in to your account to continue
             </CardDescription>
           </CardHeader>
@@ -81,7 +81,7 @@ export default function NewSignIn() {
 
               {/* EMAIL */}
               <div>
-                <Label htmlFor="email" className="flex items-center gap-2 text-[#3491cb] mb-2">
+                <Label htmlFor="email" className="flex items-center gap-2 text-white mb-2">
                   <Mail className="h-4 w-4" />
                   Email Address
                 </Label>
@@ -92,13 +92,13 @@ export default function NewSignIn() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  className="border-[#3491cb] focus:border-[#3491cb]"
+                  className="border-[#000000] focus:border-[#4418f6]"
                 />
               </div>
 
               {/* PASSWORD */}
               <div>
-                <Label htmlFor="password" className="flex items-center gap-2 text-vibrant-pink mb-2">
+                <Label htmlFor="password" className="flex items-center gap-2 text-white mb-2">
                   <Lock className="h-4 w-4" />
                   Password
                 </Label>
@@ -111,7 +111,7 @@ export default function NewSignIn() {
                     value={formData.password}
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     required
-                    className="border-vibrant-pink/30 focus:border-vibrant-pink pr-10"
+                    className="border-black focus:border-[#1b39ff] pr-10"
                   />
 
                   <button
@@ -135,9 +135,9 @@ export default function NewSignIn() {
               </Button>
 
               {/* SIGNUP */}
-              <p className="text-center text-sm text-muted-foreground">
+              <p className="text-center text-sm text-grey-200">
                 Don't have an account?{" "}
-                <Link to="/signup" className="text-vibrant-blue hover:underline font-semibold">
+                <Link to="/signup" className="text-white hover:underline font-semibold">
                   Sign Up
                 </Link>
               </p>
