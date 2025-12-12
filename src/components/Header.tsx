@@ -72,8 +72,8 @@ export const Header = () => {
                   className="bg-transparent w-full text-sm focus:outline-none"
                 />
 
-                <button className="px-3 py-1 bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] text-white text-xs font-semibold rounded-full active:scale-95 transition">
-                  Go
+                <button className="px-3 py-1 bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] text-white text-sm font-semibold rounded-full active:scale-95 transition">
+                  Search
                 </button>
               </div>
             </form>
@@ -126,8 +126,8 @@ export const Header = () => {
                     className="bg-transparent text-sm w-full focus:outline-none"
                   />
 
-                  <button className="px-3 py-1 bg-blue-600 text-white text-xs rounded-full active:scale-95 transition">
-                    Go
+                  <button className="px-3 py-1 bg-[#3491cb] text-white text-xs rounded-full active:scale-95 transition">
+                    Search
                   </button>
                 </div>
               </form>
@@ -150,33 +150,13 @@ export const Header = () => {
           )}
         </div>
 
-        {/*  CATEGORY FILTER BAR  */}
-        {pathname === "/" && (
-          <div className="w-full bg-white border-t border-gray-200 shadow-sm">
-            <div className="container mx-auto px-4 py-3">
-              <div className="flex gap-3 overflow-x-auto no-scrollbar">
-                {categories.map((cat) => (
-                  <button
-                    key={cat}
-                    className="
-                      px-4 py-2 text-sm font-medium whitespace-nowrap
-                      border border-gray-300 rounded-full
-                      hover:bg-gradient-to-br hover:from-[#4cb9fd] hover:to-[#153f5b]
-                      hover:text-white transition-all
-                    "
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
+   
       </header>
 
       {/* HEADER 2 — Fixed Header */}
       {showFixedHeader && (
         <header className="fixed top-0 left-0 w-full bg-white border-b shadow-md z-50 animate-slideDown">
+          
           <div className="container mx-auto px-4">
             <div className="h-16 flex items-center justify-between">
               {/* Small LOGO */}
@@ -197,7 +177,7 @@ export const Header = () => {
                   />
 
                   <button className="px-3 py-1 bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] text-white text-xs rounded-full">
-                    Go
+                    Search
                   </button>
                 </div>
               </form>
@@ -231,7 +211,7 @@ export const Header = () => {
 
           {/*  CATEGORY FILTER BAR  */}
           {pathname === "/" && (
-            <div className="w-full bg-white border-t border-gray-200 shadow-sm">
+            <div className="w-full bg-white border-t border-gray-200 shadow-sm animate-slideDown">
               <div className="container mx-auto px-4 py-2">
                 <div className="flex gap-3 overflow-x-auto no-scrollbar">
                   {categories.map((cat) => (
@@ -252,6 +232,8 @@ export const Header = () => {
             </div>
           )}
         </header>
+
+        
       )}
     </>
   );

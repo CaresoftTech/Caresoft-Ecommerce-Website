@@ -4,7 +4,7 @@ import {
   Phone,
   MapPin,
   Facebook,
-  Twitter,
+  Youtube,
   Instagram,
   Linkedin,
   ChevronRight,
@@ -36,9 +36,10 @@ export const Footer = () => {
 
             {/* Social Icons */}
             <div className="flex gap-4 pt-2 ">
-              <SocialLink href="#" icon={<Facebook size={20} />} />
-              <SocialLink href="#" icon={<Twitter size={20} />} />
               <SocialLink href="#" icon={<Instagram size={20} />} />
+              <SocialLink href="#" icon={<Youtube size={20} />} />
+              <SocialLink href="#" icon={<Facebook size={20} />} />
+              
               <SocialLink href="#" icon={<Linkedin size={20} />} />
               <SocialLink
                 href="https://wa.me/9176012413"
@@ -47,7 +48,7 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* 2. Quick Links */}
+     
           <div>
             <h3 className="font-bold text-lg text-white mb-6 relative inline-block">
               Quick Links
@@ -60,7 +61,7 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* 3. Policies */}
+         
           <div>
             <h3 className="font-bold text-lg text-white mb-6 relative inline-block">
               Policies
@@ -74,7 +75,7 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* 4. Contact Info */}
+        
           <div>
             <h3 className="font-bold text-lg text-white mb-6 relative inline-block">
               Get in Touch

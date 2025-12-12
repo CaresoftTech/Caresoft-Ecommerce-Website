@@ -1,13 +1,13 @@
 import React from "react";
 
 export default function ContactButtons() {
-  const whatsappNumber = "919176012413"; // Replace with your number
-  const whatsappMessage = "Hello! I have a question."; // Optional message
-  const emailAddress = "sales@caresoft.in"; // Replace with your email
+  const whatsappNumber = "919176012413"; 
+  const whatsappMessage = "Hello! I have a question."; 
+  const emailAddress = "sales@caresoft.in"; 
 
   return (
     <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-3">
-      {/* WhatsApp Button */}
+  
       <a
         href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
           whatsappMessage
@@ -26,10 +26,10 @@ export default function ContactButtons() {
         </svg>
       </a>
 
-      {/* Email Button */}
+  
       <a
         href={`mailto:${emailAddress}`}
-        className="bg-red-500 hover:bg-blue-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center transition-transform transform hover:scale-110"
+        className="bg-red-500 hover:bg-red-700 text-white p-4 rounded-full shadow-lg flex items-center justify-center transition-transform transform hover:scale-110"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

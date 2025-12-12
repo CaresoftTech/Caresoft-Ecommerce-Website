@@ -10,7 +10,23 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import bg1 from "@/assets/bg1.png";
+import bg1 from "@/assets/bg12.png";
+import hp from "@/assets/hp.png";
+import dell from "@/assets/Dell.png";
+import asus from "@/assets/asus.png";
+import sophose from "@/assets/sophos.png";
+import lenovo from "@/assets/lenovo.svg";
+import micro from "@/assets/micro.png";
+import zebra from "@/assets/zebra-logo-horizontal.svg";
+import zoho from "@/assets/zoho-mail.svg";
+import fortinet from "@/assets/fortinett.jpeg";
+import mifcro from "@/assets/cisco.png";
+import hikvision from "@/assets/hikvision.jpeg";
+import k7 from "@/assets/k7-logo.png";
+import synology from "@/assets/synology.png";
+import gsuite from "@/assets/g-suite.png";
+import { FiTruck, FiHeadphones, FiRefreshCw, FiCreditCard, FiShield } from "react-icons/fi";
+
 import {
   Carousel,
   CarouselContent,
@@ -25,6 +41,17 @@ const carouselImages = [
   "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=1200&h=400&fit=crop",
   "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=1200&h=400&fit=crop",
 ];
+
+
+const categories = [
+  "All Products",
+  "Laptops",
+  "Computers",
+  "Headphones",
+  "Accessories",
+  "Printers",
+];
+
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -57,7 +84,25 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-background via-muted/30 to-background overflow-x-hidden">
 
 
-
+      <div className="w-full bg-white border-t border-gray-200 shadow-sm ">
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex gap-3 overflow-x-auto no-scrollbar">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                className="
+                      px-4 py-2 text-sm font-medium whitespace-nowrap
+                      border border-gray-300 rounded-full
+                      hover:bg-gradient-to-br hover:from-[#4cb9fd] hover:to-[#153f5b]
+                      hover:text-white transition-all
+                    "
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/*  Hero Section Slider */}
       <section className="relative w-full  h-[200px] md:h-[320px] lg:h-[350px] overflow-hidden">
@@ -84,7 +129,7 @@ export default function Home() {
                     </span>
                   </div>
 
-                  <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-vibrant-yellow bg-clip-text text-transparent">
+                  <h1 className="text-4xl md:text-6xl  font-bold mb-4 bg-gradient-to-r from-white to-vibrant-yellow bg-clip-text text-transparent">
                     Welcome to Caresoft Technologies
                   </h1>
                   <p className="text-lg md:text-2xl mb-6 text-white/90">
@@ -100,12 +145,12 @@ export default function Home() {
           </div>
         ))}
 
-        {/* Controls */}
-        {/* <Button
+
+        <Button
           variant="ghost"
           size="icon"
           onClick={prevSlide}
-          className="absolute left-1 top-1/2 -translate-y-1/2 hover:bg-white/50 text-white backdrop-blur-sm p-2"
+          className="absolute left-1 top-1/2 -translate-y-1/2 hover:bg-white/30 text-white backdrop-blur-none p-2"
         >
           <ChevronLeft className="h-5 w-5" />
         </Button>
@@ -114,10 +159,10 @@ export default function Home() {
           variant="ghost"
           size="icon"
           onClick={nextSlide}
-          className="absolute right-3 top-1/2 -translate-y-1/2 hover:bg-white/50 text-white backdrop-blur-sm p-2"
+          className="absolute right-3 top-1/2 -translate-y-1/2 hover:bg-white/30 text-white  p-2"
         >
           <ChevronRight className="h-5 w-5" />
-        </Button> */}
+        </Button>
       </section>
 
 
@@ -158,13 +203,13 @@ export default function Home() {
 
 
 
-      <section className="container mx-auto px-4 py-12">
+      <section className="container mt-7  px-4 py-2 ">
         <div className="mb-8 text-center">
           <h2 className="text-4xl font-bold mb-2 bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent">
             Featured Products
           </h2>
         </div>
-       
+
 
 
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -175,15 +220,15 @@ export default function Home() {
 
       </section>
 
-      {/* running Background Section */}
+      {/* r Background Section */}
       <section
-        className="relative w-full bg-cover bg-center bg-no-repeat min-h-[350px] md:min-h-[380px] "
+        className="relative w-full bg-cover bg-center bg-no-repeat min-h-[150px] md:min-h-[150px] "
         style={{ backgroundImage: `url(${bg1})` }}
       >
         <div className="absolute inset-0 bg-black/0"></div>
       </section>
 
-      <section className="container mx-auto px-4 py-3">
+      <section className="container mx-auto px-4 py-3 mt-7">
         <div className="mb-6">
           <h2 className="text-3xl font-bold mb-2 text-center">
             🔥
@@ -225,28 +270,134 @@ export default function Home() {
       </section>
 
 
-      {/* Advertisement Section Above Footer */}
-      <section className="container mx-auto px-4 pb-8 mt-10">
-        <div className="relative h-[200px] md:h-[250px] rounded-2xl overflow-hidden bg-gradient-to-r from-vibrant-purple via-vibrant-blue to-vibrant-teal shadow-xl">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&h=400&fit=crop')] bg-cover bg-center opacity-20" />
-          <div className="relative h-full flex flex-col md:flex-row items-center justify-between px-6 md:px-12">
-            <div className="text-white text-center md:text-left py-6">
-              <p className="text-sm md:text-base font-medium opacity-90 mb-2">🎁 Exclusive Member Offer</p>
-              <h2 className="text-2xl md:text-4xl font-bold mb-2">Get ₹500 OFF Your Next Order</h2>
-              <p className="text-sm md:text-lg opacity-80">Use code: CARESOFT500 at checkout</p>
-            </div>
-            <div className="pb-6 md:pb-0">
-              <Button
-                size="lg"
-                className="bg-white text-vibrant-purple hover:bg-vibrant-yellow hover:text-white font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
+      <section className="mt-7">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-[#2077ac]">
+          Premium Brands We Offer
+        </h2>
 
+
+        <div className="overflow-hidden py-4 relative">
+          <div className="flex gap-5 animate-scroll-left">
+            {[
+              hp,
+              dell,
+              asus,
+              sophose,
+              lenovo,
+              micro,
+              zebra,
+              zoho,
+              fortinet,
+              mifcro,
+              hikvision,
+              k7,
+              synology,
+              gsuite
+            ].map((logo, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-40 h-32 md:w-40 md:h-20 bg-white rounded-2xl shadow-md flex items-center justify-center p-4"
               >
-                Shop Now →
-              </Button>
-            </div>
+                <img
+                  src={logo}
+                  alt="brand logo"
+                  className="w-full h-14 object-contain"
+                />
+              </div>
+            ))}
+
+
+            {[
+              hp,
+              dell,
+              asus,
+              sophose,
+              lenovo,
+              micro,
+              zebra,
+              zoho,
+              fortinet,
+              mifcro,
+              hikvision,
+              k7,
+              synology,
+              gsuite
+            ].map((logo, index) => (
+              <div
+                key={`copy-${index}`}
+                className="flex-shrink-0 w-32 h-24 md:w-40 md:h-20 bg-white rounded-2xl shadow-md flex items-center justify-center p-4"
+              >
+                <img
+                  src={logo}
+                  alt="brand logo"
+                  className="w-full h-20 object-contain"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+
+
+
+      <section className="w-full bg-white py-14">
+        <div className="max-w-7xl mx-auto px-4">
+
+          <div
+            className="
+        grid grid-cols-1 
+        sm:grid-cols-2 
+        md:grid-cols-3 
+        lg:grid-cols-5 
+        gap-8
+      "
+          >
+            {[
+              { title: "Get Free Delivery", desc: "Enjoy free shipping on all orders.", Icon: FiTruck },
+              { title: "Support 24/7", desc: "Call +91 81225 81225 anytime.", Icon: FiHeadphones },
+              { title: "Return Within 10 Days", desc: "Return items easily within 10 days.", Icon: FiRefreshCw },
+              { title: "100% Secure Payments", desc: "Trusted & secure payment methods.", Icon: FiCreditCard },
+              { title: "100% Original", desc: "Genuine warranty for all products.", Icon: FiShield },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="
+            flex flex-col items-center text-center 
+            bg-white border border-[#3491cb]/20 rounded-2xl 
+            p-6 shadow-lg 
+            hover:shadow-lg hover:shadow-[#3491cb]  hover: 
+            transition-all duration-300
+          "
+              >
+                {/* ICON */}
+                <div
+                  className="
+              w-16 h-16 rounded-xl 
+              bg-[#3491cb]/10 
+              border border-[#3491cb]-300 
+              flex items-center justify-center 
+              shadow-sm
+            "
+                >
+                  <item.Icon className="text-[#3491cb] w-8 h-8" />
+                </div>
+
+                <h3 className="mt-4 text-lg font-semibold text-gray-800">
+                  {item.title}
+                </h3>
+
+                
+                <p className="text-gray-600 text-sm mt-2 leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
     </div>
   );
 }
