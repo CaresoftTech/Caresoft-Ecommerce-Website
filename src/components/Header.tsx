@@ -8,7 +8,7 @@ import logo from "@/assets/caresoft-logo2.png";
 
 export const Header = () => {
   const navigate = useNavigate();
-  const { pathname } = useLocation(); // ⭐ to show filter only in Home
+  const { pathname } = useLocation();
   const { user } = useAuth();
   const { cart } = useCart();
 
@@ -27,14 +27,8 @@ export const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const HEADER_HEIGHT = 120;
-      if (window.scrollY > HEADER_HEIGHT) {
-        setShowFixedHeader(true);
-      } else {
-        setShowFixedHeader(false);
-      }
+      setShowFixedHeader(window.scrollY > 120);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -50,29 +44,79 @@ export const Header = () => {
 
   return (
     <>
-      {/* HEADER 1 — Normal Header */}
+      {/* ================= MOBILE LEFT SLIDE MENU ================= */}
+      <div
+        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-[999] transform transition-transform duration-300 md:hidden
+        ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
+      >
+        <div className="p-4 border-b flex justify-between items-center">
+          <img src={logo} className="h-10" />
+          <button
+            className="text-xl font-bold"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            ✕
+          </button>
+        </div>
+
+        <nav className="p-4 flex flex-col gap-4">
+          <Link to="/" onClick={() => setMobileMenuOpen(false)}>Home</Link>
+
+          {user ? (
+            <Link to="/profile" onClick={() => setMobileMenuOpen(false)}>
+              Profile
+            </Link>
+          ) : (
+            <Link to="/signin" onClick={() => setMobileMenuOpen(false)}>
+              Sign In
+            </Link>
+          )}
+
+          <Link to="/cart" onClick={() => setMobileMenuOpen(false)}>
+            Cart
+          </Link>
+        </nav>
+      </div>
+
+      {/* BACKDROP */}
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/40 z-[998] md:hidden"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* ================= NORMAL HEADER ================= */}
       <header className={`${showFixedHeader ? "hidden" : "block"} w-full bg-white border-b`}>
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-5 md:px-11">
           <div className="h-20 flex items-center justify-between">
+
+            {/* MOBILE MENU BUTTON */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <Menu className="h-6 w-6" />
+            </Button>
+
             {/* LOGO */}
             <Link to="/">
-              <img src={logo} className="h-16 w-auto" />
+              <img src={logo} className="h-16" />
             </Link>
 
             {/* DESKTOP SEARCH */}
             <form onSubmit={handleSearch} className="hidden md:flex flex-1 max-w-lg mx-4">
-              <div className="flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-3 py-1.5 w-full transition-all">
+              <div className="flex items-center gap-2 bg-blue-50 border rounded-full px-3 py-1.5 w-full">
                 <Search className="w-4 h-4 text-blue-600" />
-
                 <input
-                  type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search products..."
-                  className="bg-transparent w-full text-sm focus:outline-none"
+                  className="bg-transparent w-full text-sm outline-none"
                 />
-
-                <button className="px-3 py-1 bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] text-white text-sm font-semibold rounded-full active:scale-95 transition">
+                <button className="px-3 py-1 bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] text-white rounded-full">
                   Search
                 </button>
               </div>
@@ -80,6 +124,7 @@ export const Header = () => {
 
             {/* ICONS */}
             <div className="flex items-center space-x-3">
+
               {/* CART */}
               <Button variant="ghost" size="icon" onClick={() => navigate("/cart")} className="relative">
                 <ShoppingCart className="h-5 w-5" />
@@ -90,99 +135,64 @@ export const Header = () => {
                 )}
               </Button>
 
-              {/* LOGIN / PROFILE */}
-              {user ? (
-                <Button variant="ghost" size="icon" onClick={() => navigate("/profile")}>
+              {/* DESKTOP PROFILE ICON */}
+              {user && (
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => navigate("/profile")}
+                  className="hidden md:flex"
+                >
                   <User className="h-5 w-5" />
                 </Button>
-              ) : (
+              )}
+
+              {/* DESKTOP SIGN IN */}
+              {!user && (
                 <Button
                   onClick={() => navigate("/signin")}
-                  className="bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac] text-white px-4 py-2 rounded-md"
+                  className="hidden md:block bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] text-white px-4 py-2 rounded-md"
                 >
                   Sign In
                 </Button>
               )}
 
-              {/* MOBILE MENU */}
-              <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                <Menu />
-              </Button>
+              {/* MOBILE PROFILE ICON */}
+              {user && (
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => navigate("/profile")}
+                  className="md:hidden"
+                >
+                  <User className="h-5 w-5" />
+                </Button>
+              )}
             </div>
           </div>
-
-          {/* MOBILE SEARCH */}
-          {mobileMenuOpen && (
-            <div className="py-3 md:hidden">
-              <form onSubmit={handleSearch}>
-                <div className="flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-3 py-1.5 w-full">
-                  <Search className="w-4 h-4 text-blue-600" />
-
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search..."
-                    className="bg-transparent text-sm w-full focus:outline-none"
-                  />
-
-                  <button className="px-3 py-1 bg-[#3491cb] text-white text-xs rounded-full active:scale-95 transition">
-                    Search
-                  </button>
-                </div>
-              </form>
-
-              <nav className="flex flex-col space-y-2 mt-3">
-                <Link to="/" className="text-sm font-medium p-2">
-                  Home
-                </Link>
-
-                {!user && (
-                  <Link
-                    to="/signin"
-                    className="text-sm font-medium p-2 bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] text-white rounded-md w-fit px-4 py-2"
-                  >
-                    Sign In
-                  </Link>
-                )}
-              </nav>
-            </div>
-          )}
         </div>
-
-   
       </header>
 
-      {/* HEADER 2 — Fixed Header */}
+      {/* ================= FIXED HEADER ================= */}
       {showFixedHeader && (
         <header className="fixed top-0 left-0 w-full bg-white border-b shadow-md z-50 animate-slideDown">
-          
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-5 md:px-11">
             <div className="h-16 flex items-center justify-between">
-              {/* Small LOGO */}
+
+              {/* ✅ MOBILE MENU BUTTON (FIXED HEADER) */}
+              <Button
+                variant="ghost"
+                size="icon"
+                className="md:hidden"
+                onClick={() => setMobileMenuOpen(true)}
+              >
+                <Menu className="h-6 w-6" />
+              </Button>
+
               <Link to="/">
-                <img src={logo} className="h-12 w-auto" />
+                <img src={logo} className="h-12" />
               </Link>
 
-              {/* SMALL SEARCH */}
-              <form onSubmit={handleSearch} className="hidden md:flex flex-1 max-w-sm mx-4">
-                <div className="flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-3 py-1 w-full">
-                  <Search className="w-4 h-4 text-blue-600" />
-
-                  <input
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search..."
-                    className="bg-transparent text-sm w-full focus:outline-none"
-                  />
-
-                  <button className="px-3 py-1 bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] text-white text-xs rounded-full">
-                    Search
-                  </button>
-                </div>
-              </form>
-
-              {/* Icons */}
               <div className="flex items-center space-x-3">
                 <Button variant="ghost" size="icon" onClick={() => navigate("/cart")} className="relative">
                   <ShoppingCart className="h-5 w-5" />
@@ -208,32 +218,7 @@ export const Header = () => {
               </div>
             </div>
           </div>
-
-          {/*  CATEGORY FILTER BAR  */}
-          {pathname === "/" && (
-            <div className="w-full bg-white border-t border-gray-200 shadow-sm animate-slideDown">
-              <div className="container mx-auto px-4 py-2">
-                <div className="flex gap-3 overflow-x-auto no-scrollbar">
-                  {categories.map((cat) => (
-                    <button
-                      key={cat}
-                      className="
-                        px-3 py-1.5 text-xs font-medium whitespace-nowrap
-                        border border-gray-300 rounded-full
-                        hover:bg-gradient-to-br hover:from-[#4cb9fd] hover:to-[#153f5b]
-                        hover:text-white transition-all
-                      "
-                    >
-                      {cat}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
         </header>
-
-        
       )}
     </>
   );

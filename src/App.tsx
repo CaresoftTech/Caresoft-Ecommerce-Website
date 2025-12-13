@@ -25,6 +25,7 @@ import AdminProducts from "./pages/admin/AdminProducts";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import ContactButtons from "./components/ContactButtons";
+import GoogleReviews from "@/components/GoogleReview";
 
 const App = () => (
   <TooltipProvider>
@@ -38,6 +39,7 @@ const App = () => (
              
             <Routes>
               <Route path="/" element={<Home />} />
+              
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/signin" element={<NewSignIn />} />
@@ -56,6 +58,7 @@ const App = () => (
               <Route path="/admin/products" element={<AdminProducts />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
+             
             <ContactButtons />
           </Layout>
         </BrowserRouter>

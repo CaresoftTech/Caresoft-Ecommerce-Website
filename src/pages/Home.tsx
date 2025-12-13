@@ -6,26 +6,18 @@ import {
   ChevronRight,
   Zap,
   Shield,
-  TrendingUp,
+  TrendingUp, ShieldCheck, LifeBuoy, Headphones,
   Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import bg1 from "@/assets/bg12.png";
+import bg1 from "@/assets/bg1234.png";
 import hp from "@/assets/hp.png";
 import dell from "@/assets/Dell.png";
 import asus from "@/assets/asus.png";
 import sophose from "@/assets/sophos.png";
 import lenovo from "@/assets/lenovo.svg";
-import micro from "@/assets/micro.png";
-import zebra from "@/assets/zebra-logo-horizontal.svg";
-import zoho from "@/assets/zoho-mail.svg";
-import fortinet from "@/assets/fortinett.jpeg";
-import mifcro from "@/assets/cisco.png";
-import hikvision from "@/assets/hikvision.jpeg";
-import k7 from "@/assets/k7-logo.png";
-import synology from "@/assets/synology.png";
-import gsuite from "@/assets/g-suite.png";
-import { FiTruck, FiHeadphones, FiRefreshCw, FiCreditCard, FiShield } from "react-icons/fi";
+import gsuite from "@/assets/sm logo.png";
+import { FiTruck, FiHeadphones, FiRefreshCw, FiCreditCard, FiShield, FiUser, FiDollarSign, FiPackage, FiStar } from "react-icons/fi";
 
 import {
   Carousel,
@@ -44,6 +36,7 @@ const carouselImages = [
 
 
 const categories = [
+  "Home",
   "All Products",
   "Laptops",
   "Computers",
@@ -81,10 +74,10 @@ export default function Home() {
 
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-background via-muted/30 to-background overflow-x-hidden">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-background via-muted/30 to-background overflow-x-hidden ">
 
 
-      <div className="w-full bg-white border-t border-gray-200 shadow-sm ">
+      <div className="w-full bg-white border-t border-gray-200 shadow-sm container">
         <div className="container mx-auto px-4 py-3">
           <div className="flex gap-3 overflow-x-auto no-scrollbar">
             {categories.map((cat) => (
@@ -105,7 +98,7 @@ export default function Home() {
       </div>
 
       {/*  Hero Section Slider */}
-      <section className="relative w-full  h-[200px] md:h-[320px] lg:h-[350px] overflow-hidden">
+      <section className="relative w-full  h-[200px] md:h-[320px] lg:h-[350px] overflow-hidden ">
         {carouselImages.map((image, index) => (
           <div
             key={index}
@@ -120,8 +113,8 @@ export default function Home() {
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-vibrant-purple/80 via-vibrant-pink/70 to-vibrant-blue/60 flex items-center">
-              <div className="container mx-auto px-4">
-                <div className="max-w-2xl text-white animate-fade-in">
+              <div className="container px-5 md:px-11 ">
+                <div className="max-w-2xl text-white animate-fade-in c">
                   <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
                     <Sparkles className="h-5 w-5 text-vibrant-yellow animate-pulse" />
                     <span className="text-sm font-semibold">
@@ -168,10 +161,11 @@ export default function Home() {
 
 
       <section className="relative overflow-hidden w-full">
-        <div className="announcement-bar bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 text-white shadow-lg w-full">
-          <div className="marquee whitespace-nowrap flex items-center gap-10 px-4">
 
-            <div className="flex items-center gap-2">
+        <div className="announcement-bar bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 text-white shadow-lg w-full ">
+          <div className="marquee whitespace-nowrap flex items-center gap-10 px-4 ">
+
+            <div className="flex items-center gap-2  ">
               <Zap className="h-5 w-5 animate-pulse" />
               <span className="font-semibold text-sm tracking-wide">
                 MEGA SALE: Up to 25% OFF!
@@ -202,17 +196,14 @@ export default function Home() {
 
 
 
-
       <section className="container mt-7  px-4 py-2 ">
-        <div className="mb-8 text-center">
+        <div className="mb-8 text-center ">
           <h2 className="text-4xl font-bold mb-2 bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent">
             Featured Products
           </h2>
         </div>
 
-
-
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 m-10">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} requireLogin={true} />
           ))}
@@ -220,13 +211,23 @@ export default function Home() {
 
       </section>
 
+
       {/* r Background Section */}
       <section
-        className="relative w-full bg-cover bg-center bg-no-repeat min-h-[150px] md:min-h-[150px] "
+        className="
+    relative w-full
+    bg-contain md:bg-cover
+    bg-center bg-no-repeat
+    min-h-[120px] sm:min-h-[150px] md:min-h-[140px]
+  "
         style={{ backgroundImage: `url(${bg1})` }}
       >
+        {/* Optional overlay */}
         <div className="absolute inset-0 bg-black/0"></div>
       </section>
+
+
+
 
       <section className="container mx-auto px-4 py-3 mt-7">
         <div className="mb-6">
@@ -249,13 +250,13 @@ export default function Home() {
               delay: 3000,
             }),
           ]}
-          className="w-full"
+          className="w-full container"
         >
           <CarouselContent>
             {featuredProducts.map((product) => (
               <CarouselItem
                 key={product.id}
-                className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 "
               >
                 <div className="p-1">
                   <ProductCard product={product} />
@@ -264,131 +265,80 @@ export default function Home() {
             ))}
           </CarouselContent>
 
-          <CarouselPrevious className="bg-vibrant-purple text-white hover:bg-vibrant-pink" />
-          <CarouselNext className="bg-vibrant-purple text-white hover:bg-vibrant-pink" />
+
         </Carousel>
       </section>
 
 
-      <section className="mt-7">
+      <section className="mt-7 container">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-[#2077ac]">
           Premium Brands We Offer
         </h2>
 
-
-        <div className="overflow-hidden py-4 relative">
-          <div className="flex gap-5 animate-scroll-left">
-            {[
-              hp,
-              dell,
-              asus,
-              sophose,
-              lenovo,
-              micro,
-              zebra,
-              zoho,
-              fortinet,
-              mifcro,
-              hikvision,
-              k7,
-              synology,
-              gsuite
-            ].map((logo, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-40 h-32 md:w-40 md:h-20 bg-white rounded-2xl shadow-md flex items-center justify-center p-4"
-              >
-                <img
-                  src={logo}
-                  alt="brand logo"
-                  className="w-full h-14 object-contain"
-                />
-              </div>
-            ))}
-
-
-            {[
-              hp,
-              dell,
-              asus,
-              sophose,
-              lenovo,
-              micro,
-              zebra,
-              zoho,
-              fortinet,
-              mifcro,
-              hikvision,
-              k7,
-              synology,
-              gsuite
-            ].map((logo, index) => (
-              <div
-                key={`copy-${index}`}
-                className="flex-shrink-0 w-32 h-24 md:w-40 md:h-20 bg-white rounded-2xl shadow-md flex items-center justify-center p-4"
-              >
-                <img
-                  src={logo}
-                  alt="brand logo"
-                  className="w-full h-20 object-contain"
-                />
-              </div>
-            ))}
-          </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 py-6 px-4">
+          {[hp, dell, asus, sophose, lenovo, gsuite].map((logo, index) => (
+            <div
+              key={index}
+              className="w-full h-24 bg-white rounded-2xl shadow-sm shadow-[#3491cb] flex items-center justify-center p-4"
+            >
+              <img
+                src={logo}
+                alt="brand logo"
+                className="w-full h-full object-contain"
+              />
+            </div>
+          ))}
         </div>
       </section>
 
 
 
 
-      <section className="w-full bg-white py-14">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="w-full  bg-[#3491cb] py-6 md:py-4">
+        <div className="max-w-7xl h- mx-auto px-4">
 
           <div
             className="
-        grid grid-cols-1 
+        grid 
+        grid-cols-1 
         sm:grid-cols-2 
         md:grid-cols-3 
-        lg:grid-cols-5 
-        gap-8
+        lg:grid-cols-4 
+        xl:grid-cols-5 
+        gap-12
+        text-white , , , ,
       "
           >
             {[
-              { title: "Get Free Delivery", desc: "Enjoy free shipping on all orders.", Icon: FiTruck },
-              { title: "Support 24/7", desc: "Call +91 81225 81225 anytime.", Icon: FiHeadphones },
-              { title: "Return Within 10 Days", desc: "Return items easily within 10 days.", Icon: FiRefreshCw },
-              { title: "100% Secure Payments", desc: "Trusted & secure payment methods.", Icon: FiCreditCard },
-              { title: "100% Original", desc: "Genuine warranty for all products.", Icon: FiShield },
+              { title: "Get Free Delivery", desc: "Enjoy Free shipping on all orders", Icon: FiTruck },
+              { title: "Support 24/7", desc: "We're available at +91 81225 81225 Round-the-clock assistance for a smooth shopping experience.", Icon: Headphones },
+              { title: "Return Within 10 Days", desc: "If you receive an item that you are dissatisfied with, you may return within 10 days.", Icon: FiRefreshCw },
+              { title: "100% Secure Payments", desc: "Pay with the world's most popular and secure payment methods.", Icon: FiCreditCard },
+              { title: "100% Original", desc: "Genuine manufacturing warranty for all products", Icon: ShieldCheck },
             ].map((item, i) => (
               <div
                 key={i}
                 className="
-            flex flex-col items-center text-center 
-            bg-white border border-[#3491cb]/20 rounded-2xl 
-            p-6 shadow-lg 
-            hover:shadow-lg hover:shadow-[#3491cb]  hover: 
-            transition-all duration-300
+            flex flex-col items-start text-left font-sm font-semibold
+            space-y-1 
+            animate-fadeSlide
           "
               >
                 {/* ICON */}
                 <div
                   className="
-              w-16 h-16 rounded-xl 
-              bg-[#3491cb]/10 
-              border border-[#3491cb]-300 
+              w-16 h-12 
               flex items-center justify-center 
-              shadow-sm
             "
                 >
-                  <item.Icon className="text-[#3491cb] w-8 h-8" />
+                  <item.Icon className="w-10 h-10 text-white" />
                 </div>
 
-                <h3 className="mt-4 text-lg font-semibold text-gray-800">
+                <h3 className="text-lg  font-bold leading">
                   {item.title}
                 </h3>
 
-                
-                <p className="text-gray-600 text-sm mt-2 leading-relaxed">
+                <p className="text-white text-sm leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -397,6 +347,7 @@ export default function Home() {
 
         </div>
       </section>
+
 
     </div>
   );

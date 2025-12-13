@@ -61,7 +61,7 @@ export default function RefundPolicy() {
 
   return (
     <div className="min-h-screen bg-[#f4f7fb] py-12 px-4">
-      <div className="max-w-4xl mx-auto space-y-10">
+      <div className=" container px-5 md:px-9">
 
         {/* Page Title */}
         <h1 className="text-4xl md:text-5xl font-extrabold text-center 
@@ -72,8 +72,8 @@ export default function RefundPolicy() {
 
         {/* Content Sections */}
         {sections.map((sec, index) => (
-          <div key={index} className="space-y-4 border-[#3ca5e8] pl-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#3491cb]">
+          <div key={index} className="space-y-1 mb-3 border-[#3ca5e8] pl-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#000000]">
               {sec.title}
             </h2>
             <p className="text-gray-700 leading-relaxed whitespace-pre-line">

@@ -129,7 +129,7 @@ export default function Cart() {
               <Button
                 variant="outline"
                 className="w-full mt-2 hover:bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac]"
-                onClick={() => navigate(user ? '/customer' : '/')}
+                onClick={() => navigate(user ? '/' : '/')}
               >
                 Continue Shopping
               </Button>

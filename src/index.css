@@ -169,35 +169,56 @@ All colors MUST be HSL.
 
 
 
-.announcement-bar {
-    padding: 6px 0;
-    backdrop-filter: blur(6px);
+ .announcement-bar {
+          padding: 6px 0;
+          backdrop-filter: blur(6px);
+        }
+
+        .marquee {
+          display: inline-flex;
+          animation: marquee 28s linear infinite;
+        }
+
+        .marquee:hover {
+          animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+          0% {
+            transform: translateX(100%);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+
+  
+/* home page last section blue bg animation */
+
+ @keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
   }
-
-  .marquee {
-    display: inline-flex;
-    animation: marquee 28s linear infinite;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  .marquee:hover {
-    animation-play-state: paused;
-  }
+.animate-floating {
+  animation: float 3s ease-in-out infinite;
+}
 
-  @keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
-
-
-  /* brand animation */
+.animate-fadeSlide {
+  animation: fadeSlide 0.9s ease forwards;
+}
 
 
 
-  @keyframes scrollLeft {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  .animate-scroll-left {
-    animation: scrollLeft 23s linear infinite;
-    display: flex;
-   }
