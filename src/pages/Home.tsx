@@ -14,9 +14,9 @@ import bg1 from "@/assets/bg1234.png";
 import hp from "@/assets/hp.png";
 import dell from "@/assets/Dell.png";
 import asus from "@/assets/asus.png";
-import sophose from "@/assets/sophos.png";
+import apple from "@/assets/apple-logo.jpeg";
 import lenovo from "@/assets/lenovo.svg";
-import gsuite from "@/assets/sm logo.png";
+import sm from "@/assets/sm logo.png";
 import { FiTruck, FiHeadphones, FiRefreshCw, FiCreditCard, FiShield, FiUser, FiDollarSign, FiPackage, FiStar } from "react-icons/fi";
 
 import {
@@ -77,7 +77,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-background via-muted/30 to-background overflow-x-hidden ">
 
 
-      <div className="w-full bg-white border-t border-gray-200 shadow-sm container">
+      <div className=" hidden md:block w-full bg-white border-t border-gray-200 shadow-sm container">
         <div className="container mx-auto px-4 py-3">
           <div className="flex gap-3 overflow-x-auto no-scrollbar">
             {categories.map((cat) => (
@@ -196,14 +196,14 @@ export default function Home() {
 
 
 
-      <section className="container mt-7  px-4 py-2 ">
+      <section className="container mt-7   px-5 md:px-11 py-2 ">
         <div className="mb-8 text-center ">
           <h2 className="text-4xl font-bold mb-2 bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent">
             Featured Products
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 m-10">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} requireLogin={true} />
           ))}
@@ -218,7 +218,7 @@ export default function Home() {
     relative w-full
     bg-contain md:bg-cover
     bg-center bg-no-repeat
-    min-h-[120px] sm:min-h-[150px] md:min-h-[140px]
+    min-h-[120px] sm:min-h-[150px] md:min-h-[130px]
   "
         style={{ backgroundImage: `url(${bg1})` }}
       >
@@ -276,7 +276,7 @@ export default function Home() {
         </h2>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 py-6 px-4">
-          {[hp, dell, asus, sophose, lenovo, gsuite].map((logo, index) => (
+          {[hp, dell, asus, apple, lenovo,sm].map((logo, index) => (
             <div
               key={index}
               className="w-full h-24 bg-white rounded-2xl shadow-sm shadow-[#3491cb] flex items-center justify-center p-4"
@@ -295,7 +295,7 @@ export default function Home() {
 
 
       <section className="w-full  bg-[#3491cb] py-6 md:py-4">
-        <div className="max-w-7xl h- mx-auto px-4">
+        <div className="container px-6 md:px-12 ">
 
           <div
             className="
@@ -311,7 +311,7 @@ export default function Home() {
           >
             {[
               { title: "Get Free Delivery", desc: "Enjoy Free shipping on all orders", Icon: FiTruck },
-              { title: "Support 24/7", desc: "We're available at +91 81225 81225 Round-the-clock assistance for a smooth shopping experience.", Icon: Headphones },
+              { title: "Support 24/74", desc: "We're available at +91 81225 81225 Round-the-clock assistance for a smooth shopping experience.", Icon: Headphones },
               { title: "Return Within 10 Days", desc: "If you receive an item that you are dissatisfied with, you may return within 10 days.", Icon: FiRefreshCw },
               { title: "100% Secure Payments", desc: "Pay with the world's most popular and secure payment methods.", Icon: FiCreditCard },
               { title: "100% Original", desc: "Genuine manufacturing warranty for all products", Icon: ShieldCheck },

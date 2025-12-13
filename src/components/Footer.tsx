@@ -87,7 +87,7 @@ export const Footer = () => {
                 group-hover:bg-[#3491cb] group-hover:text-white transition-colors">
                   <MapPin size={18} />
                 </div>
-                <span className="text-sm text-white leading-relaxed">
+                <span className="text-sm text-white hover:text-[#3491cb] leading-relaxed">
                   1st Floor, F4, 3rd Phase, Ekkatuthangal, Chennai – 600 032
                 </span>
               </li>
@@ -99,7 +99,7 @@ export const Footer = () => {
                 </div>
                 <a
                   href="tel:+919176012413"
-                  className="text-sm text-white hover:text-white transition-colors"
+                  className="text-sm text-white hover:text-[#3491cb] transition-colors"
                 >
                   +91-9176012413
                 </a>

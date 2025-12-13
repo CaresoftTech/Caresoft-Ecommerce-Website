@@ -46,18 +46,25 @@ export const Header = () => {
     <>
       {/* ================= MOBILE LEFT SLIDE MENU ================= */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-[999] transform transition-transform duration-300 md:hidden
+        className={`fixed top-0 left-0 h-full w-64 bg-[#ffffff] shadow-xl z-[999] transform transition-transform duration-300 md:hidden
         ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
-        <div className="p-4 border-b flex justify-between items-center">
-          <img src={logo} className="h-10" />
+       
+        <div className="p-3 md:p-2 border-b flex justify-between items-center">
+          <img
+            src={logo}
+            className="h-6 md:h-9"
+            alt="Logo"
+          />
+
           <button
-            className="text-xl font-bold"
+            className="text-lg md:text-base font-bold"
             onClick={() => setMobileMenuOpen(false)}
           >
             ✕
           </button>
         </div>
+
 
         <nav className="p-4 flex flex-col gap-4">
           <Link to="/" onClick={() => setMobileMenuOpen(false)}>Home</Link>
@@ -72,7 +79,32 @@ export const Header = () => {
             </Link>
           )}
 
-          <Link to="/cart" onClick={() => setMobileMenuOpen(false)}>
+
+          <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+            All Products
+          </Link>
+
+          <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+            Laptops
+          </Link>
+
+          <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+            Computers
+          </Link>
+
+          <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+            printer
+          </Link>
+
+          <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+            Accessories
+          </Link>
+
+          <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+            Headphones
+          </Link>
+
+          <Link to="/" onClick={() => setMobileMenuOpen(false)}>
             Cart
           </Link>
         </nav>
@@ -103,7 +135,7 @@ export const Header = () => {
 
             {/* LOGO */}
             <Link to="/">
-              <img src={logo} className="h-16" />
+              <img src={logo} className="h-8 md:h-10" />
             </Link>
 
             {/* DESKTOP SEARCH */}
@@ -190,7 +222,7 @@ export const Header = () => {
               </Button>
 
               <Link to="/">
-                <img src={logo} className="h-12" />
+                <img src={logo} className="h-8 md:h-10 items-start" />
               </Link>
 
               <div className="flex items-center space-x-3">

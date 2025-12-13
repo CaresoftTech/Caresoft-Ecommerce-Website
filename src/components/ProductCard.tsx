@@ -59,7 +59,7 @@ export const ProductCard = ({ product, requireLogin = false }: ProductCardProps)
         <div className="flex items-baseline gap-2">
           {product.offerPrice ? (
             <>
-              <span className="text-2xl font-bold text-green-500">
+              <span className="text-2xl  font-bold text-green-500">
                 ₹{product.offerPrice}
               </span>
               <span className="text-sm text-muted-foreground line-through text-red-600">
