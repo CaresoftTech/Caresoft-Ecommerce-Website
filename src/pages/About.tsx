@@ -18,8 +18,6 @@ import gsuite from "@/assets/g-suite.png";
 
 
 
-
-
 export default function About() {
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -52,21 +50,34 @@ export default function About() {
 
   return (
     <div className="relative min-h-screen overflow-hidden ">
-      <div className="container mx-auto px-4 max-w-7xl mt-7">
 
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-[#45b8ff] via-[#3287bc] to-[#020608] animate-slideUp">
-          About Caresoft Technologies
-        </h1>
+
+        <section className="pt-4 pb-2 bg-gradient-to-r from-[#38aaf1] via-[#2077ac] to-[#0e202b] text-white">
+          <div className="container mx-auto px-4 text-center">
+            <h1 className="text-3xl md:text-5xl font-extrabold mb-4">
+              About Us
+            </h1>
+
+          </div>
+        </section>
+
+
+      <div className="container px-6 md:px-12  ">
+
+
+
+
+
 
         {/* WHO WE ARE SECTION */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
-          <div className="bg-white/40 backdrop-blur-lg rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:shadow-[#3491cb] transition-all transform hover:scale-105">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16 mt-7">
+          <div className="bg-[#f0f7ff] backdrop-blur-lg rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:shadow-[#3491cb] transition-all transform hover:scale-105">
             <Users className="w-10 h-10 text-[#3c9edc] mb-4" />
             <h2 className="text-2xl font-semibold mb-2">Who We Are</h2>
             <p className="text-gray-700 leading-relaxed">Caresoft Technologies is a leading provider of cutting-edge tech solutions and products.</p>
           </div>
 
-          <div className="bg-white/40 backdrop-blur-lg rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:shadow-[#3491cb] transition-all transform hover:scale-105">
+          <div className="bg-[#f0f7ff] backdrop-blur-lg rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:shadow-[#3491cb] transition-all transform hover:scale-105">
             <Globe className="w-10 h-10 text-[#3c9edc] mb-4" />
             <h2 className="text-2xl font-semibold mb-2">Our Mission</h2>
             <p className="text-gray-700 leading-relaxed">
@@ -74,7 +85,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="bg-white/40 backdrop-blur-lg rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:shadow-[#3491cb] transition-all transform hover:scale-105">
+          <div className="bg-[#f0f7ff] backdrop-blur-lg rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:shadow-[#3491cb] transition-all transform hover:scale-105">
             <Star className="w-10 h-10 text-[#3c9edc] mb-4" />
             <h2 className="text-2xl font-semibold mb-2">Our Vision</h2>
             <p className="text-gray-700 leading-relaxed">To build world-class platforms that transform digital experiences.</p>
@@ -125,78 +136,77 @@ export default function About() {
 
 
 
-        {/* BRAND CAROUSEL */}
 
 
-      <section className="mt-7 container ">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-[#2077ac]">
-          Premium Brands We Offer
-        </h2>
+        <section className="mt-7 container ">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-[#2077ac]">
+            Premium Brands We Offer
+          </h2>
 
 
-        <div className="overflow-hidden py-2 relative m-8">
-          <div className="flex gap-5 animate-scroll-left">
-            {[
-              hp,
-              dell,
-              asus,
-              sophose,
-              lenovo,
-              micro,
-              zebra,
-              zoho,
-              fortinet,
-              mifcro,
-              hikvision,
-              k7,
-              synology,
-              gsuite
-            ].map((logo, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-40 h-32 md:w-40 md:h-20 bg-white rounded-2xl shadow-md flex items-center justify-center p-4"
-              >
-                <img
-                  src={logo}
-                  alt="brand logo"
-                  className="w-full h-14 object-contain"
-                />
-              </div>
-            ))}
+          <div className="overflow-hidden py-2 relative m-8">
+            <div className="flex gap-5 animate-scroll-left">
+              {[
+                hp,
+                dell,
+                asus,
+                sophose,
+                lenovo,
+                micro,
+                zebra,
+                zoho,
+                fortinet,
+                mifcro,
+                hikvision,
+                k7,
+                synology,
+                gsuite
+              ].map((logo, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-40 h-32 md:w-40 md:h-20 bg-white rounded-2xl shadow-md flex items-center justify-center p-4"
+                >
+                  <img
+                    src={logo}
+                    alt="brand logo"
+                    className="w-full h-14 object-contain"
+                  />
+                </div>
+              ))}
 
 
-            {[
-              hp,
-              dell,
-              asus,
-              sophose,
-              lenovo,
-              micro,
-              zebra,
-              zoho,
-              fortinet,
-              mifcro,
-              hikvision,
-              k7,
-              synology,
-              gsuite
-            ].map((logo, index) => (
-              <div
-                key={`copy-${index}`}
-                className="flex-shrink-0 w-32 h-24 md:w-40 md:h-20 bg-white rounded-2xl shadow-md flex items-center justify-center p-4"
-              >
-                <img
-                  src={logo}
-                  alt="brand logo"
-                  className="w-full h-20 object-contain"
-                />
-              </div>
-            ))}
+              {[
+                hp,
+                dell,
+                asus,
+                sophose,
+                lenovo,
+                micro,
+                zebra,
+                zoho,
+                fortinet,
+                mifcro,
+                hikvision,
+                k7,
+                synology,
+                gsuite
+              ].map((logo, index) => (
+                <div
+                  key={`copy-${index}`}
+                  className="flex-shrink-0 w-32 h-24 md:w-40 md:h-20 bg-white rounded-2xl shadow-md flex items-center justify-center p-4"
+                >
+                  <img
+                    src={logo}
+                    alt="brand logo"
+                    className="w-full h-20 object-contain"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-        
+
 
         <style>
           {`
@@ -234,9 +244,11 @@ export default function About() {
             </div>
           </div>
         </section>
-   
 
-    
+
+
+
+
       </div>
     </div>
   );

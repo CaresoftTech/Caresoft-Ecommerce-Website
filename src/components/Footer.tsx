@@ -17,7 +17,7 @@ export const Footer = () => {
 
   return (
     <footer className="bg-[#1d1f24] text-slate-200 mt-auto border-t border-slate-800 ">
-      <div className="container mx-auto px-5 md:px-11 pt-8 pb-8"> 
+      <div className="container mx-auto px-5 md:px-11 pt-8 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 
 
@@ -36,11 +36,11 @@ export const Footer = () => {
 
             {/* Social Icons */}
             <div className="flex gap-4 pt-2 ">
-              <SocialLink href="#" icon={<Instagram size={20} />} />
-              <SocialLink href="#" icon={<Youtube size={20} />} />
-              <SocialLink href="#" icon={<Facebook size={20} />} />
-              
-              <SocialLink href="#" icon={<Linkedin size={20} />} />
+              <SocialLink href="https://www.instagram.com/caresoft_technologies/" icon={<Instagram size={20} />} />
+              <SocialLink href="https://youtube.com/@caresofttechnologiesmediateam" icon={<Youtube size={20} />} />
+              <SocialLink href="https://www.facebook.com/profile.php?id=61565852035478" icon={<Facebook size={20} />} />
+
+              <SocialLink href="https://www.linkedin.com/company/caresoft-technologies/" icon={<Linkedin size={20} />} />
               <SocialLink
                 href="https://wa.me/9176012413"
                 icon={<FaWhatsapp size={20} />}
@@ -48,7 +48,7 @@ export const Footer = () => {
             </div>
           </div>
 
-     
+
           <div>
             <h3 className="font-bold text-lg text-white mb-6 relative inline-block">
               Quick Links
@@ -56,17 +56,17 @@ export const Footer = () => {
             </h3>
             <ul className="space-y-3 text-white">
               <FooterLink to="/about" label="About Us" />
-              
+              <FooterLink to="/services" label="Services" />
               <FooterLink to="/contact" label="Contact Us" />
             </ul>
           </div>
 
-         
+
           <div>
             <h3 className="font-bold text-lg text-white mb-6 relative inline-block">
               Policies
               <span className="absolute -bottom-2 left-0 w-12 h-1  bg-[#33e8f5] rounded-full"></span>
-            </h3> 
+            </h3>
             <ul className="space-y-3 text-white">
               <FooterLink to="/privacy" label="Privacy Policy" />
               <FooterLink to="/shipping" label="Shipping Policy" />
@@ -75,7 +75,7 @@ export const Footer = () => {
             </ul>
           </div>
 
-        
+
           <div>
             <h3 className="font-bold text-lg text-white mb-6 relative inline-block">
               Get in Touch
@@ -101,9 +101,22 @@ export const Footer = () => {
                   href="tel:+919176012413"
                   className="text-sm text-white hover:text-[#3491cb] transition-colors"
                 >
-                  +91-9176012413
+                  Sales : +91-9176012413
                 </a>
               </li>
+              <li className="flex items-center gap-3 group">
+                <div className="bg-[#3491cb]/10 p-2 rounded-lg text-[#3491cb]
+                group-hover:bg-[#3491cb] group-hover:text-white transition-colors">
+                  <Phone size={18} />
+                </div>
+                <a
+                  href="tel:+919176012412"
+                  className="text-sm  text-white hover:text-[#3491cb] transition-colors"
+                >
+                  Service : +91-9176012412
+                </a>
+              </li>
+
 
               <li className="flex items-center gap-3 group">
                 <div className="bg-[#3491cb]/10 p-2 rounded-lg text-[#3491cb]

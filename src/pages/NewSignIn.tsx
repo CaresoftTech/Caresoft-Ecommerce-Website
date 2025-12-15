@@ -59,7 +59,7 @@ export default function NewSignIn() {
         </div>
 
         {/* Right Side Login Form */}
-        <Card className="w-full max-w-md mx-auto relative bg-[#3491cb] border-2 border-vibrant-purple/20 shadow-2xl shadow-[#3491cb]">
+        <Card className="w-full max-w-md mx-auto relative bg-[#e7f1fc] border-2 border-[#3491cb]/40 shadow-2xl shadow-[#3491cb]">
           <button
             onClick={() => navigate(-1)}
             className="absolute top-3 left-3 p-2 rounded-full hover:bg-muted transition"
@@ -68,10 +68,11 @@ export default function NewSignIn() {
           </button>
 
           <CardHeader className="space-y-1 mt-6">
-            <CardTitle className="text-3xl font-bold text-center text-white">
+            <CardTitle className="text-3xl font-bold text-center  bg-gradient-to-r from-[#4cb9fd] to-[#153f5b] 
+        bg-clip-text text-transparent">
               Log In
             </CardTitle>
-            <CardDescription className="text-center text-white/90">
+            <CardDescription className="text-center text-gray-500">
               Sign in to your account to continue
             </CardDescription>
           </CardHeader>
@@ -81,7 +82,7 @@ export default function NewSignIn() {
 
               {/* EMAIL */}
               <div>
-                <Label htmlFor="email" className="flex items-center gap-2 text-white mb-2">
+                <Label htmlFor="email" className="flex items-center gap-2 text-[#3491cb] mb-2">
                   <Mail className="h-4 w-4" />
                   Email Address
                 </Label>
@@ -92,13 +93,13 @@ export default function NewSignIn() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  className="border-[#000000] focus:border-[#4418f6]"
+                  className="border-[#3491cb]/60 focus:border-[#18b3f6]"
                 />
               </div>
 
               {/* PASSWORD */}
               <div>
-                <Label htmlFor="password" className="flex items-center gap-2 text-white mb-2">
+                <Label htmlFor="password" className="flex items-center gap-2 text-[#3491cb] mb-2">
                   <Lock className="h-4 w-4" />
                   Password
                 </Label>
@@ -111,7 +112,7 @@ export default function NewSignIn() {
                     value={formData.password}
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     required
-                    className="border-black focus:border-[#1b39ff] pr-10"
+                    className="border-[#3491cb]/60 focus:border-[#3491cb] pr-10"
                   />
 
                   <button
@@ -128,16 +129,16 @@ export default function NewSignIn() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-[#72c8fe] via-[#279be3] to-[#184b65] hover:opacity-90"
+                className="w-full bg-gradient-to-r from-[#4cb1f0] via-[#1e94dd] to-[#184b65] hover:opacity-90"
               >
                 <LogIn className="mr-2 h-4 w-4" />
                 {isSubmitting ? "Signing in..." : "Sign In"}
               </Button>
 
               {/* SIGNUP */}
-              <p className="text-center text-sm text-grey-200">
+              <p className="text-center text-sm text-gray-500">
                 Don't have an account?{" "}
-                <Link to="/signup" className="text-white hover:underline font-semibold">
+                <Link to="/signup" className="text-[#3491cb] hover:underline font-semibold">
                   Sign Up
                 </Link>
               </p>

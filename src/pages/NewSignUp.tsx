@@ -94,7 +94,7 @@ export default function NewSignUp() {
         </div>
 
         {/* RIGHT SIDE SIGNUP FORM */}
-        <Card className="w-full bg-gradient-to-br from-vibrant-purple/10 to-vibrant-pink/10 border-2 border-vibrant-purple/20 shadow-2xl shadow-[#3491cb]">
+        <Card className="w-full bg-[#e7f1fc] border-2 border-[#3491cb]/40 shadow-2xl shadow-[#3491cb]">
           <CardHeader className="space-y-1">
             <CardTitle className="text-3xl font-bold text-center bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent">
               Create Account

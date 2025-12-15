@@ -26,6 +26,7 @@ import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import ContactButtons from "./components/ContactButtons";
 import GoogleReviews from "@/components/GoogleReview";
+import Services from "./pages/Services";
 
 const App = () => (
   <TooltipProvider>
@@ -49,6 +50,7 @@ const App = () => (
               <Route path="/profile" element={<Profile />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/privacy" element={<Privacy />} />
+              <Route path="/services" element={<Services />} />
               <Route path="/shipping" element={<Shipping />} />
               <Route path="/refund" element={<Refund />} />
               <Route path="/order-tracking" element={<OrderTracking />} />

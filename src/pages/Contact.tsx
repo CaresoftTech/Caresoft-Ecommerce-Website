@@ -42,7 +42,7 @@ export default function Contact() {
 
 
       <section className="max-w-7xl mx-auto px-4 -mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-[#d5e8f4] backdrop-blur-lg shadow-lg hover:shadow-[#3491cb] rounded-2xl p-6 flex items-center gap-4 hover:scale-105 transition-transform">
+        <div className="bg-[#f0f7ff] backdrop-blur-lg shadow-lg hover:shadow-[#3491cb] rounded-2xl p-6 flex items-center gap-4 hover:scale-105 transition-transform">
           <div className="bg-[#3491cb3c] p-3 rounded-lg">
             <Mail className="w-6 h-6 text-[#3491cb]" />
           </div>
@@ -52,7 +52,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="bg-[#d5e8f4] backdrop-blur-lg shadow-lg hover:shadow-[#3491cb] rounded-2xl p-6 flex items-center gap-4 hover:scale-105 transition-transform">
+        <div className="bg-[#f0f7ff] backdrop-blur-lg shadow-lg hover:shadow-[#3491cb] rounded-2xl p-6 flex items-center gap-4 hover:scale-105 transition-transform">
           <div className="bg-[#3491cb2a] p-3 rounded-lg">
             <Phone className="w-6 h-6 text-[#3491cb]" />
           </div>
@@ -62,7 +62,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="bg-[#d5e8f4] backdrop-blur-lg shadow-lg hover:shadow-[#3491cb] rounded-2xl p-6 flex items-center gap-4 hover:scale-105 transition-transform">
+        <div className="bg-[#f0f7ff] backdrop-blur-lg shadow-lg hover:shadow-[#3491cb] rounded-2xl p-6 flex items-center gap-4 hover:scale-105 transition-transform">
           <div className="bg-[#3491cb30] p-3 rounded-lg">
             <MapPin className="w-6 h-6 text-[#3491cb]" />
           </div>
@@ -81,7 +81,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
           {/* LEFT — FORM CARD */}
-          <div className="bg-[#3491cb]/20 backdrop-blur-2xl border border-[#3491cb]/40 shadow-xl shadow-[#3491cb] rounded-3xl p-8 md:p-10">
+          <div className="bg-[#f0f7ff] backdrop-blur-2xl border border-[#3491cb]/40 shadow-xl shadow-[#3491cb] rounded-3xl p-8 md:p-10">
             <h2 className="text-3xl font-bold bg-gradient-to-r from-[#4cb9fd] to-[#153f5b] 
         bg-clip-text text-transparent mb-8 text-center md:text-left">
               Send Us a Message
@@ -96,7 +96,7 @@ export default function Contact() {
                   placeholder="Your Name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="flex-1 p-4 border rounded-xl focus:ring-2 focus:ring-blue-300 outline-none"
+                  className="flex-1 p-4 border rounded-xl focus:ring-2 focus:ring-blue-300 outline-none border-[#3491cb]/40"
                   required
                 />
                 <input
@@ -105,7 +105,7 @@ export default function Contact() {
                   placeholder="Your Email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="flex-1 p-4 border rounded-xl focus:ring-2 focus:ring-blue-300 outline-none"
+                  className="flex-1 p-4 border rounded-xl focus:ring-2 focus:ring-blue-300 outline-none border-[#3491cb]/40"
                   required
                 />
               </div>
@@ -116,7 +116,7 @@ export default function Contact() {
                 value={formData.message}
                 onChange={handleChange}
                 rows={6}
-                className="w-full p-4 border rounded-xl focus:ring-2 focus:ring-blue-300 outline-none"
+                className="w-full p-4 border rounded-xl focus:ring-2 focus:ring-blue-300  outline-none border-[#3491cb]/40"
                 required
               />
 
