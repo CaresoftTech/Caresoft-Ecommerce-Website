@@ -232,7 +232,7 @@ export default function Home() {
       <section className="container mx-auto px-4 py-3 mt-7">
         <div className="mb-6">
           <h2 className="text-3xl font-bold mb-2 text-center">
-            🔥
+            
             <span className="text-3xl  font-bold mb-2 bg-gradient-to-r from-[#30aefc] via-[#24a6f7] to-[#17506c] bg-clip-text text-transparent">
               Hot Deals for You
             </span>

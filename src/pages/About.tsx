@@ -51,7 +51,6 @@ export default function About() {
   return (
     <div className="relative min-h-screen overflow-hidden ">
 
-
         <section className="pt-4 pb-2 bg-gradient-to-r from-[#38aaf1] via-[#2077ac] to-[#0e202b] text-white">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-3xl md:text-5xl font-extrabold mb-4">
@@ -63,11 +62,6 @@ export default function About() {
 
 
       <div className="container px-6 md:px-12  ">
-
-
-
-
-
 
         {/* WHO WE ARE SECTION */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16 mt-7">
@@ -224,7 +218,7 @@ export default function About() {
         {/* WHY CHOOSE */}
         <section className="bg-gradient-to-r mt-7 from-[#38aaf1] mb-10 via-[#2077ac] to-[#0e202b] text-white py-16 rounded-3xl shadow-xl overflow-hidden">
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 animate-fade-in">
-            Why Choose Caresoft Technology? 🚀
+            Why Choose Caresoft Technologies? 🚀
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-12">
