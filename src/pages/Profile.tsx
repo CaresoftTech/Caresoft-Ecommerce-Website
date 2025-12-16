@@ -4,7 +4,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
 import {
   User,
@@ -13,8 +13,6 @@ import {
   MapPin,
   LogOut,
   Save,
-  Edit,
-  X,
   Package,
 } from "lucide-react";
 
@@ -32,10 +30,7 @@ export default function Profile() {
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    if (!loading && !user) {
-      navigate("/signin");
-      return;
-    }
+    if (!loading && !user) navigate("/signin");
 
     if (user) {
       setProfile({
@@ -47,17 +42,17 @@ export default function Profile() {
     }
   }, [user, loading, navigate]);
 
-  const handleSave = () => {
+  const handleSave = async () => {
     setSaving(true);
     try {
-      updateProfile({
+      await updateProfile({
         name: profile.name,
         phone: profile.phone,
         address: profile.address,
       });
-      toast.success("Profile updated successfully!");
-    } catch (error) {
-      toast.error("Something went wrong!");
+      toast.success("Profile updated");
+    } catch {
+      toast.error("Update failed");
     } finally {
       setSaving(false);
     }
@@ -65,105 +60,85 @@ export default function Profile() {
 
   const handleLogout = () => {
     logout();
-    toast.success("Logged out successfully");
     navigate("/");
-  };
-
-  const handleCancel = () => {
-    navigate("/");
-  };
-
-  const handleTrackOrder = () => {
-    navigate("/order-tracking");
   };
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-black/10">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500"></div>
+      <div className="min-h-screen flex items-center justify-center bg-[#f6f8fc]">
+        <div className="h-10 w-10 animate-spin rounded-full border-b-2 border-blue-600" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f7faff] via-[#e2f0ff] to-[#f0f4f8] py-12 px-4">
-      <div className="max-w-3xl mx-auto">
+    <div className="min-h-screen bg-white px-4 py-10">
+      <div className="max-w-6xl mx-auto grid lg:grid-cols-4 gap-8">
 
-        {/* TOP PROFILE SECTION */}
-        <div className="relative w-full mb-10">
-          <div className="h-40 w-full rounded-3xl bg-gradient-to-r from-[#38aaf1] via-[#2077ac] to-[#0e202b] backdrop-blur-xl shadow-2xl"></div>
-
-          <X
-            className="absolute top-4 right-4 h-6 w-6 text-white cursor-pointer hover:text-red-400"
-            onClick={handleCancel}
-          />
-
-          <div className="absolute left-1/2 -bottom-12 transform -translate-x-1/2">
-          <h2 className="font-bold text-center text-2xl font-serif text-white mb-4">
-            My Profile
-          </h2>
-            <div className="h-32 w-32 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 p-1 shadow-xl">
-
-              <div className="h-full w-full rounded-full bg-black flex items-center justify-center text-white text-4xl font-bold">
-                {profile.name?.charAt(0)?.toUpperCase() || "U"}
-              </div>
+        {/* LEFT PROFILE PANEL */}
+        <Card className="lg:col-span-1 p-6 rounded-3xl shadow-md border border-gray-100 bg-[#f0f7ff]">
+          <div className="flex flex-col items-center text-center gap-5">
+            <div className="h-24 w-24 rounded-full bg-gradient-to-br from-[#43cbf5] via-[#41a4e2] to-[#122d3a] hover:bg-[#2579ac] text-white font-serif flex items-center justify-center text-3xl font-semibold shadow-lg">
+              {profile.name?.charAt(0)?.toUpperCase() || "U"}
             </div>
-          </div>
-        </div>
 
-        {/* USER NAME */}
-        <div className="mt-16 mb-8 text-center">
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-            {profile.name || "User Name"}
-          </h1>
-          <p className="text-gray-400">{profile.email}</p>
-        </div>
-
-        {/* FORM CARD */}
-        <Card className="relative bg-white/5 bg-[#3491cb] border-white/10 shadow-2xl rounded-2xl p-6 space-y-6">
-
-          {/* CANCEL ICON */}
-          <X
-            className="absolute top-4 right-4 h-6 w-6 text-white cursor-pointer hover:text-red-400"
-            onClick={handleCancel}
-          />
-
-          {/* FORM GRID */}
-          <div className="grid md:grid-cols-2 gap-6">
-
-            {/* NAME */}
             <div>
-              <Label className="text-white flex items-center gap-2 mb-2 ">
+              <h2 className="text-lg font-semibold text-[#3491cb]">
+                {profile.name || "User Name"}
+              </h2>
+              <p className="text-sm text-gray-500 break-all">
+                {profile.email}
+              </p>
+            </div>
+
+            <Button
+              onClick={() => navigate("/order-tracking")}
+              className="w-full bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac] rounded-xl"
+            >
+              <Package className="mr-2 h-4 w-4" />
+              My Orders
+            </Button>
+          </div>
+        </Card>
+
+        {/* RIGHT CONTENT */}
+        <Card className="lg:col-span-3 p-6 md:p-10 rounded-3xl shadow-md border border-gray-100 bg-[#f0f7ff]">
+          <div className="mb-10">
+            <h1 className="text-2xl font-semibold text-[#3491cb]">
+              Account Details
+            </h1>
+            <p className="text-sm text-gray-500 mt-1">
+              Keep your personal information up to date
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <Label className="text-[#3491cb] flex items-center gap-2 mb-1 text-sm">
                 <User className="h-4 w-4" /> Full Name
               </Label>
-              <div className="relative">
-                <Input
-                  value={profile.name}
-                  onChange={(e) =>
-                    setProfile({ ...profile, name: e.target.value })
-                  }
-                  className="bg-white/10 text-white font-bold border-white/40 focus:border-purple-400 focus:ring-purple-400"
-                  placeholder="Enter your name"
-                />
-                <Edit className="absolute right-3 top-3 h-4 w-4 text-white" />
-              </div>
+              <Input
+                value={profile.name}
+                onChange={(e) =>
+                  setProfile({ ...profile, name: e.target.value })
+                }
+                className="rounded-xl"
+              />
             </div>
 
-            {/* EMAIL */}
             <div>
-              <Label className="text-white flex items-center gap-2 mb-2">
-                <Mail className="h-4 w-4" /> Email Address
+              <Label className="text-[#3491cb] flex items-center gap-2 mb-1 text-sm">
+                <Mail className="h-4 w-4" /> Email
               </Label>
               <Input
                 value={profile.email}
                 disabled
-                className="bg-white/10 text-gray-900 border-white/80"
+                className="rounded-xl "
               />
             </div>
 
-            {/* PHONE */}
             <div>
-              <Label className="text-white flex items-center gap-2 mb-2">
+              <Label className="text-[#3491cb] flex items-center gap-2 mb-1 text-sm">
                 <Phone className="h-4 w-4" /> Phone
               </Label>
               <Input
@@ -171,14 +146,12 @@ export default function Profile() {
                 onChange={(e) =>
                   setProfile({ ...profile, phone: e.target.value })
                 }
-                placeholder="Enter phone number"
-                className="bg-white/10 font-bold text-white border-white/20 focus:border-green-400"
+                className="rounded-xl"
               />
             </div>
 
-            {/* ADDRESS */}
             <div>
-              <Label className="text-white flex items-center gap-2 mb-2">
+              <Label className="text-[#3491cb] flex items-center gap-2 mb-1 text-sm">
                 <MapPin className="h-4 w-4" /> Address
               </Label>
               <Input
@@ -186,41 +159,30 @@ export default function Profile() {
                 onChange={(e) =>
                   setProfile({ ...profile, address: e.target.value })
                 }
-                placeholder="Enter your address"
-                className="bg-white/10 font-bold text-white border-white/20 focus:border-orange-400"
+                className="rounded-xl"
               />
             </div>
           </div>
 
-          {/* BUTTONS */}
-          <div className="flex flex-col md:flex-row gap-4 pt-4">
+          {/* ACTIONS */}
+          <div className="flex flex-col md:flex-row gap-4 mt-12">
             <Button
               onClick={handleSave}
               disabled={saving}
-              className="flex-1 bg-gradient-to-r from-[#c71dfb] to-blue-500 text-white font-semibold shadow-lg hover:opacity-90"
+              className="bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac] rounded-xl"
             >
               <Save className="mr-2 h-4 w-4" />
               {saving ? "Saving..." : "Save Changes"}
             </Button>
 
             <Button
-              onClick={handleTrackOrder}
-              className="flex-1 bg-green-500 text-white font-semibold shadow-lg hover:bg-green-600 flex items-center justify-center gap-2"
-            >
-              <Package className="h-4 w-4" />
-              Track Your Order
-            </Button>
-
-            <Button
-              onClick={handleLogout}
               variant="outline"
-              className="flex-1 border-red-500/40 text-red-400 hover:bg-red-500 hover:text-white"
+              onClick={handleLogout}
+              className="rounded-xl border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
             >
               <LogOut className="mr-2 h-4 w-4" />
               Logout
             </Button>
-
-
           </div>
         </Card>
       </div>
