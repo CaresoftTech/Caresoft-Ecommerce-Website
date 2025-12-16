@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Truck, Lock, Gift, Users, Globe, Star, Plus, Minus } from "lucide-react";
+import {
+  Truck, Lock, Gift, Users, Globe, Star, Plus, Minus,
+
+  BadgeCheck,
+  Receipt,
+  ShieldCheck,
+} from "lucide-react";
 import hp from "@/assets/hp.png";
 import dell from "@/assets/Dell.png";
 import asus from "@/assets/asus.png";
@@ -62,8 +68,9 @@ export default function About() {
 
 
       <div className="container px-6 md:px-12  ">
-        
-        <section className="max-w-5xl mx-auto px-4 mt-16  space-y-14">
+        <section className="max-w-5xl mx-auto px-4 mt-16 space-y-14">
+
+
           <div>
             <div className="flex items-center gap-3 mb-4">
               <Users className="w-6 h-6 text-[#3491cb]" />
@@ -72,32 +79,27 @@ export default function About() {
               </h2>
             </div>
 
-            <p className="text-gray-600 leading-relaxed mb-5">
+            <p className="text-gray-600 leading-relaxed mb-4">
               Caresoft Technologies is a trusted technology partner delivering reliable,
-              scalable, and future-ready IT solutions for businesses of all sizes.
+              scalable, and future-ready IT solutions for businesses across industries.
+              We focus on understanding client needs and translating them into practical,
+              efficient digital solutions.
             </p>
 
-            <ul className="space-y-2 text-gray-600 list-disc list-inside">
-              <li>Customer-centric IT solutions</li>
-              <li>Skilled and experienced professionals</li>
-              <li>Commitment to quality and reliability</li>
-            </ul>
+            <p className="text-gray-600 leading-relaxed">
+              With a strong emphasis on quality, performance, and long-term value, our
+              team combines technical expertise with a customer-first approach to help
+              organizations grow confidently in a digital-driven world.
+            </p>
           </div>
 
-       
+
           <div>
             <div className="flex items-center gap-3 mb-4">
               <Globe className="w-6 h-6 text-[#3491cb]" />
-              <h2 className="text-2xl md:text-3xl font-semibold text-[#3491cb]">
-                Our Mission
-              </h2>
+              <h2 className="text-2xl md:text-3xl font-semibold text-[#3491cb]"> Our Mission </h2>
             </div>
-
-            <p className="text-gray-600 leading-relaxed mb-5">
-              Our mission is to empower organizations through innovative technology,
-              dependable IT services, and strategic digital solutions.
-            </p>
-
+            <p className="text-gray-600 leading-relaxed mb-5"> Our mission is to empower organizations through innovative technology, dependable IT services, and strategic digital solutions. </p>
             <ul className="space-y-2 text-gray-600 list-disc list-inside">
               <li>Deliver high-quality IT services</li>
               <li>Enable digital transformation</li>
@@ -105,20 +107,14 @@ export default function About() {
             </ul>
           </div>
 
-      
+
+
           <div>
             <div className="flex items-center gap-3 mb-4">
               <Star className="w-6 h-6 text-[#3491cb]" />
-              <h2 className="text-2xl md:text-3xl font-semibold text-[#3491cb]">
-                Our Vision
-              </h2>
+              <h2 className="text-2xl md:text-3xl font-semibold text-[#3491cb]"> Our Vision </h2>
             </div>
-
-            <p className="text-gray-600 leading-relaxed mb-5">
-              We envision building world-class digital platforms that transform
-              experiences and create sustainable business growth.
-            </p>
-
+            <p className="text-gray-600 leading-relaxed mb-5"> We envision building world-class digital platforms that transform experiences and create sustainable business growth. </p>
             <ul className="space-y-2 text-gray-500 list-disc list-inside">
               <li>Innovation-driven mindset</li>
               <li>Global standards and best practices</li>
@@ -126,46 +122,67 @@ export default function About() {
             </ul>
           </div>
 
+
+
+
+
+
         </section>
 
 
-        <section className="  text-[#3491cb] py-16  overflow-hidden">
-          <h2 className="text-3xl pt- pb-3 mb-5  md:text-5xl font-bold text-center  animate-fade-in  bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent">
+        <section className="text-[#3491cb] py-16 overflow-hidden">
+          <h2 className="text-3xl md:text-4xl mb-3 pb-5  font-bold text-center animate-fade-in bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent">
             Why Choose Caresoft Technologies?
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-12">
-            <div className=" bg-[#f0f7ff] backdrop-blur-lg rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:shadow-[#3491cb] text-center transition-all transform hover:scale-105 text-[#3491cb]">
-              <Truck className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold mb-2">Free Shipping</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 px-6 md:px-12">
+
+            <div className="bg-[#f0f7ff] backdrop-blur-lg rounded-3xl p-4 shadow-lg hover:shadow-md hover:shadow-[#3491cb] text-center transition-all transform hover:scale-105">
+              <BadgeCheck className="w-12 h-12 mx-auto mb-4 text-[#3491cb]" />
+              <h3 className="text-md font-semibold">Genuine Products</h3>
             </div>
 
-            <div className=" bg-[#f0f7ff] backdrop-blur-lg rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:shadow-[#3491cb] transition-all transform hover:scale-105 text-center text-[#3491cb]">
-              <Lock className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold mb-2">Secure Payment</h3>
+  
+            <div className="bg-[#f0f7ff] backdrop-blur-lg rounded-3xl p-4 shadow-lg hover:shadow-md hover:shadow-[#3491cb] text-center transition-all transform hover:scale-105">
+              <Truck className="w-12 h-12 mx-auto mb-4 text-[#3491cb]" />
+              <h3 className="text-md font-semibold">Secure Delivery</h3>
             </div>
 
-            <div className="bg-[#f0f7ff] backdrop-blur-lg rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:shadow-[#3491cb] transition-all transform hover:scale-105 text-center text-[#3491cb]">
-              <Gift className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold mb-2">Best Deals</h3>
+         
+            <div className="bg-[#f0f7ff] backdrop-blur-lg rounded-3xl p-4 shadow-lg hover:shadow-md hover:shadow-[#3491cb] text-center transition-all transform hover:scale-105">
+              <Receipt className="w-12 h-12 mx-auto mb-4 text-[#3491cb]" />
+              <h3 className="text-md font-semibold">No Hidden Charges</h3>
             </div>
+
+            
+            <div className="bg-[#f0f7ff] backdrop-blur-lg rounded-3xl p-4 shadow-lg hover:shadow-md hover:shadow-[#3491cb] text-center transition-all transform hover:scale-105">
+              <Lock className="w-12 h-12 mx-auto mb-4 text-[#3491cb]" />
+              <h3 className="text-md font-semibold">Secure Payments</h3>
+            </div>
+
+            <div className="bg-[#f0f7ff] backdrop-blur-lg rounded-3xl p-4 shadow-lg hover:shadow-md hover:shadow-[#3491cb] text-center transition-all transform hover:scale-105">
+              <ShieldCheck className="w-12 h-12 mx-auto mb-4 text-[#3491cb]" />
+              <h3 className="text-md font-semibold">21 Years of Trust</h3>
+            </div>
+
           </div>
         </section>
 
 
 
-        {/*  FAQ SECTION ADDED BELOW — NO OTHER CODE CHANGED  */}
+
+
         <section className="max-w-7xl mx-auto px-4 py-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 bg-[#f0f7ff] p-10 rounded-3xl">
 
-            {/* LEFT TITLE */}
+            
             <div className="md:col-span-1 flex items-start">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-800 leading-snug">
                 FAQ (Frequently <br /> Asked Questions)
               </h2>
             </div>
 
-            {/* RIGHT ACCORDION LIST */}
+         
             <div className="md:col-span-2 space-y-4">
               {faqs.map((item, i) => (
                 <div key={i} className="border-b border-gray-300 pb-4 cursor-pointer" onClick={() => toggleFAQ(i)}>
@@ -191,10 +208,6 @@ export default function About() {
 
           </div>
         </section>
-
-
-
-
 
 
 

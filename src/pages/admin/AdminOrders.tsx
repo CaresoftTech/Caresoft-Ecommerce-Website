@@ -67,7 +67,7 @@ export default function AdminOrders() {
     <div className="min-h-screen bg-gradient-to-br from-[#dff2ff] via-[#ecf9ff] to-white py-12">
       <div className="container mx-auto px-4 max-w-7xl">
         
-        {/* Dashboard Header */}
+
         <div className="mb-10 animate-slideUp">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-[#0f84c9] via-[#2a9eed] to-[#153f5b] bg-clip-text text-transparent">
             Admin Orders Dashboard
@@ -77,7 +77,7 @@ export default function AdminOrders() {
           </p>
         </div>
 
-        {/* Card Container */}
+  
         <Card className="backdrop-blur-xl bg-white/70 border border-white/40 shadow-2xl rounded-3xl animate-fadeIn">
           <CardHeader>
             <CardTitle className="text-2xl font-bold flex items-center gap-2">
@@ -169,7 +169,7 @@ export default function AdminOrders() {
           </CardContent>
         </Card>
 
-        {/* Animations */}
+
         <style>
           {`
             @keyframes fadeIn {

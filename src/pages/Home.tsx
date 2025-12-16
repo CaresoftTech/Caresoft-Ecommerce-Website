@@ -97,7 +97,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/*  Hero Section Slider */}
+    
       <section className="relative w-full  h-[200px] md:h-[320px] lg:h-[350px] overflow-hidden ">
         {carouselImages.map((image, index) => (
           <div
@@ -212,7 +212,7 @@ export default function Home() {
       </section>
 
 
-      {/* r Background Section */}
+   
       <section
         className="
     relative w-full
@@ -222,7 +222,7 @@ export default function Home() {
   "
         style={{ backgroundImage: `url(${bg1})` }}
       >
-        {/* Optional overlay */}
+     
         <div className="absolute inset-0 bg-black/0"></div>
       </section>
 
@@ -311,7 +311,7 @@ export default function Home() {
           >
             {[
               { title: "Get Free Delivery", desc: "Enjoy Free shipping on all orders", Icon: FiTruck },
-              { title: "Support 24/74", desc: "We're available at +91 81225 81225 Round-the-clock assistance for a smooth shopping experience.", Icon: Headphones },
+              { title: "Support 24/7", desc: "We're available at +91 9176012412 Round-the-clock assistance for a smooth shopping experience.", Icon: Headphones },
               { title: "Return Within 10 Days", desc: "If you receive an item that you are dissatisfied with, you may return within 10 days.", Icon: FiRefreshCw },
               { title: "100% Secure Payments", desc: "Pay with the world's most popular and secure payment methods.", Icon: FiCreditCard },
               { title: "100% Original", desc: "Genuine manufacturing warranty for all products", Icon: ShieldCheck },
@@ -324,7 +324,7 @@ export default function Home() {
             animate-fadeSlide
           "
               >
-                {/* ICON */}
+              
                 <div
                   className="
               w-16 h-12 

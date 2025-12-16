@@ -44,7 +44,7 @@ export const Header = () => {
 
   return (
     <>
-      {/* ================= MOBILE LEFT SLIDE MENU ================= */}
+      {/*  MOBILE LEFT SLIDE MENU  */}
       <div
         className={`fixed top-0 left-0 h-full w-64 bg-[#ffffff] shadow-xl z-[999] transform transition-transform duration-300 md:hidden
         ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
@@ -89,7 +89,7 @@ export const Header = () => {
         />
       )}
 
-      {/* ================= NORMAL HEADER ================= */}
+      {/*  NORMAL HEADER  */}
       <header className={`${showFixedHeader ? "hidden" : "block"} w-full bg-white border-b`}>
         <div className="container mx-auto px-5 md:px-11">
           <div className="h-20 flex items-center justify-between">
@@ -167,7 +167,7 @@ export const Header = () => {
         </div>
       </header>
 
-      {/* ================= FIXED HEADER ================= */}
+      {/*  FIXED HEADER  */}
       {showFixedHeader && (
         <header className="fixed top-0 left-0 w-full bg-white border-b shadow-md z-50 animate-slideDown">
           <div className="container mx-auto px-5 md:px-11">
@@ -186,7 +186,7 @@ export const Header = () => {
                 <img src={logo} className="h-8 md:h-14 " />
               </Link>
 
-              {/* ✅ ONLY ADDITION – FIXED HEADER SEARCH */}
+              {/*  ONLY ADDITION – FIXED HEADER SEARCH */}
               <form onSubmit={handleSearch} className="hidden md:flex flex-1 max-w-lg mx-4">
                 <div className="flex items-center gap-2 bg-blue-50 border rounded-full px-3 py-1.5 w-full">
                   <Search className="w-4 h-4 text-blue-600" />

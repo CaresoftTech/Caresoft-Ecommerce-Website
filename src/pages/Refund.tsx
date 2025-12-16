@@ -71,7 +71,7 @@ export default function RefundPolicy() {
 
       <div className=" container px-5 md:px-9 mt-7">
 
-        {/* Content Sections */}
+        
         {sections.map((sec, index) => (
           <div key={index} className="space-y-1 mb-3 border-[#3ca5e8] pl-6">
             <h2 className="text-2xl md:text-3xl font-bold text-[#000000]">
@@ -85,7 +85,7 @@ export default function RefundPolicy() {
 
       </div>
 
-      {/* Animation Style */}
+     
       <style>{`
         @keyframes fadeIn {
           0% { opacity: 0; transform: translateY(20px); }

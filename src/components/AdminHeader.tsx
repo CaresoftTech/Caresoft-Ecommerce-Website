@@ -19,13 +19,13 @@ export const AdminHeader = () => {
     <header className="sticky top-0 z-50 w-full border-b bg-gradient-to-r from-[#74daf7bb] via-[#297aad] to-[#20577a] shadow-lg">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
+      
           <Link to="/admin" className="flex items-center space-x-2">
             <img src={logo} alt="Caresoft Technology" className="h-10 w-50" />
 
           </Link>
 
-          {/* Admin Navigation */}
+          
           <nav className="flex items-center space-x-4">
             <Link to="/admin" className="flex items-center gap-2 text-white/80 hover:text-white transition-colors">
               <LayoutDashboard className="h-4 w-4" />

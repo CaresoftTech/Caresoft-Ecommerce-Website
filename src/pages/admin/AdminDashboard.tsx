@@ -35,7 +35,7 @@ export default function AdminDashboard() {
     <div className="min-h-screen bg-gradient-to-br from-[#e6f3ff] via-[#f0f8ff] to-[#d6eaff] py-12">
       <div className="container mx-auto px-4">
 
-        {/* === HEADER === */}
+
         <div className="mb-10">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-[#0f84c9] via-[#2a9eed] to-[#153f5b] bg-clip-text text-transparent flex gap-3 items-center drop-shadow-sm">
             <LayoutDashboard className="h-10 w-10 text-[#007bff]" />
@@ -46,7 +46,7 @@ export default function AdminDashboard() {
           </p>
         </div>
 
-        {/* === STATS ROW === */}
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
           {[
             { label: "Total Products", value: "128", icon: Package },
@@ -68,10 +68,10 @@ export default function AdminDashboard() {
           ))}
         </div>
 
-        {/* === MAIN CARDS === */}
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-          {/* PRODUCTS */}
+
           <Link to="/admin/products">
             <Card className="group bg-white/50 backdrop-blur-xl border border-white/40 shadow-md hover:shadow-xl hover:shadow-[#3491cb] transition-all hover:-translate-y-1 rounded-2xl cursor-pointer">
               <CardHeader>
@@ -91,7 +91,6 @@ export default function AdminDashboard() {
             </Card>
           </Link>
 
-          {/* CUSTOMERS */}
           <Link to="/admin/customers">
             <Card className="group bg-white/50 backdrop-blur-xl border border-white/40 shadow-md hover:shadow-xl hover:shadow-[#3491cb] transition-all hover:-translate-y-1 rounded-2xl cursor-pointer">
               <CardHeader>
@@ -111,7 +110,7 @@ export default function AdminDashboard() {
             </Card>
           </Link>
 
-          {/* ORDERS */}
+  
           <Link to="/admin/orders">
             <Card className="group bg-white/50 backdrop-blur-xl border border-white/40 shadow-md hover:shadow-xl hover:shadow-[#3491cb] transition-all hover:-translate-y-1 rounded-2xl cursor-pointer">
               <CardHeader>

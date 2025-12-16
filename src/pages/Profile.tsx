@@ -76,7 +76,7 @@ export default function Profile() {
     <div className="min-h-screen bg-white px-4 py-10">
       <div className="max-w-6xl mx-auto grid lg:grid-cols-4 gap-8">
 
-        {/* LEFT PROFILE PANEL */}
+        
         <Card className="lg:col-span-1 p-6 rounded-3xl shadow-md border border-gray-100 bg-[#f0f7ff]">
           <div className="flex flex-col items-center text-center gap-5">
             <div className="h-24 w-24 rounded-full bg-gradient-to-br from-[#43cbf5] via-[#41a4e2] to-[#122d3a] text-white font-serif flex items-center justify-center text-3xl font-semibold shadow-lg">
@@ -102,10 +102,10 @@ export default function Profile() {
           </div>
         </Card>
 
-        {/* RIGHT CONTENT */}
+   
         <Card className="relative lg:col-span-3 p-6 md:p-10 rounded-3xl shadow-md border border-gray-100 bg-[#f0f7ff]">
 
-          {/* CLOSE (X) BUTTON */}
+         
           <button
             onClick={() => navigate("/")}
             className="absolute top-5 right-5 p-2 rounded-full text-gray-500 hover:text-red-500 hover:bg-white transition"
@@ -175,7 +175,7 @@ export default function Profile() {
             </div>
           </div>
 
-          {/* ACTIONS */}
+     
           <div className="flex flex-col md:flex-row gap-4 mt-12">
             <Button
               onClick={handleSave}

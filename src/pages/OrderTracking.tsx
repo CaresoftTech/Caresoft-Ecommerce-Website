@@ -88,7 +88,7 @@ const OrderTracking = () => {
                   </CardHeader>
 
                   <CardContent className="pt-6">
-                    {/* TIMELINE STEP UI */}
+                   
                     {!isCancelled && (
                       <div className="mb-8">
                         <div className="flex items-center justify-between relative">
@@ -122,7 +122,7 @@ const OrderTracking = () => {
                             );
                           })}
 
-                          {/* Animated Line */}
+                          
                           <div className="absolute top-6 left-0 right-0 h-1 bg-gray-200 rounded-full">
                             <div
                               className="h-full bg-[#3491cb] rounded-full transition-all duration-700"
@@ -135,7 +135,7 @@ const OrderTracking = () => {
                       </div>
                     )}
 
-                    {/* ORDER ITEMS */}
+  
                     <div className="border-t pt-4">
                       <h4 className="font-semibold text-[#3491cb] mb-4  ">Order Items</h4>
 

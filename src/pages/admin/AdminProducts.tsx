@@ -154,7 +154,7 @@ export default function AdminProducts() {
     <div className="min-h-screen bg-gradient-to-br from-[#dff2ff] via-[#ecf9ff] to-white py-12">
       <div className="container mx-auto px-4 max-w-7xl">
 
-        {/* Header */}
+   
         <div className="mb-10 animate-slideUp">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-[#0f84c9] via-[#2a9eed] to-[#153f5b] bg-clip-text text-transparent">
             Product Management
@@ -164,7 +164,7 @@ export default function AdminProducts() {
           </p>
         </div>
 
-        {/* Card */}
+
         <Card className="backdrop-blur-xl bg-white/70 border border-white/40 shadow-2xl rounded-3xl animate-fadeIn">
           <CardHeader>
             <div className="flex justify-between items-center">
@@ -173,7 +173,7 @@ export default function AdminProducts() {
                 Products
               </CardTitle>
 
-              {/* Add Product Button + Dialog */}
+   
               <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                 <DialogTrigger asChild>
                   <Button
@@ -302,7 +302,7 @@ export default function AdminProducts() {
             </div>
           </CardHeader>
 
-          {/* Table Content */}
+         
           <CardContent>
             <div className="overflow-x-auto rounded-xl shadow-lg">
               <Table className="min-w-full">
@@ -382,7 +382,7 @@ export default function AdminProducts() {
           </CardContent>
         </Card>
 
-        {/* Animations */}
+    
         <style>
           {`
             @keyframes fadeIn {

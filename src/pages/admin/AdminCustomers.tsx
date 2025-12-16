@@ -43,7 +43,6 @@ export default function AdminCustomers() {
     <div className="min-h-screen bg-gradient-to-br from-[#dff2ff] via-[#ecf9ff] to-white py-12">
       <div className="container mx-auto px-4 max-w-7xl">
 
-        {/* Header */}
         <div className="mb-10 animate-slideUp">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-[#0f84c9] via-[#2a9eed] to-[#153f5b] bg-clip-text text-transparent">
             Customer Management
@@ -53,7 +52,7 @@ export default function AdminCustomers() {
           </p>
         </div>
 
-        {/* Card */}
+  
         <Card className="backdrop-blur-xl bg-white/70 border border-white/40 shadow-2xl rounded-3xl animate-fadeIn">
           <CardHeader>
             <CardTitle className="text-2xl font-bold flex items-center gap-2">
@@ -66,7 +65,7 @@ export default function AdminCustomers() {
             <div className="overflow-x-auto rounded-xl shadow-lg">
               <Table className="min-w-full">
                 
-                {/* Table Header */}
+          
                 <TableHeader className="bg-gradient-to-r from-[#43b2f6] via-[#1e85c7] to-[#0f425c]">
                   <TableRow>
                     <TableHead className="text-white">Name</TableHead>
@@ -77,7 +76,7 @@ export default function AdminCustomers() {
                   </TableRow>
                 </TableHeader>
 
-                {/* Table Body */}
+           
                 <TableBody>
                   {customers.length === 0 ? (
                     <TableRow>
@@ -112,7 +111,7 @@ export default function AdminCustomers() {
           </CardContent>
         </Card>
 
-        {/* Animations */}
+  
         <style>
           {`
             @keyframes fadeIn {

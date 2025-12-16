@@ -107,7 +107,6 @@ const Service: React.FC = () => {
   return (
     <div className="min-h-screen">
 
-      {/* HERO */}
       <section className="pt-7 pb-2 bg-gradient-to-r from-[#38aaf1] via-[#2077ac] to-[#0e202b] text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4">
@@ -117,7 +116,7 @@ const Service: React.FC = () => {
         </div>
       </section>
 
-      {/* SERVICES LIST */}
+   
       {services.map((service, index) => {
         const isReverse = index % 2 !== 0;
 
@@ -129,7 +128,7 @@ const Service: React.FC = () => {
             <div className="container px-6 md:px-12">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
 
-                {/* IMAGE */}
+                
                 <div className={`${isReverse ? "lg:order-2" : ""}`}>
                   <img
                     src={service.img}
@@ -138,7 +137,7 @@ const Service: React.FC = () => {
                   />
                 </div>
 
-                {/* TEXT */}
+         
                 <div className={`${isReverse ? "lg:order-1" : ""}`}>
                   <h2 className="text-3xl font-bold mb-4 text-[#3491cb]">
                     {service.title}

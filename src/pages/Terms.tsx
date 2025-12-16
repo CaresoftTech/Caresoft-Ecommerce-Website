@@ -58,7 +58,7 @@ export default function Terms() {
       <div className=" container px-5 md:px-9 mt-7">
 
 
-        {/* Sections */}
+    
         {sections.map((sec, index) => (
           <div key={index} className="space-y-1 border-[#3ca5e8] pl-6 mb-3">
             <h2 className="text-2xl md:text-3xl font-bold text-[#000000]">
@@ -72,7 +72,6 @@ export default function Terms() {
 
       </div>
 
-      {/* Animation */}
       <style>{`
         @keyframes fadeIn {
           0% { opacity: 0; transform: translateY(20px); }

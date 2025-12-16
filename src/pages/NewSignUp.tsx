@@ -81,10 +81,9 @@ export default function NewSignUp() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background flex items-center justify-center py-8 px-4">
 
-      {/* GRID LAYOUT – LEFT IMAGE + RIGHT FORM */}
+    
       <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
 
-        {/* LEFT SIDE IMAGE */}
         <div className="flex justify-center items-center p-4">
           <img 
             src={loginImg}
@@ -93,7 +92,7 @@ export default function NewSignUp() {
           />
         </div>
 
-        {/* RIGHT SIDE SIGNUP FORM */}
+        
         <Card className="w-full bg-[#e7f1fc] border-2 border-[#3491cb]/40 shadow-2xl shadow-[#3491cb]">
           <CardHeader className="space-y-1">
             <CardTitle className="text-3xl font-bold text-center bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent">
@@ -107,7 +106,7 @@ export default function NewSignUp() {
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
 
-              {/* NAME */}
+             
               <div>
                 <Label className="flex items-center gap-2 mb-2 text-[#3491cb]">
                   <User className="h-4 w-4" />
@@ -121,7 +120,7 @@ export default function NewSignUp() {
                 />
               </div>
 
-              {/* EMAIL */}
+              
               <div>
                 <Label className="flex items-center gap-2 mb-2 text-[#3491cb]">
                   <Mail className="h-4 w-4" />
@@ -136,7 +135,7 @@ export default function NewSignUp() {
                 />
               </div>
 
-              {/* PHONE */}
+            
               <div>
                 <Label className="flex items-center gap-2 mb-2 text-[#3491cb]">
                   <Phone className="h-4 w-4" />
@@ -151,7 +150,7 @@ export default function NewSignUp() {
                 />
               </div>
 
-              {/* ADDRESS */}
+              
               <div>
                 <Label className="flex items-center gap-2 mb-2 text-[#3491cb]">
                   <MapPin className="h-4 w-4" />
@@ -165,7 +164,7 @@ export default function NewSignUp() {
                 />
               </div>
 
-              {/* PASSWORD */}
+            
               <div>
                 <Label className="flex items-center gap-2 mb-2 text-[#3491cb]">
                   <Lock className="h-4 w-4" />
@@ -190,7 +189,7 @@ export default function NewSignUp() {
                 </div>
               </div>
 
-              {/* CONFIRM PASSWORD */}
+              
               <div>
                 <Label className="flex items-center gap-2 mb-2 text-[#3491cb]">
                   <Lock className="h-4 w-4" />

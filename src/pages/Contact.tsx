@@ -26,7 +26,7 @@ export default function Contact() {
 
   return (
     <div className="relative min-h-screen ">
-      {/* Hero Section */}
+  
       <section className="relative h-72 md:h-96 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#4cb9fd]/80 to-[#153f5b]/80"></div>
         <div className="relative text-center z-10 text-white px-4">
@@ -80,8 +80,8 @@ export default function Contact() {
         <section className="max-w-7xl mx-auto px-4 mt-14 mb-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-            {/* LEFT — FORM CARD */}
-            <div className="bg-[#f0f7ff] backdrop-blur-2xl border border-[#3491cb]/40 shadow-xl shadow-[#3491cb] rounded-3xl p-8 md:p-10">
+
+            <div className="bg-[#f0f7ff] backdrop-blur-2xl border border-[#3491cb]/40 shadow-lg rounded-3xl p-8 md:p-10">
               <h2 className="text-3xl font-bold bg-gradient-to-r from-[#4cb9fd] to-[#153f5b] 
         bg-clip-text text-transparent mb-8 text-center md:text-left">
                 Send Us a Message
@@ -130,11 +130,11 @@ export default function Contact() {
               </form>
             </div>
 
-            {/* RIGHT — MAP CARD */}
+       
             <div className=" p-4 md:p-6">
               <h2 className="text-3xl font-bold bg-gradient-to-r from-[#4cb9fd] to-[#153f5b] 
-        bg-clip-text text-transparent mb-3 text-center md:text-left">
-                Our Location
+        bg-clip-text text-transparent mb-7 text-center md:text-left">
+              Corporate Office
               </h2>
 
               <div className="rounded-2xl overflow-hidden shadow-lg h-[330px] md:h-[450px]">

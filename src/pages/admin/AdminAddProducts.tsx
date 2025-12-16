@@ -65,7 +65,7 @@ export default function AdminAddProducts() {
     <div className="min-h-screen bg-gradient-to-br from-[#dff2ff] via-[#ecf9ff] to-white py-10 px-4">
       <div className="max-w-3xl mx-auto">
 
-        {/* TOP HEADER */}
+   
         <div className="flex items-center gap-4 mb-6">
           <Button variant="outline" size="icon" onClick={() => navigate("/admin/products")}>
             <ArrowLeft />

@@ -49,7 +49,7 @@ export default function NewSignIn() {
     <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background flex items-center justify-center p-4">
       <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
 
-        {/* Left Side Image */}
+       
         <div className="flex md:flex items-center justify-center p-6">
           <img
             src={loginImg}
@@ -58,7 +58,7 @@ export default function NewSignIn() {
           />
         </div>
 
-        {/* Right Side Login Form */}
+    
         <Card className="w-full max-w-md mx-auto relative bg-[#e7f1fc] border-2 border-[#3491cb]/40 shadow-2xl shadow-[#3491cb]">
           <button
             onClick={() => navigate(-1)}
@@ -80,7 +80,7 @@ export default function NewSignIn() {
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
 
-              {/* EMAIL */}
+             
               <div>
                 <Label htmlFor="email" className="flex items-center gap-2 text-[#3491cb] mb-2">
                   <Mail className="h-4 w-4" />
@@ -97,7 +97,7 @@ export default function NewSignIn() {
                 />
               </div>
 
-              {/* PASSWORD */}
+            
               <div>
                 <Label htmlFor="password" className="flex items-center gap-2 text-[#3491cb] mb-2">
                   <Lock className="h-4 w-4" />
@@ -125,7 +125,7 @@ export default function NewSignIn() {
                 </div>
               </div>
 
-              {/* SUBMIT BUTTON */}
+             
               <Button
                 type="submit"
                 disabled={isSubmitting}
@@ -135,7 +135,7 @@ export default function NewSignIn() {
                 {isSubmitting ? "Signing in..." : "Sign In"}
               </Button>
 
-              {/* SIGNUP */}
+           
               <p className="text-center text-sm text-gray-500">
                 Don't have an account?{" "}
                 <Link to="/signup" className="text-[#3491cb] hover:underline font-semibold">
@@ -143,7 +143,7 @@ export default function NewSignIn() {
                 </Link>
               </p>
 
-              {/* DEMO CREDS */}
+       
               <div className="mt-4 p-3 bg-muted/50 rounded-lg text-xs text-muted-foreground">
                 <p className="font-semibold mb-1">Demo Credentials:</p>
                 <p>Admin: admin@caresoft.com / admin123</p>
