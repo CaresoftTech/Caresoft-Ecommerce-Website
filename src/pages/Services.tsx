@@ -113,9 +113,7 @@ const Service: React.FC = () => {
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4">
             Services We Deliver
           </h1>
-          <p className="max-w-2xl mx-auto text-sm md:text-lg opacity-90">
-            End-to-end IT infrastructure, security and cloud solutions
-          </p>
+
         </div>
       </section>
 

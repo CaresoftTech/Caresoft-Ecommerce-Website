@@ -218,7 +218,7 @@ export default function Home() {
     relative w-full
     bg-contain md:bg-cover
     bg-center bg-no-repeat
-    min-h-[120px] sm:min-h-[150px] md:min-h-[120px]
+    min-h-[120px] sm:min-h-[150px] md:min-h-[120px] mt-7
   "
         style={{ backgroundImage: `url(${bg1})` }}
       >

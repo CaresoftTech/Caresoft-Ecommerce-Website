@@ -60,15 +60,16 @@ export default function RefundPolicy() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f4f7fb] py-12 px-4">
-      <div className=" container px-5 md:px-9">
+    <div className="min-h-screen bg-[#f4f7fb] py">
+      <section className="pt-4 pb-2 bg-gradient-to-r from-[#38aaf1] via-[#2077ac] to-[#0e202b] text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fadeIn">
+            Refund Policy
+          </h1>
+        </div>
+      </section>
 
-        {/* Page Title */}
-        <h1 className="text-4xl md:text-5xl font-extrabold text-center 
-          text-transparent bg-clip-text bg-gradient-to-r 
-          from-[#4cb7f9] to-[#2386b8] animate-fadeIn">
-          Refund Policy
-        </h1>
+      <div className=" container px-5 md:px-9 mt-7">
 
         {/* Content Sections */}
         {sections.map((sec, index) => (

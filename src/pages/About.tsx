@@ -64,7 +64,7 @@ export default function About() {
       <div className="container px-6 md:px-12  ">
 
         {/* WHO WE ARE SECTION */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16 mt-7">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16 mt-14">
           <div className="bg-[#f0f7ff] backdrop-blur-lg rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:shadow-[#3491cb] transition-all transform hover:scale-105">
             <Users className="w-10 h-10 text-[#3c9edc] mb-4" />
             <h2 className="text-2xl font-semibold mb-2">Who We Are</h2>
@@ -89,7 +89,7 @@ export default function About() {
 
 
         {/*  FAQ SECTION ADDED BELOW — NO OTHER CODE CHANGED  */}
-        <section className="max-w-7xl mx-auto px-4 py-16">
+        <section className="max-w-7xl mx-auto px-4 py-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 bg-[#f0f7ff] p-10 rounded-3xl">
 
             {/* LEFT TITLE */}
