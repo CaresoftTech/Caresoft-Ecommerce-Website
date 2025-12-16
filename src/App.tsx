@@ -22,6 +22,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminCustomers from "./pages/admin/AdminCustomers";
 import AdminOrders from "./pages/admin/AdminOrders";
 import AdminProducts from "./pages/admin/AdminProducts";
+import AdminAddProducts from "./pages/admin/AdminAddProducts";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import ContactButtons from "./components/ContactButtons";
@@ -58,6 +59,7 @@ const App = () => (
               <Route path="/admin/customers" element={<AdminCustomers />} />
               <Route path="/admin/orders" element={<AdminOrders />} />
               <Route path="/admin/products" element={<AdminProducts />} />
+              <Route path="/admin/products/add" element={<AdminAddProducts />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
              

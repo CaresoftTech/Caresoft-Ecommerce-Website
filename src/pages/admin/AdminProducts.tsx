@@ -176,10 +176,14 @@ export default function AdminProducts() {
               {/* Add Product Button + Dialog */}
               <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                 <DialogTrigger asChild>
-                  <Button className="bg-gradient-to-r from-[#43b2f6] via-[#1e85c7] to-[#0f425c] text-white shadow-md">
+                  <Button
+                    onClick={() => navigate("/admin/products/add")}
+                    className="bg-gradient-to-r from-[#43b2f6] via-[#1e85c7] to-[#0f425c] text-white shadow-md"
+                  >
                     <Plus className="mr-2 h-4 w-4" />
                     Add Product
                   </Button>
+
                 </DialogTrigger>
 
                 <DialogContent className="max-w-2xl">

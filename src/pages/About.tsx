@@ -51,40 +51,106 @@ export default function About() {
   return (
     <div className="relative min-h-screen overflow-hidden ">
 
-        <section className="pt-4 pb-2 bg-gradient-to-r from-[#38aaf1] via-[#2077ac] to-[#0e202b] text-white">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-3xl md:text-5xl font-extrabold mb-4">
-              About Us
-            </h1>
+      <section className="pt-4 pb-2 bg-gradient-to-r from-[#38aaf1] via-[#2077ac] to-[#0e202b] text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-3xl md:text-5xl font-extrabold mb-4">
+            About Us
+          </h1>
 
-          </div>
-        </section>
+        </div>
+      </section>
 
 
       <div className="container px-6 md:px-12  ">
+        
+        <section className="max-w-5xl mx-auto px-4 mt-16  space-y-14">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <Users className="w-6 h-6 text-[#3491cb]" />
+              <h2 className="text-2xl md:text-3xl font-semibold text-[#3491cb]">
+                Who We Are
+              </h2>
+            </div>
 
-        {/* WHO WE ARE SECTION */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16 mt-14">
-          <div className="bg-[#f0f7ff] backdrop-blur-lg rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:shadow-[#3491cb] transition-all transform hover:scale-105">
-            <Users className="w-10 h-10 text-[#3c9edc] mb-4" />
-            <h2 className="text-2xl font-semibold mb-2">Who We Are</h2>
-            <p className="text-gray-700 leading-relaxed">Caresoft Technologies is a leading provider of cutting-edge tech solutions and products.</p>
-          </div>
-
-          <div className="bg-[#f0f7ff] backdrop-blur-lg rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:shadow-[#3491cb] transition-all transform hover:scale-105">
-            <Globe className="w-10 h-10 text-[#3c9edc] mb-4" />
-            <h2 className="text-2xl font-semibold mb-2">Our Mission</h2>
-            <p className="text-gray-700 leading-relaxed">
-              We delight customers by delivering superior IT services, branding, and technology solutions.
+            <p className="text-gray-600 leading-relaxed mb-5">
+              Caresoft Technologies is a trusted technology partner delivering reliable,
+              scalable, and future-ready IT solutions for businesses of all sizes.
             </p>
+
+            <ul className="space-y-2 text-gray-600 list-disc list-inside">
+              <li>Customer-centric IT solutions</li>
+              <li>Skilled and experienced professionals</li>
+              <li>Commitment to quality and reliability</li>
+            </ul>
           </div>
 
-          <div className="bg-[#f0f7ff] backdrop-blur-lg rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:shadow-[#3491cb] transition-all transform hover:scale-105">
-            <Star className="w-10 h-10 text-[#3c9edc] mb-4" />
-            <h2 className="text-2xl font-semibold mb-2">Our Vision</h2>
-            <p className="text-gray-700 leading-relaxed">To build world-class platforms that transform digital experiences.</p>
+       
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <Globe className="w-6 h-6 text-[#3491cb]" />
+              <h2 className="text-2xl md:text-3xl font-semibold text-[#3491cb]">
+                Our Mission
+              </h2>
+            </div>
+
+            <p className="text-gray-600 leading-relaxed mb-5">
+              Our mission is to empower organizations through innovative technology,
+              dependable IT services, and strategic digital solutions.
+            </p>
+
+            <ul className="space-y-2 text-gray-600 list-disc list-inside">
+              <li>Deliver high-quality IT services</li>
+              <li>Enable digital transformation</li>
+              <li>Build long-term client partnerships</li>
+            </ul>
           </div>
-        </div>
+
+      
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <Star className="w-6 h-6 text-[#3491cb]" />
+              <h2 className="text-2xl md:text-3xl font-semibold text-[#3491cb]">
+                Our Vision
+              </h2>
+            </div>
+
+            <p className="text-gray-600 leading-relaxed mb-5">
+              We envision building world-class digital platforms that transform
+              experiences and create sustainable business growth.
+            </p>
+
+            <ul className="space-y-2 text-gray-500 list-disc list-inside">
+              <li>Innovation-driven mindset</li>
+              <li>Global standards and best practices</li>
+              <li>Scalable, future-proof solutions</li>
+            </ul>
+          </div>
+
+        </section>
+
+
+        <section className="  text-[#3491cb] py-16  overflow-hidden">
+          <h2 className="text-3xl pt- pb-3 mb-5  md:text-5xl font-bold text-center  animate-fade-in  bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent">
+            Why Choose Caresoft Technologies?
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-12">
+            <div className=" bg-[#f0f7ff] backdrop-blur-lg rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:shadow-[#3491cb] text-center transition-all transform hover:scale-105 text-[#3491cb]">
+              <Truck className="w-12 h-12 mx-auto mb-4" />
+              <h3 className="text-2xl font-semibold mb-2">Free Shipping</h3>
+            </div>
+
+            <div className=" bg-[#f0f7ff] backdrop-blur-lg rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:shadow-[#3491cb] transition-all transform hover:scale-105 text-center text-[#3491cb]">
+              <Lock className="w-12 h-12 mx-auto mb-4" />
+              <h3 className="text-2xl font-semibold mb-2">Secure Payment</h3>
+            </div>
+
+            <div className="bg-[#f0f7ff] backdrop-blur-lg rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:shadow-[#3491cb] transition-all transform hover:scale-105 text-center text-[#3491cb]">
+              <Gift className="w-12 h-12 mx-auto mb-4" />
+              <h3 className="text-2xl font-semibold mb-2">Best Deals</h3>
+            </div>
+          </div>
+        </section>
 
 
 
@@ -133,7 +199,7 @@ export default function About() {
 
 
         <section className="mt-7 container ">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-[#2077ac]">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent">
             Premium Brands We Offer
           </h2>
 
@@ -214,32 +280,6 @@ export default function About() {
             }
           `}
         </style>
-
-        {/* WHY CHOOSE */}
-        <section className="bg-gradient-to-r mt-7 from-[#38aaf1] mb-10 via-[#2077ac] to-[#0e202b] text-white py-16 rounded-3xl shadow-xl overflow-hidden">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 animate-fade-in">
-            Why Choose Caresoft Technologies? 🚀
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-12">
-            <div className="p-8 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transition-all transform hover:scale-105 text-center">
-              <Truck className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold mb-2">Free Shipping</h3>
-            </div>
-
-            <div className="p-8 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transition-all transform hover:scale-105 text-center">
-              <Lock className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold mb-2">Secure Payment</h3>
-            </div>
-
-            <div className="p-8 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transition-all transform hover:scale-105 text-center">
-              <Gift className="w-12 h-12 mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold mb-2">Best Deals</h3>
-            </div>
-          </div>
-        </section>
-
-
 
 
 

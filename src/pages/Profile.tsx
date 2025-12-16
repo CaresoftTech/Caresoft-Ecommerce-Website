@@ -14,6 +14,7 @@ import {
   LogOut,
   Save,
   Package,
+  X,
 } from "lucide-react";
 
 export default function Profile() {
@@ -78,7 +79,7 @@ export default function Profile() {
         {/* LEFT PROFILE PANEL */}
         <Card className="lg:col-span-1 p-6 rounded-3xl shadow-md border border-gray-100 bg-[#f0f7ff]">
           <div className="flex flex-col items-center text-center gap-5">
-            <div className="h-24 w-24 rounded-full bg-gradient-to-br from-[#43cbf5] via-[#41a4e2] to-[#122d3a] hover:bg-[#2579ac] text-white font-serif flex items-center justify-center text-3xl font-semibold shadow-lg">
+            <div className="h-24 w-24 rounded-full bg-gradient-to-br from-[#43cbf5] via-[#41a4e2] to-[#122d3a] text-white font-serif flex items-center justify-center text-3xl font-semibold shadow-lg">
               {profile.name?.charAt(0)?.toUpperCase() || "U"}
             </div>
 
@@ -102,7 +103,17 @@ export default function Profile() {
         </Card>
 
         {/* RIGHT CONTENT */}
-        <Card className="lg:col-span-3 p-6 md:p-10 rounded-3xl shadow-md border border-gray-100 bg-[#f0f7ff]">
+        <Card className="relative lg:col-span-3 p-6 md:p-10 rounded-3xl shadow-md border border-gray-100 bg-[#f0f7ff]">
+
+          {/* CLOSE (X) BUTTON */}
+          <button
+            onClick={() => navigate("/")}
+            className="absolute top-5 right-5 p-2 rounded-full text-gray-500 hover:text-red-500 hover:bg-white transition"
+            aria-label="Close profile"
+          >
+            <X className="h-5 w-5" />
+          </button>
+
           <div className="mb-10">
             <h1 className="text-2xl font-semibold text-[#3491cb]">
               Account Details
@@ -133,7 +144,7 @@ export default function Profile() {
               <Input
                 value={profile.email}
                 disabled
-                className="rounded-xl "
+                className="rounded-xl"
               />
             </div>
 
@@ -178,7 +189,7 @@ export default function Profile() {
             <Button
               variant="outline"
               onClick={handleLogout}
-              className="rounded-xl border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
+              className="rounded-xl border-red-500 text-red-500 hover:bg-gradient-to-br from-[#f56743] via-[#e43b3b] to-[#930505] hover:text-white"
             >
               <LogOut className="mr-2 h-4 w-4" />
               Logout
