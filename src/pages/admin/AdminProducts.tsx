@@ -186,18 +186,18 @@ export default function AdminProducts() {
 
                 </DialogTrigger>
 
-                <DialogContent className="max-w-2xl">
+                <DialogContent className="max-w-xl h-[70vh] overflow-y-auto">
                   <DialogHeader>
                     <DialogTitle>
                       {editingProduct ? "Edit Product" : "Add New Product"}
                     </DialogTitle>
                   </DialogHeader>
 
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-4 w-auto h-1/2">
 
                     {/* Inputs */}
                     <div>
-                      <Label>Product Name</Label>
+                      <Label>Product Nae</Label>
                       <Input
                         value={formData.name}
                         onChange={(e) =>

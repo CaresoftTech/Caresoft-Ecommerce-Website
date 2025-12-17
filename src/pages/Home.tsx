@@ -36,7 +36,7 @@ const carouselImages = [
 
 
 const categories = [
-  "Home",
+  
   "All Products",
   "Laptops",
   "Computers",
@@ -122,11 +122,11 @@ export default function Home() {
                     </span>
                   </div>
 
-                  <h1 className="text-4xl md:text-6xl  font-bold mb-4 bg-gradient-to-r from-white to-vibrant-yellow bg-clip-text text-transparent">
+                  <h1 className="text-4xl md:text-6xl pb-3  font-bold mb-4 bg-gradient-to-r from-white to-vibrant-yellow bg-clip-text text-transparent">
                     Welcome to Caresoft Technologies
                   </h1>
                   <p className="text-lg md:text-2xl mb-6 text-white/90">
-                    Discover cutting-edge gadgets with unbeatable offers 🎉
+                    Discover cutting-edge gadgets with unbeatable offers 
                   </p>
 
                   <Button className="bg-vibrant-orange hover:bg-vibrant-yellow text-white font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
