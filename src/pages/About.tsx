@@ -177,7 +177,7 @@ export default function About() {
 
             
             <div className="md:col-span-1 flex items-start">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-800 leading-snug">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#3491cb] leading-snug">
                 FAQ (Frequently <br /> Asked Questions)
               </h2>
             </div>

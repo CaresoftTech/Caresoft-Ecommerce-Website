@@ -1,38 +1,57 @@
 import React, { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
-import contactIllustration from "@/assets/contact.png"; // replace with your illustration
+import contactIllustration from "@/assets/contact.png";
 import { toast } from "sonner";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    mobile: "",
+    message: "",
+  });
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) {
+
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.mobile ||
+      !formData.message
+    ) {
       toast.error("Please fill in all fields");
       return;
     }
+
     setLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setLoading(false);
+
     toast.success("Message sent successfully!");
-    setFormData({ name: "", email: "", message: "" });
+    setFormData({ name: "", email: "", mobile: "", message: "" });
   };
 
   return (
-    <div className="relative min-h-screen ">
-  
+    <div className="relative min-h-screen">
+      {/* HERO */}
       <section className="relative h-72 md:h-96 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#4cb9fd]/80 to-[#153f5b]/80"></div>
+
         <div className="relative text-center z-10 text-white px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-2">Contact Us</h1>
-          <p className="text-lg md:text-xl">We are here to help you. Get in touch with us!</p>
+          <p className="text-lg md:text-xl">
+            We are here to help you. Get in touch with us!
+          </p>
         </div>
+
         <img
           src={contactIllustration}
           alt="Contact Illustration"
@@ -40,7 +59,8 @@ export default function Contact() {
         />
       </section>
 
-      <div className="container px-6 md:px-12 ">
+      <div className="container px-6 md:px-12">
+        {/* INFO CARDS */}
         <section className="max-w-7xl mx-auto px-4 -mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-[#f0f7ff] backdrop-blur-lg shadow-lg hover:shadow-[#3491cb] rounded-2xl p-6 flex items-center gap-4 hover:scale-105 transition-transform">
             <div className="bg-[#3491cb3c] p-3 rounded-lg">
@@ -76,19 +96,16 @@ export default function Contact() {
           </div>
         </section>
 
-
-        <section className="max-w-7xl mx-auto px-4 mt-14 mb-24">
+        {/* FORM + MAP */}
+        <section className="max-w-7xl  mx-auto px-4 mt-14 mb-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-
+            {/* FORM */}
             <div className="bg-[#f0f7ff] backdrop-blur-2xl border border-[#3491cb]/40 shadow-lg rounded-3xl p-8 md:p-10">
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-[#4cb9fd] to-[#153f5b] 
-        bg-clip-text text-transparent mb-8 text-center md:text-left">
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-[#4cb9fd] to-[#153f5b] bg-clip-text text-transparent mb-8 text-center md:text-left">
                 Send Us a Message
               </h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
-
                 <div className="flex flex-col md:flex-row gap-4">
                   <input
                     type="text"
@@ -110,31 +127,39 @@ export default function Contact() {
                   />
                 </div>
 
+                <input
+                  type="tel"
+                  name="mobile"
+                  placeholder="Mobile Number"
+                  value={formData.mobile}
+                  onChange={handleChange}
+                  className="w-full p-4 border rounded-xl focus:ring-2 focus:ring-blue-300 outline-none border-[#3491cb]/40"
+                  required
+                />
+
                 <textarea
                   name="message"
                   placeholder="Your Message"
                   value={formData.message}
                   onChange={handleChange}
                   rows={6}
-                  className="w-full p-4 border rounded-xl focus:ring-2 focus:ring-blue-300  outline-none border-[#3491cb]/40"
+                  className="w-full p-4 border rounded-xl focus:ring-2 focus:ring-blue-300 outline-none border-[#3491cb]/40"
                   required
                 />
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-gradient-to-br from-[#6fc1f8] to-[#153f5b] text-white 
-          rounded-xl font-semibold hover:scale-105 transition-transform"
+                  className="w-full py-4 bg-gradient-to-br from-[#6fc1f8] to-[#153f5b] text-white rounded-xl font-semibold hover:scale-105 transition-transform"
                 >
                   {loading ? "Sending…" : "Send Message"}
                 </button>
               </form>
             </div>
 
-       
-            <div className=" p-4 md:p-6">
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-[#4cb9fd] to-[#153f5b] 
-        bg-clip-text text-transparent mb-7 text-center md:text-left">
-              Corporate Office
+            {/* MAP */}
+            <div className="p-4 md:p-6">
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-[#4cb9fd] to-[#153f5b] bg-clip-text text-transparent mb-7 text-center md:text-left">
+                Corporate Office
               </h2>
 
               <div className="rounded-2xl overflow-hidden shadow-lg h-[330px] md:h-[450px]">
@@ -148,13 +173,9 @@ export default function Contact() {
                 ></iframe>
               </div>
             </div>
-
           </div>
         </section>
-
       </div>
-
     </div>
-
   );
 }
