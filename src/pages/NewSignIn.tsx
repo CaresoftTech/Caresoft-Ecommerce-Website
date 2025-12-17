@@ -46,17 +46,17 @@ export default function NewSignIn() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background flex items-center justify-center p-4">
-      <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+    <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background flex items-center justify-center p-4 pb-7">
+      <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-1 gap-6 items-center">
 
        
-        <div className="flex md:flex items-center justify-center p-6">
+        {/* <div className="flex md:flex items-center justify-center p-6">
           <img
             src={loginImg}
             alt="Login Illustration"
             className="w-full max-w-md"
           />
-        </div>
+        </div> */}
 
     
         <Card className="w-full max-w-md mx-auto relative bg-[#e7f1fc] border-2 border-[#3491cb]/40 shadow-2xl shadow-[#3491cb]">
@@ -68,7 +68,7 @@ export default function NewSignIn() {
           </button>
 
           <CardHeader className="space-y-1 mt-6">
-            <CardTitle className="text-3xl font-bold text-center  bg-gradient-to-r from-[#4cb9fd] to-[#153f5b] 
+            <CardTitle className="text-3xl pb-1 font-bold text-center  bg-gradient-to-r from-[#4cb9fd] to-[#153f5b] 
         bg-clip-text text-transparent">
               Log In
             </CardTitle>

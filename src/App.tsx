@@ -11,7 +11,7 @@ import Contact from "./pages/Contact";
 import NewSignIn from "./pages/NewSignIn";
 import NewSignUp from "./pages/NewSignUp";
 import Cart from "./pages/Cart";
-import Customer from "./pages/Customer";
+
 import Profile from "./pages/Profile";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
@@ -47,7 +47,7 @@ const App = () => (
               <Route path="/signin" element={<NewSignIn />} />
               <Route path="/signup" element={<NewSignUp />} />
               <Route path="/cart" element={<Cart />} />
-              <Route path="/customer" element={<Customer />} />
+
               <Route path="/profile" element={<Profile />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/privacy" element={<Privacy />} />
