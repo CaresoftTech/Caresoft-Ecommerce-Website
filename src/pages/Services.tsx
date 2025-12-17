@@ -110,7 +110,7 @@ const Service: React.FC = () => {
       <section className="pt-7 pb-2 bg-gradient-to-r from-[#38aaf1] via-[#2077ac] to-[#0e202b] text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4">
-            Services We Deliver
+             Our Services 
           </h1>
 
         </div>

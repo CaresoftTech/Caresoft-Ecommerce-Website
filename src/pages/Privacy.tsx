@@ -13,14 +13,14 @@ export default function Privacy() {
         </div>
       </section>
 
-      <div className="container px-5 md:px-9">
+      <div className="container px-5 md:px-9 ">
 
         {/* <h1 className="text-4xl md:text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#4cb7f9] to-[#2386b8] animate-fadeIn">
           Privacy Policy
         </h1> */}
 
-        <div className="space-y-1  border-[#3ca5e8] pl-6 mt-7">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#070809]">
+        <div className="space-y-1  border-[#3ca5e8] pl-6 mt-7 ">
+          <h2 className="text-2xl md:text-2xl font-bold text-[#070809]">
             Information We Collect
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -32,7 +32,7 @@ export default function Privacy() {
         </div> <br />
 
         <div className="space-y-1  border-[#3ca5e8] pl-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#000000]">
+          <h2 className="text-2xl md:text-2xl font-bold text-[#000000]">
             How We Use Your Information
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -45,7 +45,7 @@ export default function Privacy() {
 
 
         <div className="space-y-1  border-[#3ca5e8] pl-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#000000]">
+          <h2 className="text-2xl md:text-2xl font-bold text-[#000000]">
             Information Sharing
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -56,7 +56,7 @@ export default function Privacy() {
         </div><br />
 
         <div className="space-y-1  border-[#3ca5e8] pl-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#000000]">
+          <h2 className="text-2xl md:text-2xl font-bold text-[#000000]">
             Data Security
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -68,7 +68,7 @@ export default function Privacy() {
 
 
         <div className="space-y-1 border-[#3ca5e8] pl-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#000000]">
+          <h2 className="text-2xl md:text-2xl font-bold text-[#000000]">
             Cookies & Tracking
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -80,7 +80,7 @@ export default function Privacy() {
 
 
         <div className="space-y-1 b b pl-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#000000]">
+          <h2 className="text-2xl md:text-2xl font-bold text-[#000000]">
             Your Rights
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -92,7 +92,7 @@ export default function Privacy() {
 
 
         <div className="space-y-1  pl-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#000000]">
+          <h2 className="text-2xl md:text-2xl font-bold text-[#000000]">
             Children's Privacy
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -103,7 +103,7 @@ export default function Privacy() {
 
 
         <div className="space-y-1 pl-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#000000]">
+          <h2 className="text-2xl md:text-2xl font-bold text-[#000000]">
             Updates to This Policy
           </h2>
           <p className="text-gray-700 leading-relaxed">
@@ -113,13 +113,13 @@ export default function Privacy() {
         </div><br />
 
 
-        <div className="space-y-1  pl-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#131719]">
+        <div className="space-y-1  pl-6 mb-7">
+          <h2 className="text-2xl md:text-2xl font-bold text-[#131719]">
             Contact Us
           </h2>
           <p className="text-gray-700 leading-relaxed">
             For any questions or concerns regarding this Privacy Policy, you can reach us at
-            <span className="font-semibold text-[#17506c]"> sales@caresoft.in</span>.
+            <span className="font-semibold text-[#29a1de]"> sales@caresoft.in</span>.
           </p>
         </div><br />
       </div>

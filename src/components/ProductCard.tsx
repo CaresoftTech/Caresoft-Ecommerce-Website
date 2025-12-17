@@ -39,12 +39,14 @@ export const ProductCard = ({ product, requireLogin = false }: ProductCardProps)
 
   return (
     <Card className="group overflow-hidden transition-all hover:shadow-lg">
+      {/* IMAGE */}
       <div className="relative overflow-hidden aspect-square">
         <img
           src={product.image}
           alt={product.name}
           className="w-full h-full object-cover transition-transform group-hover:scale-105"
         />
+
         {product.discount && (
           <Badge className="absolute top-3 right-3 bg-offer text-offer-foreground">
             {product.discount}% OFF
@@ -52,66 +54,99 @@ export const ProductCard = ({ product, requireLogin = false }: ProductCardProps)
         )}
       </div>
 
+      {/* CONTENT */}
       <CardContent className="p-4">
-        <h3 className="font-semibold text-lg mb-1 line-clamp-1">{product.name}</h3>
-        <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{product.description}</p>
+        {/* PRODUCT NAME */}
+        <h3
+          className="
+            font-semibold mb-1
+            text-sm sm:text-base md:text-lg
+            line-clamp-none sm:line-clamp-1
+          "
+        >
+          {product.name}
+        </h3>
 
+        {/* DESCRIPTION */}
+        <p
+          className="
+            text-xs sm:text-sm
+            text-muted-foreground mb-2
+            line-clamp-none sm:line-clamp-2
+          "
+        >
+          {product.description}
+        </p>
+
+        {/* PRICE */}
         <div className="flex items-baseline gap-2">
           {product.offerPrice ? (
             <>
-              <span className="text-2xl  font-bold text-green-500">
+              <span
+                className="
+                  font-bold text-green-500
+                  text-lg sm:text-xl md:text-2xl
+                "
+              >
                 ₹{product.offerPrice}
               </span>
-              <span className="text-sm text-muted-foreground line-through text-red-600">
+
+              <span className="text-xs sm:text-sm line-through text-red-600">
                 ₹{product.price}
               </span>
             </>
           ) : (
-            <span className="text-2xl font-bold text-green-500">₹{product.price}</span>
+            <span
+              className="
+                font-bold text-green-500
+                text-lg sm:text-xl md:text-2xl
+              "
+            >
+              ₹{product.price}
+            </span>
           )}
         </div>
       </CardContent>
 
+      {/* ACTION BUTTONS */}
       <CardFooter
         className="
-    p-4 pt-0 
-    flex flex-col gap-2
-    sm:flex-row 
-  "
+          p-4 pt-0
+          flex flex-col gap-2
+          sm:flex-row
+        "
       >
         <Button
           variant="outline"
           className="
-    flex-1 border-[#3491cb] text-[#3491cb] 
-    hover:bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:text-white
+            flex-1 border-[#3491cb] text-[#3491cb]
+            hover:bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:text-white
 
-    text-xs px-2 py-1
-    sm:text-sm sm:px-3 sm:py-2
-    md:text-base md:px-4 md:py-2
-    flex items-center justify-center gap-2
-  "
+            text-xs px-2 py-1
+            sm:text-sm sm:px-3 sm:py-2
+            md:text-base md:px-4 md:py-2
+
+            flex items-center justify-center gap-2
+          "
           onClick={handleAddToCart}
         >
-          {/* Icon visible only on desktop */}
           <ShoppingCart className="hidden md:inline-block h-4 w-4" />
-
           Add to Cart
         </Button>
 
         <Button
           className="
-      flex-1 bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac]
+            flex-1 bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-[#2579ac]
 
-      text-xs px-2 py-1
-      sm:text-sm sm:px-3 sm:py-2
-      md:text-base md:px-4 md:py-2
-    "
+            text-xs px-2 py-1
+            sm:text-sm sm:px-3 sm:py-2
+            md:text-base md:px-4 md:py-2
+          "
           onClick={handleBuyNow}
         >
           Buy Now
         </Button>
       </CardFooter>
-
     </Card>
   );
 };

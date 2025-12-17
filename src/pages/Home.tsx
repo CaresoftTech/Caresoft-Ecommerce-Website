@@ -36,7 +36,7 @@ const carouselImages = [
 
 
 const categories = [
-  
+
   "All Products",
   "Laptops",
   "Computers",
@@ -97,24 +97,25 @@ export default function Home() {
         </div>
       </div>
 
-    
-      <section className="relative w-full  h-[200px] md:h-[320px] lg:h-[350px] overflow-hidden ">
+
+      <section className="relative w-full min-h-[320px] md:h-[320px] lg:h-[320px]">
         {carouselImages.map((image, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-all duration-1000 ${index === currentSlide
-              ? "opacity-100 scale-100"
-              : "opacity-0 scale-105"
-              }`}
+            className={`${index === currentSlide ? "relative opacity-100" : "hidden"
+              } transition-opacity duration-700`}
           >
             <img
               src={image}
               alt="Slide"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover absolute inset-0 -z-10"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-vibrant-purple/80 via-vibrant-pink/70 to-vibrant-blue/60 flex items-center">
-              <div className="container px-5 md:px-11 ">
-                <div className="max-w-2xl text-white animate-fade-in c">
+
+            <div className="bg-gradient-to-r from-vibrant-purple/80 via-vibrant-pink/70 to-vibrant-blue/60">
+              <div className="container px-5 md:px-11 py-4 md:py-0 flex items-center min-h-[320px] mb-">
+
+                <div className="max-w-2xl text-white">
+
                   <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
                     <Sparkles className="h-5 w-5 text-vibrant-yellow animate-pulse" />
                     <span className="text-sm font-semibold">
@@ -122,28 +123,30 @@ export default function Home() {
                     </span>
                   </div>
 
-                  <h1 className="text-4xl md:text-6xl pb-3  font-bold mb-4 bg-gradient-to-r from-white to-vibrant-yellow bg-clip-text text-transparent">
+                  <h1 className="text-3xl md:text-6xl font-bold mb-3 bg-gradient-to-r from-white to-vibrant-yellow bg-clip-text text-transparent">
                     Welcome to Caresoft Technologies
                   </h1>
-                  <p className="text-lg md:text-2xl mb-6 text-white/90">
-                    Discover cutting-edge gadgets with unbeatable offers 
+
+                  <p className="text-base md:text-2xl mb-5 text-white/90">
+                    Discover cutting-edge gadgets with unbeatable offers
                   </p>
 
-                  <Button className="bg-vibrant-orange hover:bg-vibrant-yellow text-white font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                  <Button className="bg-vibrant-orange hover:bg-vibrant-yellow text-white font-bold shadow-lg">
                     Shop Now
                   </Button>
+
                 </div>
               </div>
             </div>
           </div>
         ))}
 
-
+        {/* arrows */}
         <Button
           variant="ghost"
           size="icon"
           onClick={prevSlide}
-          className="absolute left-1 top-1/2 -translate-y-1/2 hover:bg-white/30 text-white backdrop-blur-none p-2"
+          className="absolute left-1 top-1/2 -translate-y-1/2 text-white"
         >
           <ChevronLeft className="h-5 w-5" />
         </Button>
@@ -152,7 +155,7 @@ export default function Home() {
           variant="ghost"
           size="icon"
           onClick={nextSlide}
-          className="absolute right-3 top-1/2 -translate-y-1/2 hover:bg-white/30 text-white  p-2"
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-white"
         >
           <ChevronRight className="h-5 w-5" />
         </Button>
@@ -160,7 +163,7 @@ export default function Home() {
 
 
 
-      <section className="relative overflow-hidden w-full">
+      <section className="relative overflow-hidden w-full mt-0">
 
         <div className="announcement-bar bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 text-white shadow-lg w-full ">
           <div className="marquee whitespace-nowrap flex items-center gap-10 px-4 ">
@@ -212,7 +215,7 @@ export default function Home() {
       </section>
 
 
-   
+
       <section
         className="
     relative w-full
@@ -222,7 +225,7 @@ export default function Home() {
   "
         style={{ backgroundImage: `url(${bg1})` }}
       >
-     
+
         <div className="absolute inset-0 bg-black/0"></div>
       </section>
 
@@ -232,7 +235,7 @@ export default function Home() {
       <section className="container mx-auto px-4 py-3 mt-7">
         <div className="mb-6">
           <h2 className="text-3xl font-bold mb-2 text-center">
-            
+
             <span className="text-3xl  font-bold mb-2 bg-gradient-to-r from-[#30aefc] via-[#24a6f7] to-[#17506c] bg-clip-text text-transparent">
               Hot Deals for You
             </span>
@@ -270,13 +273,13 @@ export default function Home() {
       </section>
 
 
-      <section className="mt-7 container">
+      <section className="mt-7 container mb-5">
         <h2 className="text-4xl font-bold mb-2 text-center bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent">
-         <span className=""> Premium Brands We Offer</span>
+          <span className=""> Premium Brands We Offer</span>
         </h2>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 py-6 px-4">
-          {[hp, dell, asus, apple, lenovo,sm].map((logo, index) => (
+          {[hp, dell, asus, apple, lenovo, sm].map((logo, index) => (
             <div
               key={index}
               className="w-full h-24 bg-white rounded-2xl shadow-sm shadow-[#3491cb] flex items-center justify-center p-4"
@@ -294,7 +297,7 @@ export default function Home() {
 
 
 
-      <section className="w-full  bg-[#3491cb] py-6 md:py-4">
+      <section className="w-full  bg-[#3491cb] py-6  md:py-4">
         <div className="container px-6 md:px-12 ">
 
           <div
@@ -324,7 +327,7 @@ export default function Home() {
             animate-fadeSlide
           "
               >
-              
+
                 <div
                   className="
               w-16 h-12 

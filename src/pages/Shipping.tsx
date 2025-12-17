@@ -62,7 +62,7 @@ export default function Shipping() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f4f7fb] ">
+    <div className="min-h-screen bg-[#f4f7fb] pb-7 ">
       <section className="pt-4 pb-2 bg-gradient-to-r from-[#38aaf1] via-[#2077ac] to-[#0e202b] text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fadeIn">
@@ -77,7 +77,7 @@ export default function Shipping() {
 
         {sections.map((sec, index) => (
           <div key={index} className="space-y-1 border-[#3ca5e8] pl-6 mb-3">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#000000]">
+            <h2 className="text-2xl md:text-2xl font-bold text-[#000000]">
               {sec.title}
             </h2>
             <p className="text-gray-700 leading-relaxed whitespace-pre-line">
