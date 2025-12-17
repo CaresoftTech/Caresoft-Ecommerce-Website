@@ -61,7 +61,7 @@ export default function Terms() {
     
         {sections.map((sec, index) => (
           <div key={index} className="space-y-1 border-[#3ca5e8] pl-6 mb-3">
-            <h2 className="text-2xl md:text-2xl font-bold text-[#000000]">
+            <h2 className="text-xl md:text-xl font-bold text-[#000000]">
               {sec.title}
             </h2>
             <p className="text-gray-700 leading-relaxed whitespace-pre-line">
