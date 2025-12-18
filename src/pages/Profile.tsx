@@ -109,7 +109,7 @@ export default function Profile() {
             <Button
               variant="outline"
               onClick={handleLogout}
-              className="border-red-500 w-full text-red-500 hover:bg-red-500 hover:text-white"
+              className="border-red-500 w-full text-red-500  hover:bg-red-500 hover:text-white"
             >
               <LogOut className="mr-2 h-4 w-4" />
               Logout
@@ -139,7 +139,7 @@ export default function Profile() {
 
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <Label className="flex items-center gap-2 text-sm text-[#3491cb]">
+              <Label className="flex items-center gap-2 text-sm pb-3 text-[#3491cb]">
                 <User className="h-4 w-4" /> Full Name
               </Label>
               <Input
@@ -158,7 +158,7 @@ export default function Profile() {
             </div> */}
 
             <div>
-              <Label className="flex items-center gap-2 text-sm text-[#3491cb]">
+              <Label className="flex items-center gap-2 text-sm pb-3 text-[#3491cb]">
                 <Phone className="h-4 w-4" /> Phone
               </Label>
               <Input

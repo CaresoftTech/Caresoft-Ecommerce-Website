@@ -19,7 +19,7 @@ export default function Cart() {
   if (cart.length === 0) {
     return (
       <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4">
-        <div className="text-center">
+        <div className="text-center container px-6 md:px-12">
           <ShoppingBag className="h-24 w-24 mx-auto text-[#0b96dc] mb-4" />
           <h2 className="text-2xl font-bold mb-2">Your cart is empty</h2>
           <p className="text-muted-foreground mb-6">Start shopping to add items to your cart</p>
@@ -39,7 +39,7 @@ export default function Cart() {
   const savings = totalPrice - totalOfferPrice;
 
   return (
-    <div className="container mx-auto px-4 py-8 bg-gradient-to-tr from-[#f0faff] via-[#e2f5ff] to-[#ffffff] ">
+    <div className="container px-6 md:px-12 mx-auto  py-8 bg-gradient-to-tr from-[#f0faff] via-[#e2f5ff] to-[#ffffff] ">
       <h1 className="text-3xl font-bold mb-8 text-[#0da1e1]">Shopping Cart</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

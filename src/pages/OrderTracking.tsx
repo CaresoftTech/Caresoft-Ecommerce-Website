@@ -2,8 +2,16 @@ import { useAuth } from '@/contexts/AuthContext';
 import { sampleOrders } from '@/data/sampleData';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Package, Truck, CheckCircle, Clock, XCircle, RotateCcw } from 'lucide-react';
-import { Navigate } from 'react-router-dom';
+import {
+  Package,
+  Truck,
+  CheckCircle,
+  Clock,
+  XCircle,
+  RotateCcw,
+  ArrowLeft,
+} from 'lucide-react';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const statusConfig = {
   Pending: { color: 'from-yellow-400 to-yellow-600', icon: Clock, label: 'Pending' },
@@ -16,6 +24,8 @@ const statusConfig = {
 
 const OrderTracking = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
+
   if (!user) return <Navigate to="/signin" replace />;
 
   const userOrders = sampleOrders;
@@ -41,7 +51,21 @@ const OrderTracking = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#f4f7fb] to-[#dfe7f6] py-8">
       <div className="container mx-auto px-16 py-4">
-        <h1 className="text-3xl font-bold text-center text-[#3491cb] mb-6">Order Tracking</h1>
+
+       
+        <div className="flex items-center gap-4 mb-6">
+          <button
+            onClick={() => navigate(-1)}
+            className="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow hover:bg-gray-100 transition "
+            aria-label="Go back"
+          >
+            <ArrowLeft className="w-5 h-5 text-[#3491cb] hover:text-red-500" />
+          </button>
+
+          <h1 className="text-3xl font-bold text-[#3491cb]">
+            Order Tracking
+          </h1>
+        </div>
 
         {userOrders.length === 0 ? (
           <Card className="backdrop-blur-xl bg-white/20 shadow-xl">
@@ -88,7 +112,6 @@ const OrderTracking = () => {
                   </CardHeader>
 
                   <CardContent className="pt-6">
-                   
                     {!isCancelled && (
                       <div className="mb-8">
                         <div className="flex items-center justify-between relative">
@@ -122,7 +145,6 @@ const OrderTracking = () => {
                             );
                           })}
 
-                          
                           <div className="absolute top-6 left-0 right-0 h-1 bg-gray-200 rounded-full">
                             <div
                               className="h-full bg-[#3491cb] rounded-full transition-all duration-700"
@@ -135,9 +157,10 @@ const OrderTracking = () => {
                       </div>
                     )}
 
-  
                     <div className="border-t pt-4">
-                      <h4 className="font-semibold text-[#3491cb] mb-4  ">Order Items</h4>
+                      <h4 className="font-semibold text-[#3491cb] mb-4">
+                        Order Items
+                      </h4>
 
                       <div className="grid gap-4">
                         {order.items.map((item) => (
@@ -152,8 +175,12 @@ const OrderTracking = () => {
                             />
 
                             <div className="flex-1">
-                              <p className="font-semibold text-gray-800">{item.product_name}</p>
-                              <p className="text-sm text-gray-500">Qty: {item.quantity}</p>
+                              <p className="font-semibold text-gray-800">
+                                {item.product_name}
+                              </p>
+                              <p className="text-sm text-gray-500">
+                                Qty: {item.quantity}
+                              </p>
                             </div>
 
                             <span className="font-semibold text-gray-900">

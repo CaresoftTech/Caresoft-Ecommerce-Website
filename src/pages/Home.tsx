@@ -112,7 +112,7 @@ export default function Home() {
             />
 
             <div className="bg-gradient-to-r from-vibrant-purple/80 via-vibrant-pink/70 to-vibrant-blue/60">
-              <div className="container px-5 md:px-11 py-4 md:py-0 flex items-center min-h-[320px] mb-">
+              <div className="container p px-5 md:px-11 py-4 md:py-0 flex items-center min-h-[320px] mb-">
 
                 <div className="max-w-2xl text-white">
 
@@ -123,7 +123,7 @@ export default function Home() {
                     </span>
                   </div>
 
-                  <h1 className="text-3xl md:text-6xl font-bold mb-3 bg-gradient-to-r from-white to-vibrant-yellow bg-clip-text text-transparent">
+                  <h1 className="text-3xl md:text-6xl font-bold pb-3 mb-3 bg-gradient-to-r from-white to-vibrant-yellow bg-clip-text text-transparent">
                     Welcome to Caresoft Technologies
                   </h1>
 
@@ -217,18 +217,13 @@ export default function Home() {
 
 
       <section
-        className="
-    relative w-full
-    bg-contain md:bg-cover
-    bg-center bg-no-repeat
-    min-h-[120px] sm:min-h-[150px] md:min-h-[120px] mt-7
+        className=" relative w-full bg-contain md:bg-cover bg-center bg-no-repeat min-h-[120px] sm:min-h-[150px] md:min-h-[130px] mt-7
   "
         style={{ backgroundImage: `url(${bg1})` }}
       >
 
         <div className="absolute inset-0 bg-black/0"></div>
       </section>
-
 
 
 
@@ -267,8 +262,6 @@ export default function Home() {
               </CarouselItem>
             ))}
           </CarouselContent>
-
-
         </Carousel>
       </section>
 
@@ -301,16 +294,7 @@ export default function Home() {
         <div className="container px-6 md:px-12 ">
 
           <div
-            className="
-        grid 
-        grid-cols-1 
-        sm:grid-cols-2 
-        md:grid-cols-3 
-        lg:grid-cols-4 
-        xl:grid-cols-5 
-        gap-12
-        text-white , , , ,
-      "
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-12 text-white , , , ,"
           >
             {[
               { title: "Get Free Delivery", desc: "Enjoy Free shipping on all orders", Icon: FiTruck },
@@ -319,14 +303,8 @@ export default function Home() {
               { title: "100% Secure Payments", desc: "Pay with the world's most popular and secure payment methods.", Icon: FiCreditCard },
               { title: "100% Original", desc: "Genuine manufacturing warranty for all products", Icon: ShieldCheck },
             ].map((item, i) => (
-              <div
-                key={i}
-                className="
-            flex flex-col items-start text-left font-sm font-semibold
-            space-y-1 
-            animate-fadeSlide
-          "
-              >
+              
+              <div key={i} className=" flex flex-col items-start text-left font-sm font-semibold space-y-1 animate-fadeSlide " >
 
                 <div
                   className="
