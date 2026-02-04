@@ -27,6 +27,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { useNavigate } from "react-router-dom";
+
 
 const carouselImages = [
   "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&h=400&fit=crop",
@@ -71,6 +73,7 @@ export default function Home() {
 
   const featuredProducts = products.slice(0, 6);
 
+  const navigate = useNavigate();
 
 
   return (
@@ -199,20 +202,27 @@ export default function Home() {
 
 
 
-      <section className="container mt-7   px-5 md:px-11 py-2 ">
-        <div className="mb-8 text-center ">
+      <section className="container mt-7 px-5 md:px-11 py-2">
+        <div className="mb-8 text-center">
           <h2 className="text-4xl font-bold mb-2 bg-gradient-to-r from-[#72c8fe] via-[#3c9edc] to-[#020608] bg-clip-text text-transparent">
             Featured Products
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} requireLogin={true} />
+            <div
+              key={product.id}
+              onClick={() => navigate(`/details/${product.id}`)}
+
+              className="cursor-pointer transition duration-300 hover:scale-105"
+            >
+              <ProductCard product={product} requireLogin={true} />
+            </div>
           ))}
         </div>
-
       </section>
+
 
 
 
@@ -303,7 +313,7 @@ export default function Home() {
               { title: "100% Secure Payments", desc: "Pay with the world's most popular and secure payment methods.", Icon: FiCreditCard },
               { title: "100% Original", desc: "Genuine manufacturing warranty for all products", Icon: ShieldCheck },
             ].map((item, i) => (
-              
+
               <div key={i} className=" flex flex-col items-start text-left font-sm font-semibold space-y-1 animate-fadeSlide " >
 
                 <div

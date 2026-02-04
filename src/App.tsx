@@ -19,6 +19,7 @@ import Shipping from "./pages/Shipping";
 import Refund from "./pages/Refund";
 import OrderTracking from "./pages/OrderTracking";
 import Services from "./pages/Services";
+import Details from "./pages/Details";
 
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminCustomers from "./pages/admin/AdminCustomers";
@@ -55,6 +56,8 @@ const AppContent = () => {
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/refund" element={<Refund />} />
         <Route path="/order-tracking" element={<OrderTracking />} />
+        <Route path="/details/:id" element={<Details />} />
+
 
 
         <Route path="/admin" element={<AdminDashboard />} />
@@ -62,6 +65,7 @@ const AppContent = () => {
         <Route path="/admin/orders" element={<AdminOrders />} />
         <Route path="/admin/products" element={<AdminProducts />} />
         <Route path="/admin/products/add" element={<AdminAddProducts />} />
+
 
         <Route path="*" element={<NotFound />} />
       </Routes>

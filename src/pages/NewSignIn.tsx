@@ -135,6 +135,29 @@ export default function NewSignIn() {
                 {isSubmitting ? "Signing in..." : "Sign In"}
               </Button>
 
+  {/* OR DIVIDER */}
+              <div className="flex items-center gap-3 my-4">
+                <div className="flex-1 h-px bg-gray-300"></div>
+                <span className="text-xs text-muted-foreground">OR</span>
+                <div className="flex-1 h-px bg-gray-300"></div>
+              </div>
+
+              {/* SIGN UP WITH GOOGLE */}
+              <button
+                type="button"
+                className="w-full flex items-center justify-center gap-3 border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 py-2 rounded-md transition"
+              >
+                {/* Google Icon (no import, no logic) */}
+                <svg width="18" height="18" viewBox="0 0 48 48">
+                  <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.23 9.21 3.25l6.9-6.9C35.9 2.34 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l8.02 6.22C12.47 13.09 17.77 9.5 24 9.5z" />
+                  <path fill="#4285F4" d="M46.5 24c0-1.64-.15-3.22-.43-4.74H24v9h12.7c-.55 2.96-2.22 5.47-4.7 7.15l7.19 5.59C43.44 36.98 46.5 31.02 46.5 24z" />
+                  <path fill="#FBBC05" d="M10.58 28.44a14.5 14.5 0 0 1 0-8.88l-8.02-6.22A23.94 23.94 0 0 0 0 24c0 3.86.92 7.5 2.56 10.66l8.02-6.22z" />
+                  <path fill="#34A853" d="M24 48c6.48 0 11.9-2.13 15.87-5.79l-7.19-5.59c-2 1.35-4.56 2.15-8.68 2.15-6.23 0-11.53-3.59-13.42-8.94l-8.02 6.22C6.51 42.62 14.62 48 24 48z" />
+                </svg>
+
+                <span className="font-medium">Sign in with Google</span>
+              </button>
+
            
               <p className="text-center text-sm text-gray-500">
                 Don't have an account?{" "}
