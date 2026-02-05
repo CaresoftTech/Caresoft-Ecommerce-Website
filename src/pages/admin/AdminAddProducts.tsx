@@ -28,7 +28,6 @@ export default function AdminAddProducts() {
     if (!loading && !isAdmin) navigate("/signin");
   }, [loading, isAdmin, navigate]);
 
-  // 👉 ADD PRODUCT FUNCTION (SEPARATE PAGE)
   const handleAddProduct = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -46,7 +45,6 @@ export default function AdminAddProducts() {
     };
 
     console.log("Added Product (demo):", newProduct);
-
     toast.success("Product added successfully (demo)");
     navigate("/admin/products");
   };
@@ -64,10 +62,12 @@ export default function AdminAddProducts() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#dff2ff] via-[#ecf9ff] to-white py-10 px-4">
       <div className="max-w-3xl mx-auto">
-
-   
         <div className="flex items-center gap-4 mb-6">
-          <Button variant="outline" size="icon" onClick={() => navigate("/admin/products")}>
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => navigate("/admin/products")}
+          >
             <ArrowLeft />
           </Button>
           <h1 className="text-3xl font-bold text-[#3491cb]">
@@ -82,12 +82,13 @@ export default function AdminAddProducts() {
 
           <CardContent>
             <form onSubmit={handleAddProduct} className="space-y-4">
-
               <div>
                 <Label>Product Name</Label>
                 <Input
                   value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  onChange={(e) =>
+                    setForm({ ...form, name: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -108,7 +109,9 @@ export default function AdminAddProducts() {
                   <Input
                     type="number"
                     value={form.price}
-                    onChange={(e) => setForm({ ...form, price: e.target.value })}
+                    onChange={(e) =>
+                      setForm({ ...form, price: e.target.value })
+                    }
                   />
                 </div>
                 <div>
@@ -156,9 +159,11 @@ export default function AdminAddProducts() {
                 />
               </div>
 
+              {/* ✅ IMAGE URL FIELD */}
               <div>
                 <Label>Image URL</Label>
                 <Input
+                  placeholder="https://example.com/image.jpg"
                   value={form.image}
                   onChange={(e) =>
                     setForm({ ...form, image: e.target.value })
@@ -166,10 +171,35 @@ export default function AdminAddProducts() {
                 />
               </div>
 
-              <Button className="w-full  bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-blue-700">
+              {/* ✅ IMAGE FILE UPLOAD FIELD */}
+              <div>
+                <Label>Upload Image</Label>
+                <Input
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      setForm({
+                        ...form,
+                        image: URL.createObjectURL(file),
+                      });
+                    }
+                  }}
+                />
+
+                {form.image && (
+                  <img
+                    src={form.image}
+                    alt="Preview"
+                    className="mt-3 h-32 rounded-lg object-cover"
+                  />
+                )}
+              </div>
+
+              <Button className="w-full bg-gradient-to-br from-[#4cb9fd] to-[#153f5b] hover:bg-blue-700">
                 Add Product
               </Button>
-
             </form>
           </CardContent>
         </Card>
